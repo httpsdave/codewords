@@ -1,6 +1,8 @@
 # CodeWords - CS & IT Dictionary
 
-A comprehensive dictionary for computer science and IT terminology built with Next.js 15, TypeScript, and Tailwind CSS.
+Your comprehensive dictionary for computer science and IT terminology.
+
+🔗 **Live Site:** [codewords.vercel.app](https://codewords.vercel.app)
 
 ## ✨ Features
 
@@ -25,7 +27,13 @@ A comprehensive dictionary for computer science and IT terminology built with Ne
 - 🌙 **Dark Mode** - Automatic theme support
 - 🎨 **Clean UI** - Modern design with Tailwind CSS
 
-## Getting Started
+---
+
+## For Developers
+
+Want to contribute or run this locally?
+
+### Getting Started
 
 First, install dependencies:
 
@@ -33,9 +41,9 @@ First, install dependencies:
 npm install
 ```
 
-Then, run the development server:
+Then, run the development server:.
 
-```bash
+#```bash
 npm run dev
 ```
 
@@ -48,7 +56,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - **Tailwind CSS** - Styling
 - **React 19** - UI library
 
-## Project Structure
+### Project Structure
 
 ```
 CodeWords/
@@ -71,7 +79,7 @@ CodeWords/
 └── public/              # Static assets
 ```
 
-## Adding New Terms
+### Adding New Terms
 
 Edit `data/terms.ts` and add a new term object:
 
@@ -86,7 +94,7 @@ Edit `data/terms.ts` and add a new term object:
 }
 ```
 
-## Deploy on Vercel
+### Deploy on Vercel
 
 1. Push code to GitHub
 2. Import project in Vercel dashboard
@@ -94,7 +102,9 @@ Edit `data/terms.ts` and add a new term object:
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com).
 
-## Features Roadmap
+---
+
+## Roadmap
 
 - [ ] Database integration for scalable term management
 - [ ] Admin panel for content management
