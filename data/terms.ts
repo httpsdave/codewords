@@ -3354,5 +3354,547 @@ export const terms: Term[] = [
     definition: "A method that sets the value of a specific property. Allows validation or side effects when a property is assigned.",
     example: "class User {\n  set age(value) {\n    if (value < 0) throw new Error('Invalid age');\n    this._age = value;\n  }\n}",
     relatedTerms: ["getter", "property", "accessor", "validation"]
+  },
+  {
+    id: "linux",
+    title: "Linux",
+    category: "Operating System",
+    definition: "An open-source Unix-like operating system kernel created by Linus Torvalds. Linux powers numerous distributions and is widely used in servers, embedded systems, and supercomputers.",
+    relatedTerms: ["unix", "kernel", "open-source", "os"]
+  },
+  {
+    id: "ubuntu",
+    title: "Ubuntu",
+    category: "Linux Distribution",
+    definition: "A popular Debian-based Linux distribution known for its user-friendliness and strong community support. Ubuntu is widely used for desktop, server, and cloud computing.",
+    relatedTerms: ["linux", "debian", "distro", "open-source"]
+  },
+  {
+    id: "debian",
+    title: "Debian",
+    category: "Linux Distribution",
+    definition: "One of the oldest and most influential Linux distributions, known for its stability and strict adherence to free software principles. Many distributions are based on Debian.",
+    relatedTerms: ["linux", "ubuntu", "distro", "apt"]
+  },
+  {
+    id: "fedora",
+    title: "Fedora",
+    category: "Linux Distribution",
+    definition: "A community-driven Linux distribution sponsored by Red Hat, featuring cutting-edge software and technologies. Often used as a testing ground for Red Hat Enterprise Linux.",
+    relatedTerms: ["linux", "redhat", "distro", "rpm"]
+  },
+  {
+    id: "arch",
+    title: "Arch Linux",
+    category: "Linux Distribution",
+    definition: "A lightweight, flexible Linux distribution that follows a rolling-release model. Known for its simplicity, customization, and comprehensive documentation (Arch Wiki).",
+    relatedTerms: ["linux", "distro", "rolling-release", "pacman"]
+  },
+  {
+    id: "kernel",
+    title: "Kernel",
+    category: "Operating System",
+    definition: "The core component of an operating system that manages hardware resources, system calls, and provides fundamental services. Acts as a bridge between applications and hardware.",
+    relatedTerms: ["linux", "os", "system", "hardware"]
+  },
+  {
+    id: "bash",
+    title: "Bash (Bourne Again Shell)",
+    category: "Shell",
+    definition: "A Unix shell and command language widely used as the default shell on Linux and macOS. Bash provides command-line interface for interacting with the operating system.",
+    example: "#!/bin/bash\necho 'Hello World'\nfor i in {1..5}; do echo $i; done",
+    relatedTerms: ["shell", "terminal", "linux", "script"]
+  },
+  {
+    id: "shell",
+    title: "Shell",
+    category: "Interface",
+    definition: "A command-line interpreter that provides a user interface for accessing operating system services. Common shells include Bash, Zsh, and PowerShell.",
+    relatedTerms: ["bash", "terminal", "cli", "command"]
+  },
+  {
+    id: "terminal",
+    title: "Terminal",
+    category: "Tool",
+    definition: "A text-based interface for entering commands to interact with an operating system. Modern terminals are software emulators of physical terminals.",
+    relatedTerms: ["shell", "cli", "command-line", "console"]
+  },
+  {
+    id: "sudo",
+    title: "sudo",
+    category: "Linux Command",
+    definition: "A command that allows permitted users to execute commands as the superuser or another user. Essential for administrative tasks in Unix-like systems.",
+    example: "sudo apt update\nsudo systemctl restart nginx",
+    relatedTerms: ["root", "privilege", "linux", "permission"]
+  },
+  {
+    id: "root",
+    title: "Root User",
+    category: "System Administration",
+    definition: "The superuser account in Unix-like systems with complete control over the system. Has unrestricted access to all commands, files, and resources.",
+    relatedTerms: ["sudo", "privilege", "administrator", "linux"]
+  },
+  {
+    id: "chmod",
+    title: "chmod",
+    category: "Linux Command",
+    definition: "A command used to change file and directory permissions in Unix-like systems. Controls read, write, and execute permissions for owner, group, and others.",
+    example: "chmod 755 script.sh\nchmod u+x file.txt",
+    relatedTerms: ["permission", "linux", "file-system", "chown"]
+  },
+  {
+    id: "chown",
+    title: "chown",
+    category: "Linux Command",
+    definition: "A command used to change file ownership in Unix-like systems. Can modify both the user owner and group owner of files and directories.",
+    example: "chown user:group file.txt\nsudo chown -R www-data:www-data /var/www",
+    relatedTerms: ["chmod", "permission", "linux", "ownership"]
+  },
+  {
+    id: "apt",
+    title: "APT (Advanced Package Tool)",
+    category: "Package Manager",
+    definition: "A package management system used by Debian-based distributions. Provides commands like apt install, apt update, and apt upgrade for managing software.",
+    example: "sudo apt update\nsudo apt install nginx\nsudo apt upgrade",
+    relatedTerms: ["debian", "ubuntu", "package-manager", "linux"]
+  },
+  {
+    id: "yum",
+    title: "YUM (Yellowdog Updater Modified)",
+    category: "Package Manager",
+    definition: "A package manager used by Red Hat-based distributions. Handles RPM package installation, updates, and dependency resolution.",
+    relatedTerms: ["rpm", "fedora", "package-manager", "linux"]
+  },
+  {
+    id: "package-manager",
+    title: "Package Manager",
+    category: "Software Tool",
+    definition: "A software tool that automates installing, upgrading, configuring, and removing programs. Examples include APT, YUM, npm, and pip.",
+    relatedTerms: ["apt", "npm", "dependency", "installation"]
+  },
+  {
+    id: "distro",
+    title: "Linux Distribution",
+    category: "Operating System",
+    definition: "A complete operating system built on the Linux kernel, packaged with software, utilities, and a package manager. Each distro has its own philosophy and target audience.",
+    relatedTerms: ["linux", "ubuntu", "debian", "fedora"]
+  },
+  {
+    id: "ssh",
+    title: "SSH (Secure Shell)",
+    category: "Network Protocol",
+    definition: "A cryptographic network protocol for secure remote access to computers over unsecured networks. Commonly used for server administration and file transfers.",
+    example: "ssh user@server.com\nssh -i key.pem user@192.168.1.1",
+    relatedTerms: ["protocol", "security", "remote", "encryption"]
+  },
+  {
+    id: "grep",
+    title: "grep",
+    category: "Linux Command",
+    definition: "A command-line utility for searching text using patterns. grep (Global Regular Expression Print) is one of the most commonly used Unix commands.",
+    example: "grep 'error' logfile.txt\nps aux | grep nginx\ngrep -r 'function' *.js",
+    relatedTerms: ["search", "regex", "linux", "text"]
+  },
+  {
+    id: "pipe",
+    title: "Pipe (|)",
+    category: "Shell Operator",
+    definition: "A shell operator that redirects the output of one command as input to another command, enabling command chaining and powerful data processing.",
+    example: "cat file.txt | grep 'error' | wc -l\nps aux | grep node",
+    relatedTerms: ["shell", "redirect", "command", "linux"]
+  },
+  {
+    id: "hacking",
+    title: "Hacking",
+    category: "Cybersecurity",
+    definition: "The practice of exploiting weaknesses in computer systems or networks. Can be ethical (white hat) for security testing or malicious (black hat) for unauthorized access.",
+    relatedTerms: ["cybersecurity", "penetration-testing", "exploit", "security"]
+  },
+  {
+    id: "penetration-testing",
+    title: "Penetration Testing",
+    category: "Cybersecurity",
+    definition: "Authorized simulated cyber attacks against a computer system to evaluate its security. Penetration testers (ethical hackers) identify vulnerabilities before malicious actors can exploit them.",
+    relatedTerms: ["security", "hacking", "vulnerability", "ethical-hacking"]
+  },
+  {
+    id: "exploit",
+    title: "Exploit",
+    category: "Cybersecurity",
+    definition: "A piece of software, data, or sequence of commands that takes advantage of a vulnerability to cause unintended behavior in a system. Used by both attackers and security researchers.",
+    relatedTerms: ["vulnerability", "security", "attack", "patch"]
+  },
+  {
+    id: "vulnerability",
+    title: "Vulnerability",
+    category: "Cybersecurity",
+    definition: "A weakness in a system, application, or network that can be exploited to compromise security. Vulnerabilities are often rated using the CVSS scoring system.",
+    relatedTerms: ["exploit", "security", "patch", "cve"]
+  },
+  {
+    id: "phishing",
+    title: "Phishing",
+    category: "Cybersecurity",
+    definition: "A social engineering attack where attackers impersonate legitimate entities to trick victims into revealing sensitive information like passwords or credit card numbers.",
+    relatedTerms: ["social-engineering", "security", "attack", "fraud"]
+  },
+  {
+    id: "ddos",
+    title: "DDoS (Distributed Denial of Service)",
+    category: "Cyber Attack",
+    definition: "A malicious attempt to disrupt normal traffic of a targeted server or network by overwhelming it with a flood of internet traffic from multiple sources.",
+    relatedTerms: ["attack", "botnet", "security", "network"]
+  },
+  {
+    id: "botnet",
+    title: "Botnet",
+    category: "Cybersecurity",
+    definition: "A network of compromised computers (bots) controlled by an attacker. Botnets are used for DDoS attacks, spam distribution, and cryptocurrency mining.",
+    relatedTerms: ["ddos", "malware", "attack", "security"]
+  },
+  {
+    id: "zero-day",
+    title: "Zero-Day Vulnerability",
+    category: "Cybersecurity",
+    definition: "A security flaw unknown to the software vendor that has zero days of protection. Zero-day exploits are particularly dangerous as no patch exists yet.",
+    relatedTerms: ["vulnerability", "exploit", "security", "patch"]
+  },
+  {
+    id: "ransomware",
+    title: "Ransomware",
+    category: "Malware",
+    definition: "Malicious software that encrypts a victim's files and demands payment (ransom) for the decryption key. A major cybersecurity threat to organizations and individuals.",
+    relatedTerms: ["malware", "encryption", "attack", "cybersecurity"]
+  },
+  {
+    id: "two-factor",
+    title: "Two-Factor Authentication (2FA)",
+    category: "Security",
+    definition: "A security process requiring two different authentication factors to verify identity. Typically combines something you know (password) with something you have (phone) or something you are (fingerprint).",
+    relatedTerms: ["authentication", "security", "mfa", "password"]
+  },
+  {
+    id: "captcha",
+    title: "CAPTCHA",
+    category: "Security",
+    definition: "A challenge-response test to determine whether a user is human or a bot. Stands for Completely Automated Public Turing test to tell Computers and Humans Apart.",
+    relatedTerms: ["security", "bot", "verification", "automation"]
+  },
+  {
+    id: "ssid",
+    title: "SSID (Service Set Identifier)",
+    category: "Networking",
+    definition: "The name of a wireless network that devices use to identify and connect to it. SSIDs are broadcast by Wi-Fi routers and can be hidden for security.",
+    relatedTerms: ["wifi", "network", "router", "wireless"]
+  },
+  {
+    id: "wpa",
+    title: "WPA (Wi-Fi Protected Access)",
+    category: "Security Protocol",
+    definition: "A security protocol for wireless networks that replaced the insecure WEP standard. WPA2 and WPA3 provide encryption and authentication for Wi-Fi connections.",
+    relatedTerms: ["wifi", "encryption", "security", "wireless"]
+  },
+  {
+    id: "bluetooth",
+    title: "Bluetooth",
+    category: "Wireless Technology",
+    definition: "A short-range wireless technology for exchanging data between devices. Commonly used for headphones, keyboards, mice, and file transfers between phones.",
+    relatedTerms: ["wireless", "pairing", "connectivity", "ble"]
+  },
+  {
+    id: "nfc",
+    title: "NFC (Near Field Communication)",
+    category: "Wireless Technology",
+    definition: "A short-range wireless technology enabling communication between devices within a few centimeters. Used for contactless payments, access cards, and data sharing.",
+    relatedTerms: ["wireless", "rfid", "payment", "contactless"]
+  },
+  {
+    id: "usb",
+    title: "USB (Universal Serial Bus)",
+    category: "Hardware Interface",
+    definition: "An industry standard for cables, connectors, and protocols for connection, communication, and power supply between computers and devices.",
+    relatedTerms: ["port", "connector", "type-c", "peripheral"]
+  },
+  {
+    id: "usb-c",
+    title: "USB Type-C",
+    category: "Hardware Interface",
+    definition: "A reversible USB connector standard supporting high-speed data transfer, video output, and power delivery up to 100W. Increasingly common in modern devices.",
+    relatedTerms: ["usb", "connector", "thunderbolt", "charging"]
+  },
+  {
+    id: "hdmi",
+    title: "HDMI (High-Definition Multimedia Interface)",
+    category: "Video Interface",
+    definition: "A proprietary interface for transmitting uncompressed video and audio data from a source device to a display. Standard for TVs, monitors, and projectors.",
+    relatedTerms: ["video", "audio", "display", "cable"]
+  },
+  {
+    id: "displayport",
+    title: "DisplayPort",
+    category: "Video Interface",
+    definition: "A digital display interface primarily used to connect video sources to monitors. Supports high resolutions and refresh rates, competing with HDMI.",
+    relatedTerms: ["video", "display", "monitor", "hdmi"]
+  },
+  {
+    id: "vga",
+    title: "VGA (Video Graphics Array)",
+    category: "Video Interface",
+    definition: "A legacy analog video interface standard introduced in 1987. Still found on some older equipment but largely replaced by digital standards like HDMI and DisplayPort.",
+    relatedTerms: ["video", "display", "legacy", "analog"]
+  },
+  {
+    id: "dvi",
+    title: "DVI (Digital Visual Interface)",
+    category: "Video Interface",
+    definition: "A video interface designed to transmit digital video signals. Bridged the gap between VGA and HDMI/DisplayPort but is now becoming obsolete.",
+    relatedTerms: ["video", "display", "digital", "hdmi"]
+  },
+  {
+    id: "ethernet-cable",
+    title: "Ethernet Cable",
+    category: "Networking Hardware",
+    definition: "A network cable used to connect devices in wired LANs. Common types include Cat5e, Cat6, and Cat7, with varying speeds and specifications.",
+    relatedTerms: ["ethernet", "network", "lan", "cable"]
+  },
+  {
+    id: "cat6",
+    title: "Cat6 Cable",
+    category: "Networking Hardware",
+    definition: "A category 6 Ethernet cable supporting speeds up to 10 Gbps over short distances. Provides better performance and less crosstalk than Cat5e.",
+    relatedTerms: ["ethernet-cable", "network", "bandwidth", "gigabit"]
+  },
+  {
+    id: "fiber-optic",
+    title: "Fiber Optic Cable",
+    category: "Networking Hardware",
+    definition: "A network cable that uses light pulses through glass or plastic fibers to transmit data. Offers much higher bandwidth and longer distances than copper cables.",
+    relatedTerms: ["network", "cable", "bandwidth", "high-speed"]
+  },
+  {
+    id: "ups",
+    title: "UPS (Uninterruptible Power Supply)",
+    category: "Power Equipment",
+    definition: "A device that provides emergency power to connected equipment when the main power source fails. UPS systems also protect against power surges and voltage fluctuations.",
+    relatedTerms: ["power", "backup", "surge", "battery"]
+  },
+  {
+    id: "avr",
+    title: "AVR (Automatic Voltage Regulator)",
+    category: "Power Equipment",
+    definition: "A device that maintains constant voltage levels to protect electrical equipment from voltage fluctuations. Prevents damage from overvoltage and undervoltage conditions.",
+    relatedTerms: ["power", "voltage", "surge", "protection"]
+  },
+  {
+    id: "surge-protector",
+    title: "Surge Protector",
+    category: "Power Equipment",
+    definition: "A device that protects electrical equipment from voltage spikes by limiting or blocking excess voltage. Essential for protecting computers and sensitive electronics.",
+    relatedTerms: ["power", "protection", "voltage", "safety"]
+  },
+  {
+    id: "psu",
+    title: "PSU (Power Supply Unit)",
+    category: "Computer Hardware",
+    definition: "The component that converts AC power from the wall outlet to DC power used by computer components. PSU quality affects system stability and efficiency.",
+    relatedTerms: ["power", "hardware", "voltage", "wattage"]
+  },
+  {
+    id: "monitor",
+    title: "Monitor",
+    category: "Display Hardware",
+    definition: "An output device that displays visual information from a computer. Modern monitors use LCD, LED, or OLED technology with varying resolutions and refresh rates.",
+    relatedTerms: ["display", "screen", "hardware", "resolution"]
+  },
+  {
+    id: "resolution",
+    title: "Screen Resolution",
+    category: "Display",
+    definition: "The number of pixels displayed on a screen, typically expressed as width × height (e.g., 1920×1080). Higher resolutions provide sharper, more detailed images.",
+    relatedTerms: ["display", "monitor", "pixel", "4k"]
+  },
+  {
+    id: "refresh-rate",
+    title: "Refresh Rate",
+    category: "Display",
+    definition: "The number of times per second a display updates its image, measured in Hertz (Hz). Higher refresh rates (120Hz, 144Hz) provide smoother motion, important for gaming.",
+    relatedTerms: ["monitor", "display", "fps", "gaming"]
+  },
+  {
+    id: "keyboard",
+    title: "Keyboard",
+    category: "Input Device",
+    definition: "An input device with keys for typing text and commands. Available in various layouts (QWERTY, AZERTY) and types (membrane, mechanical).",
+    relatedTerms: ["input", "peripheral", "typing", "hardware"]
+  },
+  {
+    id: "mechanical-keyboard",
+    title: "Mechanical Keyboard",
+    category: "Input Device",
+    definition: "A keyboard using individual mechanical switches for each key, providing tactile feedback and durability. Popular among enthusiasts and gamers for superior typing experience.",
+    relatedTerms: ["keyboard", "switch", "input", "typing"]
+  },
+  {
+    id: "mouse",
+    title: "Mouse",
+    category: "Input Device",
+    definition: "A pointing device that controls the cursor on a screen. Modern mice use optical or laser sensors and may be wired or wireless.",
+    relatedTerms: ["input", "peripheral", "cursor", "hardware"]
+  },
+  {
+    id: "touchpad",
+    title: "Touchpad",
+    category: "Input Device",
+    definition: "A touch-sensitive surface used as a pointing device, commonly found on laptops. Detects finger movement and gestures to control the cursor.",
+    relatedTerms: ["input", "mouse", "laptop", "gesture"]
+  },
+  {
+    id: "webcam",
+    title: "Webcam",
+    category: "Input Device",
+    definition: "A video camera that streams or records video, typically for video conferencing, streaming, or recording. Can be built-in or external USB devices.",
+    relatedTerms: ["video", "camera", "input", "streaming"]
+  },
+  {
+    id: "microphone",
+    title: "Microphone",
+    category: "Input Device",
+    definition: "An audio input device that converts sound waves into electrical signals. Used for voice calls, recording, streaming, and voice commands.",
+    relatedTerms: ["audio", "input", "sound", "recording"]
+  },
+  {
+    id: "speaker",
+    title: "Speaker",
+    category: "Output Device",
+    definition: "An audio output device that converts electrical signals into sound waves. Can be built-in, external, or part of a headphone/headset.",
+    relatedTerms: ["audio", "output", "sound", "hardware"]
+  },
+  {
+    id: "headset",
+    title: "Headset",
+    category: "Audio Device",
+    definition: "A combination of headphones and microphone worn on the head. Used for gaming, video calls, and communication while keeping hands free.",
+    relatedTerms: ["audio", "microphone", "speaker", "communication"]
+  },
+  {
+    id: "printer",
+    title: "Printer",
+    category: "Output Device",
+    definition: "A device that produces physical documents or images from digital files. Common types include inkjet, laser, and thermal printers.",
+    relatedTerms: ["output", "hardware", "peripheral", "document"]
+  },
+  {
+    id: "scanner",
+    title: "Scanner",
+    category: "Input Device",
+    definition: "A device that converts physical documents or images into digital format. Scanners use optical technology to capture and digitize text and graphics.",
+    relatedTerms: ["input", "digital", "document", "ocr"]
+  },
+  {
+    id: "cd-dvd",
+    title: "CD/DVD Drive",
+    category: "Storage Device",
+    definition: "An optical disc drive that reads and/or writes CDs and DVDs. Less common in modern computers due to cloud storage and USB drives.",
+    relatedTerms: ["storage", "optical", "media", "hardware"]
+  },
+  {
+    id: "thumbdrive",
+    title: "Thumb Drive (USB Flash Drive)",
+    category: "Storage Device",
+    definition: "A portable data storage device using flash memory with a USB interface. Convenient for file transfer and backup, ranging from gigabytes to terabytes.",
+    relatedTerms: ["usb", "storage", "portable", "flash"]
+  },
+  {
+    id: "external-drive",
+    title: "External Hard Drive",
+    category: "Storage Device",
+    definition: "A portable storage device that connects via USB or Thunderbolt. Available as HDD or SSD, used for backup, additional storage, and data transfer.",
+    relatedTerms: ["storage", "hdd", "ssd", "backup"]
+  },
+  {
+    id: "docking-station",
+    title: "Docking Station",
+    category: "Peripheral",
+    definition: "A device that allows laptops to connect to multiple peripherals through a single connection. Provides additional ports, displays, and charging.",
+    relatedTerms: ["laptop", "usb", "port", "hub"]
+  },
+  {
+    id: "kvm-switch",
+    title: "KVM Switch",
+    category: "Hardware",
+    definition: "A device allowing multiple computers to share a single keyboard, video monitor, and mouse. Useful for managing multiple systems from one workstation.",
+    relatedTerms: ["keyboard", "monitor", "mouse", "switch"]
+  },
+  {
+    id: "cloud-storage",
+    title: "Cloud Storage",
+    category: "Storage",
+    definition: "Remote data storage hosted on internet servers, accessible from any device with internet connection. Examples include Google Drive, Dropbox, and OneDrive.",
+    relatedTerms: ["cloud", "storage", "backup", "sync"]
+  },
+  {
+    id: "virtual-machine",
+    title: "Virtual Machine (VM)",
+    category: "Virtualization",
+    definition: "A software emulation of a physical computer that runs an operating system and applications. VMs allow multiple OS instances to run on a single physical machine.",
+    relatedTerms: ["virtualization", "hypervisor", "os", "container"]
+  },
+  {
+    id: "hypervisor",
+    title: "Hypervisor",
+    category: "Virtualization",
+    definition: "Software that creates and manages virtual machines by allocating physical hardware resources. Examples include VMware, VirtualBox, and Hyper-V.",
+    relatedTerms: ["virtual-machine", "virtualization", "vm", "host"]
+  },
+  {
+    id: "cron",
+    title: "Cron",
+    category: "Linux Utility",
+    definition: "A time-based job scheduler in Unix-like systems. Cron allows users to schedule scripts or commands to run automatically at specified times or intervals.",
+    example: "# Run backup daily at 2 AM\n0 2 * * * /scripts/backup.sh",
+    relatedTerms: ["linux", "scheduler", "automation", "task"]
+  },
+  {
+    id: "daemon",
+    title: "Daemon",
+    category: "System Process",
+    definition: "A background process in Unix-like systems that runs without direct user interaction. Daemons typically provide services like web servers, databases, and system monitoring.",
+    relatedTerms: ["linux", "process", "service", "background"]
+  },
+  {
+    id: "port-number",
+    title: "Port Number",
+    category: "Networking",
+    definition: "A numeric identifier (0-65535) used to route network traffic to specific services or applications. Common ports include 80 (HTTP), 443 (HTTPS), and 22 (SSH).",
+    relatedTerms: ["network", "tcp", "udp", "socket"]
+  },
+  {
+    id: "mac-address",
+    title: "MAC Address",
+    category: "Networking",
+    definition: "A unique hardware identifier assigned to network interfaces. MAC (Media Access Control) addresses are used for device identification on local networks.",
+    example: "00:1B:44:11:3A:B7",
+    relatedTerms: ["network", "hardware", "ethernet", "identifier"]
+  },
+  {
+    id: "proxy",
+    title: "Proxy Server",
+    category: "Networking",
+    definition: "An intermediary server that forwards requests between clients and other servers. Proxies provide anonymity, caching, filtering, and load balancing.",
+    relatedTerms: ["server", "network", "vpn", "cache"]
+  },
+  {
+    id: "gateway",
+    title: "Gateway",
+    category: "Networking",
+    definition: "A network node that serves as an access point to another network, often connecting a local network to the internet. Routers typically function as gateways.",
+    relatedTerms: ["router", "network", "ip-address", "routing"]
+  },
+  {
+    id: "subnet",
+    title: "Subnet",
+    category: "Networking",
+    definition: "A logical subdivision of an IP network. Subnetting improves network performance and security by dividing a large network into smaller, manageable segments.",
+    relatedTerms: ["network", "ip-address", "routing", "mask"]
   }
 ];
