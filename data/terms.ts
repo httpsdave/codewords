@@ -2594,5 +2594,208 @@ export const terms: Term[] = [
     category: "Web Development",
     definition: "Code that provides modern functionality to older browsers that don't natively support it. Polyfills enable developers to use newer JavaScript features while maintaining backward compatibility.",
     relatedTerms: ["browser", "compatibility", "javascript"]
+  },
+  {
+    id: "ram",
+    title: "RAM (Random Access Memory)",
+    category: "Computer Hardware",
+    definition: "A type of volatile computer memory that provides high-speed, temporary storage for data and programs currently in use. RAM allows for quick read/write access and loses all data when power is turned off.",
+    relatedTerms: ["cpu", "memory", "hardware", "volatile"]
+  },
+  {
+    id: "hardware",
+    title: "Hardware",
+    category: "Computer Hardware",
+    definition: "The physical components of a computer system that you can touch and see, such as the CPU, RAM, motherboard, hard drive, keyboard, and monitor. Hardware works with software to perform computing tasks.",
+    relatedTerms: ["cpu", "ram", "motherboard", "peripheral", "software"]
+  },
+  {
+    id: "motherboard",
+    title: "Motherboard",
+    category: "Computer Hardware",
+    definition: "The main printed circuit board (PCB) in a computer that connects and allows communication between all hardware components including CPU, RAM, storage devices, and expansion cards.",
+    relatedTerms: ["cpu", "ram", "hardware", "bios"]
+  },
+  {
+    id: "gpu",
+    title: "GPU (Graphics Processing Unit)",
+    category: "Computer Hardware",
+    definition: "A specialized electronic circuit designed to rapidly process and render graphics and images. Modern GPUs are also used for parallel processing tasks like machine learning, cryptocurrency mining, and scientific computing.",
+    relatedTerms: ["cpu", "hardware", "rendering", "parallel-processing"]
+  },
+  {
+    id: "ssd",
+    title: "SSD (Solid State Drive)",
+    category: "Computer Hardware",
+    definition: "A storage device that uses integrated circuit assemblies to store data persistently, using flash memory. SSDs are faster, more durable, and consume less power than traditional hard disk drives (HDDs).",
+    relatedTerms: ["storage", "hardware", "hdd", "memory"]
+  },
+  {
+    id: "hdd",
+    title: "HDD (Hard Disk Drive)",
+    category: "Computer Hardware",
+    definition: "A traditional data storage device that uses magnetic storage to store and retrieve digital data using rotating platters. HDDs offer larger capacity at lower cost than SSDs but are slower and more fragile.",
+    relatedTerms: ["storage", "hardware", "ssd", "disk"]
+  },
+  {
+    id: "peripheral",
+    title: "Peripheral Device",
+    category: "Computer Hardware",
+    definition: "An external device that connects to a computer to provide additional functionality. Examples include keyboards, mice, printers, monitors, scanners, and external storage devices.",
+    relatedTerms: ["hardware", "input", "output", "usb"]
+  },
+  {
+    id: "bios",
+    title: "BIOS (Basic Input/Output System)",
+    category: "Computer Hardware",
+    definition: "Firmware that initializes and tests hardware components during the boot process and provides runtime services for operating systems and programs. Modern computers use UEFI as a replacement for traditional BIOS.",
+    relatedTerms: ["firmware", "boot", "motherboard", "uefi"]
+  },
+  {
+    id: "firmware",
+    title: "Firmware",
+    category: "Software",
+    definition: "Specialized software programmed into hardware devices that provides low-level control for the device's specific hardware. Firmware is stored in non-volatile memory and controls how the device operates.",
+    relatedTerms: ["bios", "hardware", "software", "embedded"]
+  },
+  {
+    id: "network",
+    title: "Network",
+    category: "Networking",
+    definition: "A group of two or more interconnected computers and devices that can communicate and share resources such as files, printers, and internet connections. Networks can be local (LAN) or wide-area (WAN).",
+    relatedTerms: ["lan", "wan", "router", "protocol", "internet"]
+  },
+  {
+    id: "firewall",
+    title: "Firewall",
+    category: "Network Security",
+    definition: "A network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules. Firewalls create a barrier between trusted internal networks and untrusted external networks.",
+    relatedTerms: ["security", "network", "cybersecurity", "port"]
+  },
+  {
+    id: "malware",
+    title: "Malware",
+    category: "Cybersecurity",
+    definition: "Malicious software designed to harm, exploit, or otherwise compromise computer systems, networks, or devices. Types include viruses, worms, trojans, ransomware, and spyware.",
+    relatedTerms: ["virus", "cybersecurity", "security", "antivirus"]
+  },
+  {
+    id: "cybersecurity",
+    title: "Cybersecurity",
+    category: "Security",
+    definition: "The practice of protecting computer systems, networks, programs, and data from digital attacks, unauthorized access, damage, or theft. Cybersecurity encompasses technologies, processes, and practices designed to safeguard digital assets.",
+    relatedTerms: ["security", "firewall", "encryption", "malware"]
+  },
+  {
+    id: "router",
+    title: "Router",
+    category: "Networking",
+    definition: "A networking device that forwards data packets between computer networks. Routers connect multiple networks together and determine the best path for data to travel from source to destination.",
+    relatedTerms: ["network", "ip-address", "gateway", "switch"]
+  },
+  {
+    id: "bandwidth",
+    title: "Bandwidth",
+    category: "Networking",
+    definition: "The maximum rate of data transfer across a network connection, typically measured in bits per second (bps), megabits per second (Mbps), or gigabits per second (Gbps). Higher bandwidth allows more data to be transmitted simultaneously.",
+    relatedTerms: ["network", "latency", "throughput", "internet"]
+  },
+  {
+    id: "latency",
+    title: "Latency",
+    category: "Networking",
+    definition: "The time delay between a user's action and the response from a system or network. Measured in milliseconds (ms), latency affects the responsiveness and performance of applications, especially real-time systems.",
+    relatedTerms: ["network", "bandwidth", "performance", "ping"]
+  },
+  {
+    id: "packet",
+    title: "Packet",
+    category: "Networking",
+    definition: "A formatted unit of data transmitted over a network. Each packet contains both the data payload and control information (headers) such as source/destination addresses, enabling efficient and reliable data transmission.",
+    relatedTerms: ["network", "protocol", "tcp-ip", "routing"]
+  },
+  {
+    id: "dns",
+    title: "DNS (Domain Name System)",
+    category: "Networking",
+    definition: "A hierarchical naming system that translates human-readable domain names (like google.com) into IP addresses that computers use to identify each other on networks. DNS is often called the 'phonebook of the internet'.",
+    relatedTerms: ["domain", "ip-address", "url", "internet"]
+  },
+  {
+    id: "url",
+    title: "URL (Uniform Resource Locator)",
+    category: "Web Technology",
+    definition: "The address used to access resources on the internet, specifying the protocol (http/https), domain name, and path. Example: https://www.example.com/page.html",
+    relatedTerms: ["http", "domain", "web", "uri"]
+  },
+  {
+    id: "ip-address",
+    title: "IP Address",
+    category: "Networking",
+    definition: "A unique numerical label assigned to each device connected to a network that uses the Internet Protocol for communication. IP addresses can be IPv4 (e.g., 192.168.1.1) or IPv6 format.",
+    relatedTerms: ["network", "dns", "router", "tcp-ip"]
+  },
+  {
+    id: "lan",
+    title: "LAN (Local Area Network)",
+    category: "Networking",
+    definition: "A computer network that interconnects devices within a limited area such as a home, office, or building. LANs provide high-speed connectivity and resource sharing among connected devices.",
+    relatedTerms: ["network", "wan", "router", "ethernet"]
+  },
+  {
+    id: "wan",
+    title: "WAN (Wide Area Network)",
+    category: "Networking",
+    definition: "A telecommunications network that extends over a large geographical area, connecting multiple LANs. The internet is the largest example of a WAN.",
+    relatedTerms: ["network", "lan", "internet", "router"]
+  },
+  {
+    id: "vpn",
+    title: "VPN (Virtual Private Network)",
+    category: "Network Security",
+    definition: "A technology that creates a secure, encrypted connection over a less secure network like the internet. VPNs protect privacy, mask IP addresses, and enable secure remote access to private networks.",
+    relatedTerms: ["security", "encryption", "network", "tunnel"]
+  },
+  {
+    id: "ethernet",
+    title: "Ethernet",
+    category: "Networking",
+    definition: "A family of wired networking technologies commonly used in LANs. Ethernet defines protocols for how data is transmitted over physical cables, with speeds ranging from 10 Mbps to 100+ Gbps.",
+    relatedTerms: ["lan", "network", "cable", "protocol"]
+  },
+  {
+    id: "wifi",
+    title: "Wi-Fi",
+    category: "Networking",
+    definition: "A wireless networking technology that allows devices to connect to a network and the internet using radio waves. Wi-Fi is based on IEEE 802.11 standards and is ubiquitous in homes, offices, and public spaces.",
+    relatedTerms: ["wireless", "network", "router", "internet"]
+  },
+  {
+    id: "neural-network",
+    title: "Neural Network",
+    category: "Artificial Intelligence",
+    definition: "A computing system inspired by biological neural networks that learns to perform tasks by considering examples. Neural networks consist of interconnected nodes (neurons) organized in layers that process and transform input data.",
+    relatedTerms: ["ai", "machine-learning", "deep-learning", "node"]
+  },
+  {
+    id: "deep-learning",
+    title: "Deep Learning",
+    category: "Artificial Intelligence",
+    definition: "A subset of machine learning based on artificial neural networks with multiple layers (deep neural networks). Deep learning excels at processing unstructured data like images, audio, and text, powering applications like image recognition and natural language processing.",
+    relatedTerms: ["neural-network", "ai", "machine-learning", "cnn"]
+  },
+  {
+    id: "big-data",
+    title: "Big Data",
+    category: "Data Science",
+    definition: "Extremely large and complex datasets that cannot be processed using traditional data processing methods. Big data is characterized by the 3 Vs: Volume (amount), Velocity (speed), and Variety (types of data).",
+    relatedTerms: ["data-science", "analytics", "hadoop", "nosql"]
+  },
+  {
+    id: "quantum-computing",
+    title: "Quantum Computing",
+    category: "Emerging Technology",
+    definition: "A type of computation that uses quantum-mechanical phenomena like superposition and entanglement to perform operations on data. Quantum computers can potentially solve certain problems exponentially faster than classical computers.",
+    relatedTerms: ["qubit", "algorithm", "computing", "cryptography"]
   }
 ];
