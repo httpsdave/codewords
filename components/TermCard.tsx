@@ -7,8 +7,8 @@ interface TermCardProps {
 
 export default function TermCard({ term }: TermCardProps) {
   return (
-    <Link href={`/term/${term.id}`} className="block">
-      <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg 
+    <Link href={`/term/${term.id}`} className="block" role="listitem">
+      <article className="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg 
                       transition-all p-6 border border-gray-200 dark:border-gray-700 
                       cursor-pointer hover:border-blue-400 dark:hover:border-blue-600">
         <div className="flex flex-wrap justify-between items-start gap-3 mb-3">
@@ -44,7 +44,7 @@ export default function TermCard({ term }: TermCardProps) {
         <div className="mt-4 text-blue-600 dark:text-blue-400 text-sm font-medium">
           View details →
         </div>
-      </div>
+      </article>
     </Link>
   );
 }

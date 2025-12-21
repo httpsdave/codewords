@@ -1,16 +1,32 @@
 'use client';
 
-import { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
 import SearchBar from '@/components/SearchBar';
 import TermCard from '@/components/TermCard';
+import TermCardSkeleton from '@/components/TermCardSkeleton';
 import CategoryFilter from '@/components/CategoryFilter';
 import AlphabetNav from '@/components/AlphabetNav';
+import BackToTop from '@/components/BackToTop';
 import { terms } from '@/data/terms';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedLetter, setSelectedLetter] = useState('all');
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulate initial load
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Scroll to top when filters change
+  useEffect(() => {
+    if (selectedCategory !== 'all' || selectedLetter !== 'all') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [selectedCategory, selectedLetter]);
 
   // Get unique categories
   const categories = useMemo(() => {
@@ -59,7 +75,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900">
-      <main className="max-w-5xl mx-auto">
+      <main className="max-w-5xl mx-auto" role="main">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 
                        bg-clip-text text-transparent">
@@ -96,6 +112,7 @@ export default function Home() {
               onClick={handleClearFilters}
               className="px-6 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 
                        transition-colors font-medium"
+              aria-label="Clear all filters"
             >
               Clear All Filters
             </button>
@@ -103,26 +120,36 @@ export default function Home() {
         ) : (
           <>
             <div className="flex justify-between items-center mb-4">
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-gray-600 dark:text-gray-400" role="status" aria-live="polite">
                 Showing {filteredTerms.length} of {terms.length} terms
               </p>
               {(searchQuery || selectedCategory !== 'all' || selectedLetter !== 'all') && (
                 <button
                   onClick={handleClearFilters}
                   className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                  aria-label="Clear filters"
                 >
                   Clear Filters
                 </button>
               )}
             </div>
-            <div className="space-y-6">
-              {filteredTerms.map((term) => (
-                <TermCard key={term.id} term={term} />
-              ))}
-            </div>
+            {isLoading ? (
+              <div className="space-y-6" aria-label="Loading terms">
+                {[...Array(5)].map((_, i) => (
+                  <TermCardSkeleton key={i} />
+                ))}
+              </div>
+            ) : (
+              <div className="space-y-6" role="list" aria-label="Dictionary terms">
+                {filteredTerms.map((term) => (
+                  <TermCard key={term.id} term={term} />
+                ))}
+              </div>
+            )}
           </>
         )}
       </main>
+      <BackToTop />
     </div>
   );
 }

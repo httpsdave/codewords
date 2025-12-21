@@ -14,7 +14,7 @@ export default function AlphabetNav({ selectedLetter, onSelectLetter, availableL
       <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
         Browse A-Z
       </h3>
-      <div className="flex flex-wrap gap-1 sm:gap-2">
+      <div className="flex flex-wrap gap-1 sm:gap-2" role="group" aria-label="Alphabetical navigation">
         <button
           onClick={() => onSelectLetter('all')}
           className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg text-sm font-medium transition-colors ${
@@ -22,6 +22,8 @@ export default function AlphabetNav({ selectedLetter, onSelectLetter, availableL
               ? 'bg-blue-600 text-white'
               : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
           }`}
+          aria-pressed={selectedLetter === 'all'}
+          aria-label="Show all letters"
         >
           All
         </button>
@@ -39,6 +41,9 @@ export default function AlphabetNav({ selectedLetter, onSelectLetter, availableL
                   ? 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                   : 'bg-gray-50 dark:bg-gray-900 text-gray-300 dark:text-gray-700 cursor-not-allowed'
               }`}
+              aria-pressed={selectedLetter === letter}
+              aria-label={`Filter by letter ${letter}`}
+              aria-disabled={!isAvailable}
             >
               {letter}
             </button>
