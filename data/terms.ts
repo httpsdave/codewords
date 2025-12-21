@@ -566,5 +566,888 @@ export const terms: Term[] = [
     definition: "A function that is associated with an object or class in object-oriented programming. Methods define behaviors and operations that can be performed on objects, accessing and manipulating the object's data.",
     example: "class Person { greet() { return 'Hello!'; } } // greet is a method",
     relatedTerms: ["function", "class", "object", "oop", "behavior"]
+  },
+  {
+    id: "data-type",
+    title: "Data Type",
+    category: "Programming Concept",
+    definition: "A classification that specifies which type of value a variable can hold and what operations can be performed on it. Common data types include integers, strings, booleans, floats, and complex types like arrays and objects.",
+    relatedTerms: ["variable", "integer", "string", "boolean", "float", "array"]
+  },
+  {
+    id: "parameter",
+    title: "Parameter",
+    category: "Programming Concept",
+    definition: "A variable declared in a function definition that accepts values (arguments) passed when the function is called. Parameters allow functions to receive input data and perform operations based on that data.",
+    example: "function greet(name, age) { // name and age are parameters\n  return `Hello ${name}, you are ${age} years old`;\n}",
+    relatedTerms: ["function", "argument", "variable", "return"]
+  },
+  {
+    id: "return",
+    title: "Return Statement",
+    category: "Programming Concept",
+    definition: "A statement that ends function execution and specifies the value to be sent back to the caller. Return statements are essential for functions that produce output values.",
+    example: "function add(a, b) { return a + b; } // Returns the sum",
+    relatedTerms: ["function", "parameter", "value", "output"]
+  },
+  {
+    id: "index",
+    title: "Index",
+    category: "Programming Concept",
+    definition: "A numeric position identifier used to access elements in ordered data structures like arrays and strings. Most programming languages use zero-based indexing, where the first element is at index 0.",
+    example: "let arr = ['a', 'b', 'c'];\narr[0]; // 'a' - first element\narr[2]; // 'c' - third element",
+    relatedTerms: ["array", "list", "subscript", "position"]
+  },
+  {
+    id: "number",
+    title: "Number",
+    category: "Data Type",
+    definition: "A primitive data type that represents numeric values, including integers and floating-point numbers. Numbers are used for mathematical operations, counting, measurements, and calculations.",
+    example: "let count = 42; // Integer\nlet price = 19.99; // Float\nlet result = count * 2; // 84",
+    relatedTerms: ["integer", "float", "data-type", "variable"]
+  },
+  {
+    id: "float",
+    title: "Float (Floating-Point Number)",
+    category: "Data Type",
+    definition: "A numeric data type that represents real numbers with decimal points. Floats are used for values that require fractional precision, such as scientific calculations, currency, and measurements.",
+    example: "let pi = 3.14159;\nlet price = 29.99;\nlet result = 10 / 3; // 3.3333...",
+    relatedTerms: ["number", "integer", "data-type", "decimal"]
+  },
+  {
+    id: "character",
+    title: "Character",
+    category: "Data Type",
+    definition: "A single unit of text, such as a letter, digit, or symbol. Characters are the building blocks of strings and are typically represented using encoding schemes like ASCII or Unicode.",
+    example: "char letter = 'A';\nchar digit = '9';\nchar symbol = '@';",
+    relatedTerms: ["string", "text", "data-type", "unicode"]
+  },
+  {
+    id: "property",
+    title: "Property",
+    category: "OOP Concept",
+    definition: "A value associated with an object that describes its characteristics or attributes. Properties can be accessed and modified using dot notation or bracket notation in most programming languages.",
+    example: "let person = { name: 'Alice', age: 30 };\nperson.name; // 'Alice' - accessing property\nperson.age = 31; // Modifying property",
+    relatedTerms: ["object", "attribute", "field", "member"]
+  },
+  {
+    id: "constructor",
+    title: "Constructor",
+    category: "OOP Concept",
+    definition: "A special method that is automatically called when creating a new instance of a class. Constructors initialize object properties and perform setup operations needed for the object to function properly.",
+    example: "class Person {\n  constructor(name, age) {\n    this.name = name;\n    this.age = age;\n  }\n}",
+    relatedTerms: ["class", "object", "instance", "initialization"]
+  },
+  {
+    id: "instance",
+    title: "Instance",
+    category: "OOP Concept",
+    definition: "A specific realization of a class that exists in memory. Each instance has its own set of property values while sharing the class's methods and structure. Creating an instance is called instantiation.",
+    example: "class Car { constructor(brand) { this.brand = brand; } }\nlet myCar = new Car('Toyota'); // myCar is an instance",
+    relatedTerms: ["class", "object", "constructor", "instantiation"]
+  },
+  {
+    id: "behavior",
+    title: "Behavior",
+    category: "OOP Concept",
+    definition: "The actions or operations that an object can perform, typically implemented as methods. Behavior defines what an object can do, while properties define what an object is.",
+    relatedTerms: ["method", "function", "object", "oop"]
+  },
+  {
+    id: "argument",
+    title: "Argument",
+    category: "Programming Concept",
+    definition: "The actual value passed to a function when it is called, corresponding to the function's parameters. Arguments provide the concrete data that the function will operate on.",
+    example: "function greet(name) { return `Hello ${name}`; }\ngreet('Alice'); // 'Alice' is the argument",
+    relatedTerms: ["parameter", "function", "value", "call"]
+  },
+  {
+    id: "value",
+    title: "Value",
+    category: "Programming Concept",
+    definition: "Data stored in a variable or returned by an expression. Values can be primitive types (numbers, strings, booleans) or complex types (objects, arrays). Values are the actual data that programs manipulate.",
+    relatedTerms: ["variable", "data-type", "expression", "literal"]
+  },
+  {
+    id: "output",
+    title: "Output",
+    category: "Programming Concept",
+    definition: "Data produced by a program or function and sent to an external destination, such as the screen, a file, or another function. Output is the result of program execution that users or other systems can observe.",
+    example: "console.log('Hello World'); // Console output\nreturn result; // Function output",
+    relatedTerms: ["input", "return", "console", "print"]
+  },
+  {
+    id: "text",
+    title: "Text",
+    category: "Data Concept",
+    definition: "Human-readable character sequences used for communication and data representation. In programming, text is typically represented as strings and is fundamental for user interfaces, documentation, and data exchange.",
+    relatedTerms: ["string", "character", "unicode", "encoding"]
+  },
+  {
+    id: "control-flow",
+    title: "Control Flow",
+    category: "Programming Concept",
+    definition: "The order in which individual statements, instructions, or function calls are executed in a program. Control flow structures like conditionals, loops, and function calls determine the path of execution.",
+    relatedTerms: ["conditional", "loop", "if-else", "switch", "for-loop"]
+  },
+  {
+    id: "for-loop",
+    title: "For Loop",
+    category: "Control Flow",
+    definition: "A control structure that repeats a block of code a specific number of times, typically iterating over a range or collection. For loops have an initialization, condition, and increment/decrement expression.",
+    example: "for(let i = 0; i < 10; i++) {\n  console.log(i); // Prints 0 to 9\n}",
+    relatedTerms: ["loop", "iteration", "while-loop", "control-flow"]
+  },
+  {
+    id: "while-loop",
+    title: "While Loop",
+    category: "Control Flow",
+    definition: "A control structure that repeatedly executes a block of code as long as a specified condition remains true. While loops are useful when the number of iterations is not known in advance.",
+    example: "let i = 0;\nwhile(i < 5) {\n  console.log(i);\n  i++;\n}",
+    relatedTerms: ["loop", "iteration", "for-loop", "control-flow"]
+  },
+  {
+    id: "if-else",
+    title: "If-Else Statement",
+    category: "Control Flow",
+    definition: "A conditional statement that executes one block of code if a condition is true, and another block if it's false. If-else statements are fundamental for decision-making in programs.",
+    example: "if (age >= 18) {\n  console.log('Adult');\n} else {\n  console.log('Minor');\n}",
+    relatedTerms: ["conditional", "boolean", "control-flow", "switch"]
+  },
+  {
+    id: "switch",
+    title: "Switch Statement",
+    category: "Control Flow",
+    definition: "A control structure that selects one of many code blocks to execute based on the value of an expression. Switch statements provide a cleaner alternative to multiple if-else statements for value-based branching.",
+    example: "switch(day) {\n  case 'Monday': console.log('Start of week'); break;\n  case 'Friday': console.log('End of week'); break;\n  default: console.log('Midweek');\n}",
+    relatedTerms: ["conditional", "control-flow", "if-else", "case"]
+  },
+  {
+    id: "iteration",
+    title: "Iteration",
+    category: "Programming Concept",
+    definition: "The process of repeatedly executing a set of instructions, typically using loops. Each repetition is called an iteration, and the process continues until a specified condition is met.",
+    relatedTerms: ["loop", "for-loop", "while-loop", "recursion"]
+  },
+  {
+    id: "promise",
+    title: "Promise",
+    category: "Programming Concept",
+    definition: "An object representing the eventual completion or failure of an asynchronous operation in JavaScript. Promises provide a cleaner way to handle async operations compared to callbacks, with .then() and .catch() methods.",
+    example: "fetch('/api/data')\n  .then(response => response.json())\n  .then(data => console.log(data))\n  .catch(error => console.error(error));",
+    relatedTerms: ["async-await", "asynchronous", "callback", "javascript"]
+  },
+  {
+    id: "callback",
+    title: "Callback Function",
+    category: "Programming Concept",
+    definition: "A function passed as an argument to another function, to be executed later when a certain event occurs or operation completes. Callbacks are fundamental to asynchronous programming and event handling.",
+    example: "setTimeout(() => {\n  console.log('Executed after 1 second');\n}, 1000);",
+    relatedTerms: ["function", "asynchronous", "promise", "event-handler"]
+  },
+  {
+    id: "asynchronous",
+    title: "Asynchronous Programming",
+    category: "Programming Paradigm",
+    definition: "A programming approach where operations can run independently of the main program flow, allowing the program to continue executing without waiting for long-running tasks to complete. Essential for I/O operations and network requests.",
+    relatedTerms: ["async-await", "promise", "callback", "synchronous"]
+  },
+  {
+    id: "list",
+    title: "List",
+    category: "Data Structure",
+    definition: "An ordered collection of elements that can grow or shrink dynamically. Lists are similar to arrays but often provide more flexible operations for adding, removing, and modifying elements.",
+    relatedTerms: ["array", "collection", "linked-list", "data-structure"]
+  },
+  {
+    id: "collection",
+    title: "Collection",
+    category: "Data Structure",
+    definition: "A container object that groups multiple elements together. Collections include arrays, lists, sets, maps, and other data structures that store and organize data.",
+    relatedTerms: ["array", "list", "set", "map", "data-structure"]
+  },
+  {
+    id: "private",
+    title: "Private (Access Modifier)",
+    category: "OOP Concept",
+    definition: "An access modifier that restricts access to class members (properties and methods) to only within that class. Private members cannot be accessed from outside the class, enforcing encapsulation.",
+    example: "class BankAccount {\n  #balance = 0; // Private field in JavaScript\n  deposit(amount) { this.#balance += amount; }\n}",
+    relatedTerms: ["public", "encapsulation", "access-modifier", "protected"]
+  },
+  {
+    id: "public",
+    title: "Public (Access Modifier)",
+    category: "OOP Concept",
+    definition: "An access modifier that allows class members to be accessed from anywhere in the program. Public members form the interface through which external code interacts with objects.",
+    example: "class Person {\n  public name: string; // Public property\n  public greet() { return 'Hello'; } // Public method\n}",
+    relatedTerms: ["private", "encapsulation", "access-modifier", "protected"]
+  },
+  {
+    id: "subclass",
+    title: "Subclass",
+    category: "OOP Concept",
+    definition: "A class that inherits properties and methods from another class (the superclass). Subclasses can add new features or override inherited behavior, enabling code reuse and specialization.",
+    example: "class Animal { }\nclass Dog extends Animal { bark() { return 'Woof!'; } }\n// Dog is a subclass of Animal",
+    relatedTerms: ["inheritance", "superclass", "extends", "derived-class"]
+  },
+  {
+    id: "superclass",
+    title: "Superclass",
+    category: "OOP Concept",
+    definition: "A class from which other classes (subclasses) inherit properties and methods. The superclass defines common behavior that subclasses can reuse and extend.",
+    example: "class Animal { eat() { } } // Superclass\nclass Dog extends Animal { } // Dog inherits from Animal",
+    relatedTerms: ["inheritance", "subclass", "base-class", "parent-class"]
+  },
+  {
+    id: "extends",
+    title: "Extends (Keyword)",
+    category: "OOP Concept",
+    definition: "A keyword used in object-oriented programming to create a subclass that inherits from a superclass. The extends keyword establishes an inheritance relationship between classes.",
+    example: "class Vehicle { }\nclass Car extends Vehicle { }\n// Car inherits from Vehicle",
+    relatedTerms: ["inheritance", "subclass", "superclass", "implements"]
+  },
+  {
+    id: "method-overriding",
+    title: "Method Overriding",
+    category: "OOP Concept",
+    definition: "A feature that allows a subclass to provide a specific implementation of a method that is already defined in its superclass. Overriding enables polymorphism and customization of inherited behavior.",
+    example: "class Animal { speak() { return 'Sound'; } }\nclass Dog extends Animal { speak() { return 'Woof'; } }",
+    relatedTerms: ["polymorphism", "inheritance", "override", "virtual"]
+  },
+  {
+    id: "contract",
+    title: "Contract (Programming)",
+    category: "Software Design",
+    definition: "An agreement that defines the obligations and guarantees between different parts of a program. Interfaces and abstract classes define contracts that implementing classes must fulfill.",
+    relatedTerms: ["interface", "abstraction", "api", "specification"]
+  },
+  {
+    id: "implementation",
+    title: "Implementation",
+    category: "Software Design",
+    definition: "The concrete realization of an interface, abstract class, or design specification. Implementation provides the actual code and logic that fulfills the contract defined by an abstraction.",
+    relatedTerms: ["interface", "abstraction", "concrete", "realization"]
+  },
+  {
+    id: "attribute",
+    title: "Attribute",
+    category: "OOP Concept",
+    definition: "A characteristic or property of an object that describes its state. Attributes store data associated with objects and are often accessed through getter and setter methods.",
+    relatedTerms: ["property", "field", "member", "variable"]
+  },
+  {
+    id: "field",
+    title: "Field",
+    category: "OOP Concept",
+    definition: "A variable declared within a class that holds data for objects of that class. Fields represent the state or properties of objects and can have different access modifiers.",
+    relatedTerms: ["property", "attribute", "member", "variable"]
+  },
+  {
+    id: "member",
+    title: "Member",
+    category: "OOP Concept",
+    definition: "A general term for properties, methods, and other elements that belong to a class or object. Members define the structure and behavior of classes.",
+    relatedTerms: ["property", "method", "field", "class"]
+  },
+  {
+    id: "initialization",
+    title: "Initialization",
+    category: "Programming Concept",
+    definition: "The process of assigning an initial value to a variable, object, or data structure when it is created. Proper initialization prevents undefined behavior and ensures objects start in a valid state.",
+    example: "let count = 0; // Initialization\nlet person = new Person('Alice'); // Object initialization",
+    relatedTerms: ["variable", "constructor", "declaration", "assignment"]
+  },
+  {
+    id: "node",
+    title: "Node",
+    category: "Data Structure",
+    definition: "A fundamental unit in data structures like linked lists, trees, and graphs. Each node typically contains data and references (pointers) to other nodes, forming the structure's connections.",
+    example: "class Node {\n  constructor(data) {\n    this.data = data;\n    this.next = null;\n  }\n}",
+    relatedTerms: ["linked-list", "tree", "graph", "pointer"]
+  },
+  {
+    id: "pointer",
+    title: "Pointer",
+    category: "Programming Concept",
+    definition: "A variable that stores the memory address of another variable or object. Pointers are fundamental in languages like C and C++ for dynamic memory management and building data structures.",
+    relatedTerms: ["reference", "memory", "address", "linked-list"]
+  },
+  {
+    id: "binary-tree",
+    title: "Binary Tree",
+    category: "Data Structure",
+    definition: "A tree data structure where each node has at most two children, referred to as the left child and right child. Binary trees are used in binary search trees, heaps, and expression parsing.",
+    relatedTerms: ["tree", "node", "binary-search-tree", "hierarchical"]
+  },
+  {
+    id: "graph",
+    title: "Graph",
+    category: "Data Structure",
+    definition: "A non-linear data structure consisting of vertices (nodes) connected by edges. Graphs represent relationships between entities and are used in networks, social connections, and pathfinding algorithms.",
+    relatedTerms: ["node", "edge", "vertex", "tree", "network"]
+  },
+  {
+    id: "hierarchical",
+    title: "Hierarchical Structure",
+    category: "Data Structure",
+    definition: "An organizational structure where elements are arranged in a ranked order, with parent-child relationships forming levels. Trees and file systems are common examples of hierarchical structures.",
+    relatedTerms: ["tree", "parent-child", "levels", "organization"]
+  },
+  {
+    id: "lifo",
+    title: "LIFO (Last-In-First-Out)",
+    category: "Data Structure Concept",
+    definition: "A principle where the last element added to a data structure is the first one to be removed. Stacks follow the LIFO principle, used in function calls, undo operations, and expression evaluation.",
+    relatedTerms: ["stack", "fifo", "data-structure", "order"]
+  },
+  {
+    id: "fifo",
+    title: "FIFO (First-In-First-Out)",
+    category: "Data Structure Concept",
+    definition: "A principle where the first element added to a data structure is the first one to be removed. Queues follow the FIFO principle, used in task scheduling, buffering, and breadth-first search.",
+    relatedTerms: ["queue", "lifo", "data-structure", "order"]
+  },
+  {
+    id: "hash-function",
+    title: "Hash Function",
+    category: "Algorithm",
+    definition: "A function that converts input data of arbitrary size into a fixed-size value (hash code). Hash functions are used in hash tables, cryptography, and data integrity verification to provide fast data retrieval.",
+    relatedTerms: ["hash-table", "hashing", "collision", "algorithm"]
+  },
+  {
+    id: "dictionary",
+    title: "Dictionary",
+    category: "Data Structure",
+    definition: "A data structure that stores key-value pairs, allowing fast lookup of values by their keys. Also known as maps or associative arrays, dictionaries provide O(1) average-time complexity for insertions and lookups.",
+    example: "let dict = { 'name': 'Alice', 'age': 30 };\ndict['name']; // 'Alice'",
+    relatedTerms: ["hash-table", "map", "key-value", "object"]
+  },
+  {
+    id: "set",
+    title: "Set",
+    category: "Data Structure",
+    definition: "A collection of unique elements with no duplicates. Sets provide efficient operations for adding, removing, and checking membership, and are useful for removing duplicates and performing mathematical set operations.",
+    example: "let mySet = new Set([1, 2, 3, 2, 1]); // Set {1, 2, 3}",
+    relatedTerms: ["collection", "unique", "data-structure", "hash-set"]
+  },
+  {
+    id: "map",
+    title: "Map",
+    category: "Data Structure",
+    definition: "A collection of key-value pairs where each key is unique. Maps maintain insertion order and allow any data type as keys, providing efficient lookup and iteration capabilities.",
+    example: "let map = new Map();\nmap.set('key1', 'value1');\nmap.get('key1'); // 'value1'",
+    relatedTerms: ["dictionary", "hash-table", "key-value", "collection"]
+  },
+  {
+    id: "server",
+    title: "Server",
+    category: "Infrastructure",
+    definition: "A computer or program that provides services, resources, or data to other computers (clients) over a network. Servers handle requests, process data, and send responses in client-server architectures.",
+    relatedTerms: ["backend", "client", "http", "nodejs", "web-server"]
+  },
+  {
+    id: "web-development",
+    title: "Web Development",
+    category: "Software Development",
+    definition: "The process of creating websites and web applications for the internet or intranet. Web development includes frontend (client-side), backend (server-side), and full-stack development.",
+    relatedTerms: ["frontend", "backend", "html", "css", "javascript"]
+  },
+  {
+    id: "component",
+    title: "Component",
+    category: "Frontend Development",
+    definition: "A reusable, self-contained piece of code that encapsulates UI elements and logic. Components are the building blocks of modern frontend frameworks like React, Vue, and Angular.",
+    example: "function Button({ text, onClick }) {\n  return <button onClick={onClick}>{text}</button>;\n}",
+    relatedTerms: ["react", "frontend", "ui", "reusable", "modular"]
+  },
+  {
+    id: "jsx",
+    title: "JSX (JavaScript XML)",
+    category: "Frontend Technology",
+    definition: "A syntax extension for JavaScript that allows writing HTML-like code within JavaScript. JSX is used in React to describe UI components and is compiled to JavaScript function calls.",
+    example: "const element = <h1>Hello, {name}!</h1>;",
+    relatedTerms: ["react", "javascript", "component", "template"]
+  },
+  {
+    id: "virtual-dom",
+    title: "Virtual DOM",
+    category: "Frontend Technology",
+    definition: "A lightweight copy of the actual DOM kept in memory by frameworks like React. The virtual DOM enables efficient updates by calculating minimal changes needed and batching DOM operations.",
+    relatedTerms: ["react", "dom", "rendering", "performance"]
+  },
+  {
+    id: "ui-ux",
+    title: "UI/UX (User Interface/User Experience)",
+    category: "Design",
+    definition: "UI focuses on the visual elements and interactive components users interact with, while UX encompasses the overall experience and satisfaction users have with a product. Both are crucial for creating effective digital products.",
+    relatedTerms: ["design", "frontend", "usability", "interface"]
+  },
+  {
+    id: "markup",
+    title: "Markup Language",
+    category: "Web Technology",
+    definition: "A system for annotating text to define its structure, formatting, and presentation. HTML and XML are markup languages that use tags to describe document elements.",
+    relatedTerms: ["html", "xml", "tags", "structure"]
+  },
+  {
+    id: "styling",
+    title: "Styling",
+    category: "Web Development",
+    definition: "The process of applying visual presentation to web content using CSS. Styling controls colors, fonts, layouts, spacing, and responsive design to create attractive and usable interfaces.",
+    relatedTerms: ["css", "design", "layout", "presentation"]
+  },
+  {
+    id: "web",
+    title: "World Wide Web (WWW)",
+    category: "Internet Technology",
+    definition: "An information system where documents and resources are identified by URLs, interconnected by hyperlinks, and accessed via the internet using web browsers and the HTTP protocol.",
+    relatedTerms: ["http", "url", "browser", "internet", "html"]
+  },
+  {
+    id: "client",
+    title: "Client",
+    category: "Network Architecture",
+    definition: "A computer or program that requests services or resources from a server. In web development, browsers are clients that request web pages from web servers.",
+    relatedTerms: ["server", "client-server", "browser", "frontend"]
+  },
+  {
+    id: "editor",
+    title: "Code Editor",
+    category: "Development Tool",
+    definition: "A text editor specifically designed for writing and editing source code. Code editors provide syntax highlighting, auto-completion, and other features that enhance programmer productivity.",
+    relatedTerms: ["ide", "vscode", "development", "text-editor"]
+  },
+  {
+    id: "debugger",
+    title: "Debugger",
+    category: "Development Tool",
+    definition: "A program or tool used to test and debug other programs by allowing developers to pause execution, inspect variables, step through code line-by-line, and identify the source of errors.",
+    relatedTerms: ["debugging", "breakpoint", "ide", "error"]
+  },
+  {
+    id: "bug",
+    title: "Bug",
+    category: "Software Development",
+    definition: "An error, flaw, or fault in a computer program that causes it to produce incorrect or unexpected results. Bugs range from minor issues to critical failures that prevent program execution.",
+    relatedTerms: ["debugging", "error", "defect", "issue"]
+  },
+  {
+    id: "error",
+    title: "Error",
+    category: "Programming Concept",
+    definition: "A mistake or problem in code that prevents it from running correctly. Errors can be syntax errors (code structure), runtime errors (during execution), or logical errors (incorrect behavior).",
+    relatedTerms: ["bug", "exception", "debugging", "crash"]
+  },
+  {
+    id: "breakpoint",
+    title: "Breakpoint",
+    category: "Debugging",
+    definition: "A marker set in code where the debugger will pause program execution, allowing developers to inspect the program's state, variable values, and execution flow at that specific point.",
+    relatedTerms: ["debugger", "debugging", "pause", "inspection"]
+  },
+  {
+    id: "module",
+    title: "Module",
+    category: "Software Architecture",
+    definition: "A self-contained unit of code that encapsulates related functionality and can be imported and reused in other parts of a program. Modules promote code organization, reusability, and maintainability.",
+    example: "// math.js\nexport function add(a, b) { return a + b; }\n// main.js\nimport { add } from './math.js';",
+    relatedTerms: ["import", "export", "package", "namespace"]
+  },
+  {
+    id: "package",
+    title: "Package",
+    category: "Software Distribution",
+    definition: "A collection of related modules, libraries, and resources bundled together for distribution and reuse. Packages are managed by package managers like npm, pip, and Maven.",
+    relatedTerms: ["npm", "library", "module", "dependency"]
+  },
+  {
+    id: "dependency",
+    title: "Dependency",
+    category: "Software Development",
+    definition: "An external library, package, or module that a project requires to function properly. Managing dependencies ensures all required code is available and compatible.",
+    relatedTerms: ["package", "library", "npm", "version"]
+  },
+  {
+    id: "unit-test",
+    title: "Unit Test",
+    category: "Testing",
+    definition: "A type of software test that verifies the correctness of individual units or components of code in isolation. Unit tests are automated, fast, and help catch bugs early in development.",
+    example: "test('adds 1 + 2 to equal 3', () => {\n  expect(add(1, 2)).toBe(3);\n});",
+    relatedTerms: ["testing", "test-driven", "assertion", "jest"]
+  },
+  {
+    id: "integration-test",
+    title: "Integration Test",
+    category: "Testing",
+    definition: "A type of software test that verifies the correct interaction between multiple components, modules, or systems. Integration tests ensure that different parts of an application work together properly.",
+    relatedTerms: ["testing", "unit-test", "end-to-end", "qa"]
+  },
+  {
+    id: "qa",
+    title: "QA (Quality Assurance)",
+    category: "Software Development",
+    definition: "The process of ensuring software meets quality standards through systematic testing, review, and validation. QA involves both manual and automated testing to identify and prevent defects.",
+    relatedTerms: ["testing", "quality", "validation", "verification"]
+  },
+  {
+    id: "test-driven",
+    title: "Test-Driven Development (TDD)",
+    category: "Development Methodology",
+    definition: "A software development approach where tests are written before the actual code. TDD follows a cycle of writing a failing test, writing code to pass it, then refactoring.",
+    relatedTerms: ["testing", "unit-test", "methodology", "red-green-refactor"]
+  },
+  {
+    id: "encryption",
+    title: "Encryption",
+    category: "Security",
+    definition: "The process of converting data into a coded format to prevent unauthorized access. Encryption uses algorithms and keys to transform readable data (plaintext) into unreadable data (ciphertext).",
+    relatedTerms: ["security", "cryptography", "ssl", "tls", "decryption"]
+  },
+  {
+    id: "ssl",
+    title: "SSL (Secure Sockets Layer)",
+    category: "Security Protocol",
+    definition: "A deprecated security protocol for establishing encrypted links between web servers and browsers. SSL has been replaced by TLS but the term is still commonly used to refer to secure connections.",
+    relatedTerms: ["tls", "https", "encryption", "security", "certificate"]
+  },
+  {
+    id: "tls",
+    title: "TLS (Transport Layer Security)",
+    category: "Security Protocol",
+    definition: "A cryptographic protocol that provides secure communication over a computer network. TLS is the successor to SSL and is used to secure HTTPS connections, email, and other internet communications.",
+    relatedTerms: ["ssl", "https", "encryption", "security", "certificate"]
+  },
+  {
+    id: "protocol",
+    title: "Protocol",
+    category: "Networking",
+    definition: "A set of rules and standards that define how data is transmitted and received over a network. Protocols ensure devices can communicate effectively, with examples including HTTP, TCP/IP, and FTP.",
+    relatedTerms: ["http", "tcp-ip", "network", "communication"]
+  },
+  {
+    id: "xml",
+    title: "XML (eXtensible Markup Language)",
+    category: "Data Format",
+    definition: "A markup language that defines rules for encoding documents in a format that is both human-readable and machine-readable. XML is used for data exchange, configuration files, and web services.",
+    example: "<person>\n  <name>John</name>\n  <age>30</age>\n</person>",
+    relatedTerms: ["json", "markup", "data-format", "soap"]
+  },
+  {
+    id: "mongodb",
+    title: "MongoDB",
+    category: "NoSQL Database",
+    definition: "A popular document-oriented NoSQL database that stores data in flexible, JSON-like documents. MongoDB is designed for scalability, high performance, and handling unstructured data.",
+    relatedTerms: ["nosql", "database", "document-store", "json"]
+  },
+  {
+    id: "relational",
+    title: "Relational Database",
+    category: "Database",
+    definition: "A database that organizes data into tables with rows and columns, where relationships between tables are established through keys. Relational databases use SQL and ensure data integrity through ACID properties.",
+    relatedTerms: ["sql", "database", "table", "dbms", "rdbms"]
+  },
+  {
+    id: "query",
+    title: "Query",
+    category: "Database",
+    definition: "A request for data or information from a database. Queries are written in languages like SQL to retrieve, insert, update, or delete data based on specified conditions.",
+    example: "SELECT * FROM users WHERE age > 18;",
+    relatedTerms: ["sql", "database", "select", "search"]
+  },
+  {
+    id: "relational-database",
+    title: "RDBMS (Relational Database Management System)",
+    category: "Database",
+    definition: "Software that manages relational databases, ensuring data integrity, security, and providing tools for querying and managing structured data. Examples include MySQL, PostgreSQL, and Oracle.",
+    relatedTerms: ["sql", "database", "dbms", "relational"]
+  },
+  {
+    id: "document-store",
+    title: "Document Store",
+    category: "NoSQL Database",
+    definition: "A type of NoSQL database that stores data as documents (typically JSON or XML). Document stores are schema-flexible, allowing different documents to have different structures.",
+    relatedTerms: ["nosql", "mongodb", "json", "database"]
+  },
+  {
+    id: "key-value",
+    title: "Key-Value Store",
+    category: "NoSQL Database",
+    definition: "A simple NoSQL database that stores data as key-value pairs, similar to a dictionary or hash table. Key-value stores provide fast lookups and are used for caching and session storage.",
+    example: "Redis, DynamoDB - store and retrieve data by unique keys",
+    relatedTerms: ["nosql", "database", "redis", "cache"]
+  },
+  {
+    id: "devops",
+    title: "DevOps",
+    category: "Software Development",
+    definition: "A set of practices that combines software development (Dev) and IT operations (Ops) to shorten the development lifecycle and provide continuous delivery. DevOps emphasizes automation, collaboration, and monitoring.",
+    relatedTerms: ["cicd", "automation", "deployment", "agile"]
+  },
+  {
+    id: "container",
+    title: "Container",
+    category: "DevOps",
+    definition: "A lightweight, standalone package that includes application code and all dependencies needed to run it. Containers ensure consistent execution across different environments and are managed by tools like Docker.",
+    relatedTerms: ["docker", "virtualization", "deployment", "image"]
+  },
+  {
+    id: "deployment",
+    title: "Deployment",
+    category: "Software Development",
+    definition: "The process of making software available for use in a production environment. Deployment involves installing, configuring, testing, and releasing software to end users.",
+    relatedTerms: ["cicd", "release", "production", "devops"]
+  },
+  {
+    id: "pipeline",
+    title: "CI/CD Pipeline",
+    category: "DevOps",
+    definition: "An automated sequence of stages that code goes through from development to production. Pipelines include building, testing, and deploying code, ensuring quality and enabling rapid releases.",
+    relatedTerms: ["cicd", "automation", "build", "deployment"]
+  },
+  {
+    id: "automation",
+    title: "Automation",
+    category: "Software Development",
+    definition: "The use of technology to perform tasks with minimal human intervention. In software development, automation includes automated testing, builds, deployments, and infrastructure management.",
+    relatedTerms: ["cicd", "devops", "scripting", "efficiency"]
+  },
+  {
+    id: "aws",
+    title: "AWS (Amazon Web Services)",
+    category: "Cloud Platform",
+    definition: "A comprehensive cloud computing platform provided by Amazon, offering services including computing power, storage, databases, machine learning, and more on a pay-as-you-go basis.",
+    relatedTerms: ["cloud-computing", "azure", "gcp", "iaas", "paas"]
+  },
+  {
+    id: "azure",
+    title: "Microsoft Azure",
+    category: "Cloud Platform",
+    definition: "Microsoft's cloud computing platform providing services for building, deploying, and managing applications through Microsoft-managed data centers. Azure supports multiple programming languages and frameworks.",
+    relatedTerms: ["cloud-computing", "aws", "gcp", "iaas", "paas"]
+  },
+  {
+    id: "gcp",
+    title: "GCP (Google Cloud Platform)",
+    category: "Cloud Platform",
+    definition: "Google's suite of cloud computing services offering infrastructure, platform, and software services. GCP provides computing, storage, machine learning, and data analytics capabilities.",
+    relatedTerms: ["cloud-computing", "aws", "azure", "iaas", "paas"]
+  },
+  {
+    id: "saas",
+    title: "SaaS (Software as a Service)",
+    category: "Cloud Computing",
+    definition: "A software delivery model where applications are hosted by a provider and made available to customers over the internet. Users access SaaS applications through web browsers without installing software.",
+    example: "Gmail, Salesforce, Office 365",
+    relatedTerms: ["cloud-computing", "paas", "iaas", "subscription"]
+  },
+  {
+    id: "paas",
+    title: "PaaS (Platform as a Service)",
+    category: "Cloud Computing",
+    definition: "A cloud computing model that provides a platform for developers to build, run, and manage applications without managing underlying infrastructure. PaaS includes development tools, databases, and hosting.",
+    example: "Heroku, Google App Engine, Azure App Service",
+    relatedTerms: ["cloud-computing", "saas", "iaas", "development"]
+  },
+  {
+    id: "iaas",
+    title: "IaaS (Infrastructure as a Service)",
+    category: "Cloud Computing",
+    definition: "A cloud computing model that provides virtualized computing resources over the internet. IaaS offers virtual machines, storage, and networks, giving users control over the infrastructure.",
+    example: "AWS EC2, Azure VMs, Google Compute Engine",
+    relatedTerms: ["cloud-computing", "saas", "paas", "virtualization"]
+  },
+  {
+    id: "kubernetes",
+    title: "Kubernetes",
+    category: "Container Orchestration",
+    definition: "An open-source platform for automating deployment, scaling, and management of containerized applications. Kubernetes orchestrates containers across clusters of machines, ensuring high availability.",
+    relatedTerms: ["docker", "container", "orchestration", "devops"]
+  },
+  {
+    id: "distributed",
+    title: "Distributed System",
+    category: "System Architecture",
+    definition: "A system whose components are located on different networked computers that communicate and coordinate their actions by passing messages. Distributed systems enable scalability and fault tolerance.",
+    relatedTerms: ["microservices", "scalability", "network", "architecture"]
+  },
+  {
+    id: "scalability",
+    title: "Scalability",
+    category: "System Design",
+    definition: "The ability of a system to handle growing amounts of work by adding resources. Scalability can be vertical (adding more power to existing machines) or horizontal (adding more machines).",
+    relatedTerms: ["performance", "distributed", "load-balancing", "cloud-computing"]
+  },
+  {
+    id: "scripting",
+    title: "Scripting Language",
+    category: "Programming Language",
+    definition: "A programming language designed for automating tasks and controlling software applications. Scripting languages like Python, JavaScript, and Bash are typically interpreted rather than compiled.",
+    relatedTerms: ["python", "javascript", "automation", "interpreter"]
+  },
+  {
+    id: "c",
+    title: "C Programming Language",
+    category: "Programming Language",
+    definition: "A general-purpose, procedural programming language developed in the 1970s. C is known for its efficiency, low-level memory access, and influence on many modern languages like C++, Java, and JavaScript.",
+    example: "#include <stdio.h>\nint main() { printf(\"Hello World\"); return 0; }",
+    relatedTerms: ["cpp", "programming-language", "systems-programming", "compiled"]
+  },
+  {
+    id: "template",
+    title: "Template (C++)",
+    category: "Programming Concept",
+    definition: "A feature in C++ that allows functions and classes to operate with generic types, enabling code reusability. Templates are the foundation of generic programming in C++.",
+    example: "template<typename T>\nT max(T a, T b) { return (a > b) ? a : b; }",
+    relatedTerms: ["cpp", "generic-programming", "type-parameter"]
+  },
+  {
+    id: "searching",
+    title: "Searching Algorithm",
+    category: "Algorithm",
+    definition: "An algorithm designed to find a specific element or value within a data structure. Common searching algorithms include linear search, binary search, and hash-based searching.",
+    relatedTerms: ["algorithm", "binary-search", "linear-search", "data-structure"]
+  },
+  {
+    id: "efficiency",
+    title: "Efficiency",
+    category: "Algorithm Analysis",
+    definition: "A measure of how well an algorithm uses computational resources like time and memory. Efficient algorithms minimize resource usage while maintaining correctness.",
+    relatedTerms: ["complexity", "big-o", "optimization", "performance"]
+  },
+  {
+    id: "performance",
+    title: "Performance",
+    category: "Software Engineering",
+    definition: "The measure of how fast and responsive a system or application is. Performance optimization focuses on reducing latency, increasing throughput, and improving user experience.",
+    relatedTerms: ["efficiency", "optimization", "scalability", "benchmarking"]
+  },
+  {
+    id: "commit",
+    title: "Commit",
+    category: "Version Control",
+    definition: "A saved snapshot of changes to a repository in version control systems like Git. Each commit records modifications with a message describing what changed and why.",
+    example: "git commit -m 'Add new feature'",
+    relatedTerms: ["git", "version-control", "repository", "branch"]
+  },
+  {
+    id: "branch",
+    title: "Branch",
+    category: "Version Control",
+    definition: "A parallel version of a repository that allows developers to work on features independently without affecting the main codebase. Branches can be merged back into the main branch when complete.",
+    example: "git branch feature-login\ngit checkout feature-login",
+    relatedTerms: ["git", "version-control", "merge", "commit"]
+  },
+  {
+    id: "clone",
+    title: "Clone (Git)",
+    category: "Version Control",
+    definition: "The process of creating a local copy of a remote repository. Cloning downloads all files, history, and branches from the remote repository to your local machine.",
+    example: "git clone https://github.com/user/repo.git",
+    relatedTerms: ["git", "repository", "remote", "version-control"]
+  },
+  {
+    id: "pull-request",
+    title: "Pull Request",
+    category: "Version Control",
+    definition: "A request to merge code changes from one branch into another, typically used in collaborative development. Pull requests enable code review, discussion, and approval before merging.",
+    relatedTerms: ["github", "git", "branch", "merge", "code-review"]
+  },
+  {
+    id: "soap",
+    title: "SOAP (Simple Object Access Protocol)",
+    category: "Web Service Protocol",
+    definition: "A protocol for exchanging structured information in web services using XML. SOAP is more rigid and feature-rich than REST, supporting complex operations and built-in security standards.",
+    relatedTerms: ["web-service", "xml", "rest", "api", "protocol"]
+  },
+  {
+    id: "integration",
+    title: "Integration",
+    category: "Software Engineering",
+    definition: "The process of combining different software systems, components, or services to work together as a unified whole. Integration enables data sharing and coordinated functionality between systems.",
+    relatedTerms: ["api", "web-service", "middleware", "interoperability"]
+  },
+  {
+    id: "scrum",
+    title: "Scrum",
+    category: "Agile Framework",
+    definition: "An agile framework for managing software development projects using iterative sprints, daily standups, and defined roles (Scrum Master, Product Owner, Development Team). Scrum emphasizes teamwork and continuous improvement.",
+    relatedTerms: ["agile", "sprint", "methodology", "standup"]
+  },
+  {
+    id: "sprint",
+    title: "Sprint",
+    category: "Agile Methodology",
+    definition: "A fixed time period (usually 1-4 weeks) in Scrum methodology during which a specific set of work must be completed and made ready for review. Sprints enable iterative development and frequent feedback.",
+    relatedTerms: ["scrum", "agile", "iteration", "backlog"]
+  },
+  {
+    id: "methodology",
+    title: "Software Development Methodology",
+    category: "Software Engineering",
+    definition: "A structured approach to planning, designing, and controlling the software development process. Common methodologies include Agile, Scrum, Waterfall, and DevOps.",
+    relatedTerms: ["agile", "scrum", "waterfall", "process"]
+  },
+  {
+    id: "stateless",
+    title: "Stateless",
+    category: "Architecture Pattern",
+    definition: "A design where each request from client to server contains all information needed to understand and process it. The server doesn't store client state between requests, enabling better scalability.",
+    relatedTerms: ["rest", "api", "stateful", "http"]
+  },
+  {
+    id: "synchronous",
+    title: "Synchronous Programming",
+    category: "Programming Paradigm",
+    definition: "A programming approach where operations execute sequentially, with each operation waiting for the previous one to complete before starting. Synchronous code is easier to understand but can block execution.",
+    relatedTerms: ["asynchronous", "blocking", "sequential", "execution"]
+  },
+  {
+    id: "compile",
+    title: "Compilation",
+    category: "Software Development",
+    definition: "The process of translating source code from a high-level programming language into machine code or bytecode. Compilation happens before program execution and can catch syntax errors early.",
+    relatedTerms: ["compiler", "build", "executable", "bytecode"]
+  },
+  {
+    id: "type-checking",
+    title: "Type Checking",
+    category: "Programming Concept",
+    definition: "The process of verifying that variables and expressions have compatible types. Type checking can be static (at compile-time) or dynamic (at runtime), helping prevent type-related errors.",
+    relatedTerms: ["typescript", "static-typing", "type-system", "compiler"]
+  },
+  {
+    id: "static-typing",
+    title: "Static Typing",
+    category: "Type System",
+    definition: "A type system where variable types are known at compile-time and cannot change during runtime. Static typing catches type errors early and can improve performance and code documentation.",
+    relatedTerms: ["typescript", "type-checking", "dynamic-typing", "compiler"]
+  },
+  {
+    id: "compiled",
+    title: "Compiled Language",
+    category: "Programming Language",
+    definition: "A programming language where source code is translated to machine code before execution. Compiled languages like C, C++, and Rust typically offer better performance than interpreted languages.",
+    relatedTerms: ["compiler", "c", "cpp", "machine-code", "interpreted"]
+  },
+  {
+    id: "event-driven",
+    title: "Event-Driven Programming",
+    category: "Programming Paradigm",
+    definition: "A programming paradigm where program flow is determined by events such as user actions, sensor outputs, or messages. Event-driven systems respond to events through handlers or listeners.",
+    relatedTerms: ["callback", "event-handler", "asynchronous", "nodejs"]
+  },
+  {
+    id: "garbage-collection",
+    title: "Garbage Collection",
+    category: "Memory Management",
+    definition: "An automatic memory management process that reclaims memory occupied by objects no longer in use. Garbage collection prevents memory leaks and is used in Java, JavaScript, Python, and other languages.",
+    relatedTerms: ["memory", "jvm", "automatic", "heap"]
+  },
+  {
+    id: "platform-independent",
+    title: "Platform Independence",
+    category: "Software Property",
+    definition: "The ability of software to run on different operating systems and hardware platforms without modification. Java's 'write once, run anywhere' philosophy exemplifies platform independence through the JVM.",
+    relatedTerms: ["jvm", "portability", "cross-platform", "java"]
   }
 ];
