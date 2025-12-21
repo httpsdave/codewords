@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -9,6 +9,7 @@ interface SearchBarProps {
 export default function SearchBar({ onSearch }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setIsSearching(true);
@@ -20,6 +21,25 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     return () => clearTimeout(timer);
   }, [query, onSearch]);
 
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Press '/' to focus search
+      if (e.key === '/' && document.activeElement !== inputRef.current) {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+      // Press 'Escape' to clear search
+      if (e.key === 'Escape' && document.activeElement === inputRef.current) {
+        handleSearch('');
+        inputRef.current?.blur();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const handleSearch = (value: string) => {
     setQuery(value);
   };
@@ -28,8 +48,9 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     <div className="w-full max-w-2xl mx-auto mb-8">
       <div className="relative">
         <input
+          ref={inputRef}
           type="text"
-          placeholder="Search terms... (e.g., Java, OOP, recursion)"
+          placeholder="Search terms... (Press '/' to focus)"
           value={query}
           onChange={(e) => handleSearch(e.target.value)}
           className="w-full px-4 py-3 sm:px-6 sm:py-4 text-base sm:text-lg rounded-lg border-2 border-gray-300 dark:border-gray-600 

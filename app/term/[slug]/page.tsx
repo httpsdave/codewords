@@ -51,7 +51,23 @@ export default async function TermPage({ params }: TermPageProps) {
     notFound();
   }
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    name: term.title,
+    description: term.definition,
+    inDefinedTermSet: {
+      '@type': 'DefinedTermSet',
+      name: 'CodeWords CS & IT Dictionary',
+    },
+  };
+
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900">
       <main className="max-w-4xl mx-auto">
         {/* Breadcrumbs */}
@@ -145,5 +161,6 @@ export default async function TermPage({ params }: TermPageProps) {
         </div>
       </main>
     </div>
+    </>
   );
 }
