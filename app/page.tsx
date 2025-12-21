@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import SearchBar from '@/components/SearchBar';
 import TermCard from '@/components/TermCard';
 import TermCardSkeleton from '@/components/TermCardSkeleton';
@@ -10,9 +11,12 @@ import BackToTop from '@/components/BackToTop';
 import { terms } from '@/data/terms';
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedLetter, setSelectedLetter] = useState('all');
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'all');
+  const [selectedLetter, setSelectedLetter] = useState(searchParams.get('letter') || 'all');
   const [isLoading, setIsLoading] = useState(true);
   const [focusedIndex, setFocusedIndex] = useState(0);
 
@@ -94,6 +98,18 @@ export default function Home() {
     setFocusedIndex(0);
   }, [searchQuery, selectedCategory, selectedLetter]);
 
+  // Sync URL with search params
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (searchQuery) params.set('q', searchQuery);
+    if (selectedCategory !== 'all') params.set('category', selectedCategory);
+    if (selectedLetter !== 'all') params.set('letter', selectedLetter);
+    
+    const queryString = params.toString();
+    const newUrl = queryString ? `${pathname}?${queryString}` : pathname;
+    router.replace(newUrl, { scroll: false });
+  }, [searchQuery, selectedCategory, selectedLetter, pathname, router]);
+
   const handleClearFilters = useCallback(() => {
     setSearchQuery('');
     setSelectedCategory('all');
@@ -102,7 +118,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900">
-      <main className="max-w-5xl mx-auto" role="main">
+      <main className="max-w-5xl mx-auto" role="main" id="main-content">
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 
                        bg-clip-text text-transparent">

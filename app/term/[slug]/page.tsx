@@ -30,15 +30,21 @@ export async function generateMetadata({ params }: TermPageProps): Promise<Metad
   return {
     title: `${term.title} - CodeWords Dictionary`,
     description: term.definition.substring(0, 160),
+    alternates: {
+      canonical: `https://codewords.vercel.app/term/${slug}`,
+    },
     openGraph: {
       title: `${term.title} - CodeWords Dictionary`,
       description: term.definition.substring(0, 160),
       type: 'article',
+      url: `https://codewords.vercel.app/term/${slug}`,
+      images: ['/og-image.png'],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${term.title} - CodeWords Dictionary`,
       description: term.definition.substring(0, 160),
+      images: ['/og-image.png'],
     },
   };
 }
@@ -69,7 +75,7 @@ export default async function TermPage({ params }: TermPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900">
-      <main className="max-w-4xl mx-auto">
+      <main className="max-w-4xl mx-auto" id="main-content">
         {/* Breadcrumbs */}
         <nav className="mb-6 text-sm">
           <ol className="flex items-center space-x-2 text-gray-600 dark:text-gray-400">
