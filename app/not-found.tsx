@@ -11,7 +11,7 @@ export default function NotFound() {
           Term Not Found
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-md mx-auto">
-          The term you're looking for doesn't exist in our dictionary yet. 
+          The term you&apos;re looking for doesn&apos;t exist in our dictionary yet. 
           Try searching for something else!
         </p>
         <Link
