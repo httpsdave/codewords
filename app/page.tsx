@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import SearchBar from '@/components/SearchBar';
 import TermCard from '@/components/TermCard';
@@ -8,17 +8,21 @@ import TermCardSkeleton from '@/components/TermCardSkeleton';
 import CategoryFilter from '@/components/CategoryFilter';
 import AlphabetNav from '@/components/AlphabetNav';
 import BackToTop from '@/components/BackToTop';
+import KeyboardShortcutsModal from '@/components/KeyboardShortcutsModal';
+import { trackEvent } from '@/lib/analytics';
 import { terms } from '@/data/terms';
 
 export default function Home() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+  const mainRef = useRef<HTMLElement>(null);
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'all');
   const [selectedLetter, setSelectedLetter] = useState(searchParams.get('letter') || 'all');
   const [isLoading, setIsLoading] = useState(true);
   const [focusedIndex, setFocusedIndex] = useState(0);
+  const [showShortcuts, setShowShortcuts] = useState(false);
 
   // Simulate initial load
   useEffect(() => {
@@ -75,6 +79,13 @@ export default function Home() {
   // Keyboard navigation for results
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Show keyboard shortcuts modal
+      if (e.key === '?' && !showShortcuts) {
+        e.preventDefault();
+        setShowShortcuts(true);
+        return;
+      }
+
       if (e.key === 'ArrowDown') {
         e.preventDefault();
         setFocusedIndex(prev => Math.min(prev + 1, filteredTerms.length - 1));
@@ -84,6 +95,7 @@ export default function Home() {
       } else if (e.key === 'Enter' && focusedIndex >= 0) {
         const term = filteredTerms[focusedIndex];
         if (term) {
+          trackEvent('term_opened', { term: term.id, method: 'keyboard' });
           window.location.href = `/term/${term.id}`;
         }
       }
@@ -91,24 +103,43 @@ export default function Home() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [focusedIndex, filteredTerms]);
+  }, [focusedIndex, filteredTerms, showShortcuts]);
 
   // Reset focused index when results change
   useEffect(() => {
     setFocusedIndex(0);
+    // Focus main content after filter change
+    if (mainRef.current && (selectedCategory !== 'all' || selectedLetter !== 'all')) {
+      mainRef.current.focus();
+    }
   }, [searchQuery, selectedCategory, selectedLetter]);
 
   // Sync URL with search params
   useEffect(() => {
     const params = new URLSearchParams();
-    if (searchQuery) params.set('q', searchQuery);
-    if (selectedCategory !== 'all') params.set('category', selectedCategory);
-    if (selectedLetter !== 'all') params.set('letter', selectedLetter);
+    if (searchQuery) {
+      params.set('q', searchQuery);
+      trackEvent('search', { query: searchQuery, results: filteredTerms.length });
+    }
+    if (selectedCategory !== 'all') {
+      params.set('category', selectedCategory);
+      trackEvent('filter_category', { category: selectedCategory });
+    }
+    if (selectedLetter !== 'all') {
+      params.set('letter', selectedLetter);
+      trackEvent('filter_letter', { letter: selectedLetter });
+    }
     
     const queryString = params.toString();
     const newUrl = queryString ? `${pathname}?${queryString}` : pathname;
-    router.replace(newUrl, { scroll: false });
-  }, [searchQuery, selectedCategory, selectedLetter, pathname, router]);
+    
+    // Debounce URL updates slightly to avoid too many history entries
+    const timer = setTimeout(() => {
+      router.replace(newUrl, { scroll: false });
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery, selectedCategory, selectedLetter, pathname, router, filteredTerms.length]);
 
   const handleClearFilters = useCallback(() => {
     setSearchQuery('');
@@ -118,7 +149,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900">
-      <main className="max-w-5xl mx-auto" role="main" id="main-content">
+      <main className="max-w-5xl mx-auto" role="main" id="main-content" ref={mainRef} tabIndex={-1}>
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 
                        bg-clip-text text-transparent">
@@ -128,7 +159,14 @@ export default function Home() {
             Your comprehensive dictionary for computer science and IT terminology
           </p>
           <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-            {terms.length} terms available
+            {terms.length} terms available • Press{' '}
+            <button
+              onClick={() => setShowShortcuts(true)}
+              className="text-blue-600 dark:text-blue-400 hover:underline font-mono"
+            >
+              ?
+            </button>
+            {' '}for shortcuts
           </p>
         </div>
         
@@ -201,6 +239,7 @@ export default function Home() {
         )}
       </main>
       <BackToTop />
+      <KeyboardShortcutsModal isOpen={showShortcuts} onClose={() => setShowShortcuts(false)} />
     </div>
   );
 }
