@@ -2708,34 +2708,6 @@ export const terms: Term[] = [
     relatedTerms: ["network", "bandwidth", "performance", "ping"]
   },
   {
-    id: "packet",
-    title: "Packet",
-    category: "Networking",
-    definition: "A formatted unit of data transmitted over a network. Each packet contains both the data payload and control information (headers) such as source/destination addresses, enabling efficient and reliable data transmission.",
-    relatedTerms: ["network", "protocol", "tcp-ip", "routing"]
-  },
-  {
-    id: "dns",
-    title: "DNS (Domain Name System)",
-    category: "Networking",
-    definition: "A hierarchical naming system that translates human-readable domain names (like google.com) into IP addresses that computers use to identify each other on networks. DNS is often called the 'phonebook of the internet'.",
-    relatedTerms: ["domain", "ip-address", "url", "internet"]
-  },
-  {
-    id: "url",
-    title: "URL (Uniform Resource Locator)",
-    category: "Web Technology",
-    definition: "The address used to access resources on the internet, specifying the protocol (http/https), domain name, and path. Example: https://www.example.com/page.html",
-    relatedTerms: ["http", "domain", "web", "uri"]
-  },
-  {
-    id: "ip-address",
-    title: "IP Address",
-    category: "Networking",
-    definition: "A unique numerical label assigned to each device connected to a network that uses the Internet Protocol for communication. IP addresses can be IPv4 (e.g., 192.168.1.1) or IPv6 format.",
-    relatedTerms: ["network", "dns", "router", "tcp-ip"]
-  },
-  {
     id: "lan",
     title: "LAN (Local Area Network)",
     category: "Networking",
@@ -2797,5 +2769,590 @@ export const terms: Term[] = [
     category: "Emerging Technology",
     definition: "A type of computation that uses quantum-mechanical phenomena like superposition and entanglement to perform operations on data. Quantum computers can potentially solve certain problems exponentially faster than classical computers.",
     relatedTerms: ["qubit", "algorithm", "computing", "cryptography"]
+  },
+  {
+    id: "if-statement",
+    title: "If Statement",
+    category: "Control Flow",
+    definition: "A conditional statement that executes a block of code only if a specified condition is true. The basic building block for decision-making in programming.",
+    example: "if (age >= 18) {\n  console.log('Adult');\n}",
+    relatedTerms: ["if-else", "conditional", "boolean", "control-flow"]
+  },
+  {
+    id: "else-statement",
+    title: "Else Statement",
+    category: "Control Flow",
+    definition: "Part of a conditional statement that executes when the if condition is false. Used to provide an alternative code path.",
+    example: "if (x > 0) {\n  console.log('Positive');\n} else {\n  console.log('Not positive');\n}",
+    relatedTerms: ["if-statement", "if-else", "conditional"]
+  },
+  {
+    id: "else-if",
+    title: "Else If Statement",
+    category: "Control Flow",
+    definition: "A conditional statement that checks multiple conditions in sequence. Only executes if previous conditions are false and its own condition is true.",
+    example: "if (score >= 90) {\n  grade = 'A';\n} else if (score >= 80) {\n  grade = 'B';\n} else {\n  grade = 'C';\n}",
+    relatedTerms: ["if-statement", "else-statement", "conditional"]
+  },
+  {
+    id: "do-while",
+    title: "Do-While Loop",
+    category: "Control Flow",
+    definition: "A loop that executes its code block at least once before checking the condition. The loop continues as long as the condition remains true.",
+    example: "let i = 0;\ndo {\n  console.log(i);\n  i++;\n} while (i < 5);",
+    relatedTerms: ["while-loop", "loop", "for-loop", "iteration"]
+  },
+  {
+    id: "nested-loop",
+    title: "Nested Loop",
+    category: "Control Flow",
+    definition: "A loop placed inside another loop. The inner loop completes all its iterations for each iteration of the outer loop, often used for multi-dimensional data processing.",
+    example: "for (let i = 0; i < 3; i++) {\n  for (let j = 0; j < 3; j++) {\n    console.log(i, j);\n  }\n}",
+    relatedTerms: ["loop", "for-loop", "iteration", "complexity"]
+  },
+  {
+    id: "break",
+    title: "Break Statement",
+    category: "Control Flow",
+    definition: "A statement that immediately exits a loop or switch statement, skipping any remaining iterations or cases. Used to terminate loops early when a condition is met.",
+    example: "for (let i = 0; i < 10; i++) {\n  if (i === 5) break;\n  console.log(i);\n}",
+    relatedTerms: ["continue", "loop", "switch", "control-flow"]
+  },
+  {
+    id: "continue",
+    title: "Continue Statement",
+    category: "Control Flow",
+    definition: "A statement that skips the rest of the current loop iteration and continues with the next iteration. Unlike break, it doesn't exit the loop entirely.",
+    example: "for (let i = 0; i < 5; i++) {\n  if (i === 2) continue;\n  console.log(i); // Skips 2\n}",
+    relatedTerms: ["break", "loop", "iteration", "control-flow"]
+  },
+  {
+    id: "char",
+    title: "Character (Char)",
+    category: "Data Type",
+    definition: "A data type that represents a single character such as a letter, digit, or symbol. In many languages, characters are enclosed in single quotes.",
+    example: "char letter = 'A';\nchar digit = '5';",
+    relatedTerms: ["string", "data-type", "ascii", "unicode"]
+  },
+  {
+    id: "double",
+    title: "Double",
+    category: "Data Type",
+    definition: "A floating-point data type with double precision (typically 64 bits) that can store larger and more precise decimal numbers than float. Commonly used for scientific calculations.",
+    relatedTerms: ["float", "decimal", "data-type", "precision"]
+  },
+  {
+    id: "long",
+    title: "Long",
+    category: "Data Type",
+    definition: "An integer data type with extended range (typically 64 bits) that can store larger whole numbers than standard integers. Used when working with very large numeric values.",
+    relatedTerms: ["integer", "data-type", "short", "byte"]
+  },
+  {
+    id: "short",
+    title: "Short",
+    category: "Data Type",
+    definition: "An integer data type with smaller range (typically 16 bits) that uses less memory than standard integers. Used for memory optimization when values are known to be small.",
+    relatedTerms: ["integer", "long", "data-type", "byte"]
+  },
+  {
+    id: "undefined",
+    title: "Undefined",
+    category: "Data Type",
+    definition: "A primitive value automatically assigned to variables that have been declared but not initialized. In JavaScript, it represents the absence of a defined value.",
+    example: "let x;\nconsole.log(x); // undefined",
+    relatedTerms: ["null", "data-type", "variable", "initialization"]
+  },
+  {
+    id: "nan",
+    title: "NaN (Not a Number)",
+    category: "Data Type",
+    definition: "A special numeric value representing an undefined or unrepresentable mathematical result. Often occurs from invalid mathematical operations.",
+    example: "let result = 0 / 0; // NaN\nlet invalid = parseInt('hello'); // NaN",
+    relatedTerms: ["number", "data-type", "error", "math"]
+  },
+  {
+    id: "infinity",
+    title: "Infinity",
+    category: "Data Type",
+    definition: "A numeric value representing mathematical infinity. Can be positive (Infinity) or negative (-Infinity) and results from operations like division by zero.",
+    example: "let x = 1 / 0; // Infinity\nlet y = -1 / 0; // -Infinity",
+    relatedTerms: ["number", "data-type", "math", "nan"]
+  },
+  {
+    id: "length",
+    title: "Length Property",
+    category: "Property",
+    definition: "A property that returns the number of elements in an array or characters in a string. Commonly used to iterate through collections or validate data.",
+    example: "let arr = [1, 2, 3];\nconsole.log(arr.length); // 3\nlet str = 'hello';\nconsole.log(str.length); // 5",
+    relatedTerms: ["array", "string", "property", "index"]
+  },
+  {
+    id: "concat",
+    title: "Concatenation",
+    category: "String Operation",
+    definition: "The operation of joining two or more strings together to create a new string. Can be done using the + operator or concat() method.",
+    example: "let greeting = 'Hello' + ' ' + 'World';\nlet full = 'Hello '.concat('World');",
+    relatedTerms: ["string", "operator", "method", "append"]
+  },
+  {
+    id: "substring",
+    title: "Substring",
+    category: "String Operation",
+    definition: "A portion of a string extracted from a larger string, typically using starting and ending indices. Used to isolate specific parts of text data.",
+    example: "let str = 'Hello World';\nlet sub = str.substring(0, 5); // 'Hello'",
+    relatedTerms: ["string", "slice", "index", "extract"]
+  },
+  {
+    id: "split",
+    title: "Split Method",
+    category: "String Operation",
+    definition: "A string method that divides a string into an array of substrings based on a specified delimiter or separator.",
+    example: "let str = 'apple,banana,orange';\nlet arr = str.split(','); // ['apple', 'banana', 'orange']",
+    relatedTerms: ["string", "array", "method", "delimiter"]
+  },
+  {
+    id: "join",
+    title: "Join Method",
+    category: "Array Method",
+    definition: "An array method that combines all elements into a single string, separated by a specified delimiter. The opposite of split.",
+    example: "let arr = ['apple', 'banana', 'orange'];\nlet str = arr.join(', '); // 'apple, banana, orange'",
+    relatedTerms: ["array", "string", "method", "split"]
+  },
+  {
+    id: "push",
+    title: "Push Method",
+    category: "Array Method",
+    definition: "An array method that adds one or more elements to the end of an array and returns the new length. Modifies the original array.",
+    example: "let arr = [1, 2, 3];\narr.push(4); // [1, 2, 3, 4]",
+    relatedTerms: ["array", "pop", "method", "stack"]
+  },
+  {
+    id: "pop",
+    title: "Pop Method",
+    category: "Array Method",
+    definition: "An array method that removes and returns the last element from an array. Modifies the original array and is commonly used with stack data structures.",
+    example: "let arr = [1, 2, 3];\nlet last = arr.pop(); // last = 3, arr = [1, 2]",
+    relatedTerms: ["array", "push", "method", "stack"]
+  },
+  {
+    id: "shift",
+    title: "Shift Method",
+    category: "Array Method",
+    definition: "An array method that removes and returns the first element from an array, shifting all other elements down by one index.",
+    example: "let arr = [1, 2, 3];\nlet first = arr.shift(); // first = 1, arr = [2, 3]",
+    relatedTerms: ["array", "unshift", "method", "queue"]
+  },
+  {
+    id: "unshift",
+    title: "Unshift Method",
+    category: "Array Method",
+    definition: "An array method that adds one or more elements to the beginning of an array and returns the new length.",
+    example: "let arr = [2, 3];\narr.unshift(1); // [1, 2, 3]",
+    relatedTerms: ["array", "shift", "method", "queue"]
+  },
+  {
+    id: "slice",
+    title: "Slice Method",
+    category: "Array Method",
+    definition: "A method that returns a shallow copy of a portion of an array or string without modifying the original. Accepts start and end indices.",
+    example: "let arr = [1, 2, 3, 4, 5];\nlet subset = arr.slice(1, 4); // [2, 3, 4]",
+    relatedTerms: ["array", "substring", "method", "extract"]
+  },
+  {
+    id: "splice",
+    title: "Splice Method",
+    category: "Array Method",
+    definition: "An array method that changes the contents by removing, replacing, or adding elements. Unlike slice, it modifies the original array.",
+    example: "let arr = [1, 2, 3, 4];\narr.splice(1, 2, 'a', 'b'); // [1, 'a', 'b', 4]",
+    relatedTerms: ["array", "slice", "method", "mutation"]
+  },
+  {
+    id: "filter",
+    title: "Filter Method",
+    category: "Array Method",
+    definition: "An array method that creates a new array with all elements that pass a test implemented by a provided function. Does not modify the original array.",
+    example: "let arr = [1, 2, 3, 4, 5];\nlet evens = arr.filter(n => n % 2 === 0); // [2, 4]",
+    relatedTerms: ["array", "map", "reduce", "callback"]
+  },
+  {
+    id: "reduce",
+    title: "Reduce Method",
+    category: "Array Method",
+    definition: "An array method that executes a reducer function on each element, resulting in a single output value. Used for aggregating array values.",
+    example: "let arr = [1, 2, 3, 4];\nlet sum = arr.reduce((acc, val) => acc + val, 0); // 10",
+    relatedTerms: ["array", "map", "filter", "accumulator"]
+  },
+  {
+    id: "foreach",
+    title: "ForEach Method",
+    category: "Array Method",
+    definition: "An array method that executes a provided function once for each array element. Unlike map, it doesn't return a new array.",
+    example: "let arr = [1, 2, 3];\narr.forEach(n => console.log(n));",
+    relatedTerms: ["array", "map", "loop", "iteration"]
+  },
+  {
+    id: "find",
+    title: "Find Method",
+    category: "Array Method",
+    definition: "An array method that returns the first element that satisfies a provided testing function. Returns undefined if no element is found.",
+    example: "let arr = [5, 12, 8, 130];\nlet found = arr.find(n => n > 10); // 12",
+    relatedTerms: ["array", "filter", "method", "search"]
+  },
+  {
+    id: "indexof",
+    title: "IndexOf Method",
+    category: "Array Method",
+    definition: "A method that returns the first index at which a given element is found in an array or string. Returns -1 if not found.",
+    example: "let arr = ['a', 'b', 'c'];\nlet idx = arr.indexOf('b'); // 1",
+    relatedTerms: ["array", "string", "index", "search"]
+  },
+  {
+    id: "includes",
+    title: "Includes Method",
+    category: "Array Method",
+    definition: "A method that determines whether an array or string contains a specified element or substring, returning true or false.",
+    example: "let arr = [1, 2, 3];\narr.includes(2); // true\n'hello'.includes('ell'); // true",
+    relatedTerms: ["array", "string", "boolean", "search"]
+  },
+  {
+    id: "sort",
+    title: "Sort Method",
+    category: "Array Method",
+    definition: "An array method that sorts elements in place and returns the sorted array. Default sort is alphabetical; custom comparison functions can be provided.",
+    example: "let arr = [3, 1, 4, 2];\narr.sort(); // [1, 2, 3, 4]\nlet nums = [10, 5, 40];\nnums.sort((a, b) => a - b);",
+    relatedTerms: ["array", "comparison", "algorithm", "method"]
+  },
+  {
+    id: "reverse",
+    title: "Reverse Method",
+    category: "Array Method",
+    definition: "An array method that reverses the order of elements in place, modifying the original array. The first element becomes the last and vice versa.",
+    example: "let arr = [1, 2, 3];\narr.reverse(); // [3, 2, 1]",
+    relatedTerms: ["array", "method", "mutation", "order"]
+  },
+  {
+    id: "toupper",
+    title: "toUpperCase Method",
+    category: "String Method",
+    definition: "A string method that converts all characters in a string to uppercase and returns the new string without modifying the original.",
+    example: "let str = 'hello';\nlet upper = str.toUpperCase(); // 'HELLO'",
+    relatedTerms: ["string", "tolower", "method", "case"]
+  },
+  {
+    id: "tolower",
+    title: "toLowerCase Method",
+    category: "String Method",
+    definition: "A string method that converts all characters in a string to lowercase and returns the new string without modifying the original.",
+    example: "let str = 'WORLD';\nlet lower = str.toLowerCase(); // 'world'",
+    relatedTerms: ["string", "toupper", "method", "case"]
+  },
+  {
+    id: "trim",
+    title: "Trim Method",
+    category: "String Method",
+    definition: "A string method that removes whitespace from both ends of a string and returns the trimmed string. Commonly used to clean user input.",
+    example: "let str = '  hello  ';\nlet clean = str.trim(); // 'hello'",
+    relatedTerms: ["string", "whitespace", "method", "sanitize"]
+  },
+  {
+    id: "replace",
+    title: "Replace Method",
+    category: "String Method",
+    definition: "A string method that returns a new string with one, some, or all matches of a pattern replaced by a replacement. Can use strings or regular expressions.",
+    example: "let str = 'Hello World';\nlet newStr = str.replace('World', 'JavaScript'); // 'Hello JavaScript'",
+    relatedTerms: ["string", "regex", "method", "substitution"]
+  },
+  {
+    id: "charat",
+    title: "charAt Method",
+    category: "String Method",
+    definition: "A string method that returns the character at a specified index. Returns an empty string if the index is out of range.",
+    example: "let str = 'Hello';\nlet char = str.charAt(1); // 'e'",
+    relatedTerms: ["string", "index", "method", "character"]
+  },
+  {
+    id: "parseint",
+    title: "parseInt Function",
+    category: "Type Conversion",
+    definition: "A function that parses a string argument and returns an integer. Can specify a radix (base) for number systems like binary, octal, or hexadecimal.",
+    example: "let num = parseInt('42'); // 42\nlet hex = parseInt('FF', 16); // 255",
+    relatedTerms: ["parsing", "type-conversion", "string", "integer"]
+  },
+  {
+    id: "parsefloat",
+    title: "parseFloat Function",
+    category: "Type Conversion",
+    definition: "A function that parses a string argument and returns a floating-point number. Stops parsing at the first non-numeric character.",
+    example: "let num = parseFloat('3.14'); // 3.14\nlet val = parseFloat('3.14abc'); // 3.14",
+    relatedTerms: ["parsing", "type-conversion", "string", "float"]
+  },
+  {
+    id: "tostring",
+    title: "toString Method",
+    category: "Type Conversion",
+    definition: "A method that returns a string representation of an object or primitive value. All JavaScript objects inherit this method.",
+    example: "let num = 42;\nlet str = num.toString(); // '42'\nlet arr = [1, 2, 3];\nlet arrStr = arr.toString(); // '1,2,3'",
+    relatedTerms: ["string", "type-conversion", "method", "serialization"]
+  },
+  {
+    id: "casting",
+    title: "Type Casting",
+    category: "Type Conversion",
+    definition: "The explicit conversion of a value from one data type to another. Common in statically-typed languages to ensure type compatibility.",
+    example: "// Java example\nint num = (int) 3.14; // 3\nString str = String.valueOf(42);",
+    relatedTerms: ["type-conversion", "data-type", "coercion"]
+  },
+  {
+    id: "increment",
+    title: "Increment Operator",
+    category: "Operator",
+    definition: "An operator (++) that increases a numeric value by one. Can be prefix (++x) which increments before use, or postfix (x++) which increments after use.",
+    example: "let x = 5;\nx++; // x is now 6\nlet y = ++x; // y = 7, x = 7",
+    relatedTerms: ["decrement", "operator", "arithmetic", "assignment"]
+  },
+  {
+    id: "decrement",
+    title: "Decrement Operator",
+    category: "Operator",
+    definition: "An operator (--) that decreases a numeric value by one. Like increment, can be prefix (--x) or postfix (x--).",
+    example: "let x = 5;\nx--; // x is now 4\nlet y = --x; // y = 3, x = 3",
+    relatedTerms: ["increment", "operator", "arithmetic", "assignment"]
+  },
+  {
+    id: "logical",
+    title: "Logical Operator",
+    category: "Operator",
+    definition: "Operators used to combine or invert boolean values. Include AND (&&), OR (||), and NOT (!). Used extensively in conditional statements.",
+    example: "true && false // false\ntrue || false // true\n!true // false",
+    relatedTerms: ["boolean", "operator", "conditional", "and-or"]
+  },
+  {
+    id: "assignment",
+    title: "Assignment Operator",
+    category: "Operator",
+    definition: "Operators that assign values to variables. Include = (simple), +=, -=, *=, /= (compound assignment that combines operation with assignment).",
+    example: "let x = 10;\nx += 5; // x = 15 (same as x = x + 5)\nx *= 2; // x = 30",
+    relatedTerms: ["operator", "variable", "compound", "equals"]
+  },
+  {
+    id: "bitwise",
+    title: "Bitwise Operator",
+    category: "Operator",
+    definition: "Operators that perform operations on binary representations of numbers at the bit level. Include AND (&), OR (|), XOR (^), NOT (~), and shift operators (<<, >>).",
+    example: "5 & 3 // 1 (binary: 101 & 011 = 001)\n5 | 3 // 7 (binary: 101 | 011 = 111)\n5 << 1 // 10 (shift left)",
+    relatedTerms: ["operator", "binary", "bit", "manipulation"]
+  },
+  {
+    id: "typeof",
+    title: "typeof Operator",
+    category: "Operator",
+    definition: "An operator that returns a string indicating the type of a variable or expression. Useful for type checking and validation.",
+    example: "typeof 42 // 'number'\ntypeof 'hello' // 'string'\ntypeof true // 'boolean'\ntypeof undefined // 'undefined'",
+    relatedTerms: ["operator", "data-type", "type-checking", "instanceof"]
+  },
+  {
+    id: "instanceof",
+    title: "instanceof Operator",
+    category: "Operator",
+    definition: "An operator that tests whether an object is an instance of a specific class or constructor function. Returns a boolean value.",
+    example: "let arr = [];\narr instanceof Array // true\narr instanceof Object // true",
+    relatedTerms: ["operator", "object", "class", "typeof"]
+  },
+  {
+    id: "spread",
+    title: "Spread Operator",
+    category: "Operator",
+    definition: "An operator (...) that expands an iterable (like an array or object) into individual elements. Used for copying, merging, and passing arguments.",
+    example: "let arr1 = [1, 2];\nlet arr2 = [...arr1, 3, 4]; // [1, 2, 3, 4]\nlet obj = { ...user, age: 25 };",
+    relatedTerms: ["operator", "array", "object", "rest"]
+  },
+  {
+    id: "default-parameter",
+    title: "Default Parameter",
+    category: "Function",
+    definition: "A function parameter that has a default value if no argument is provided or if undefined is passed.",
+    example: "function greet(name = 'Guest') {\n  console.log('Hello ' + name);\n}\ngreet(); // 'Hello Guest'",
+    relatedTerms: ["parameter", "function", "argument", "optional"]
+  },
+  {
+    id: "higher-order",
+    title: "Higher-Order Function",
+    category: "Function",
+    definition: "A function that takes one or more functions as arguments or returns a function. Examples include map, filter, and reduce.",
+    example: "function multiplier(factor) {\n  return num => num * factor;\n}\nlet double = multiplier(2);\ndouble(5); // 10",
+    relatedTerms: ["function", "callback", "functional-programming", "closure"]
+  },
+  {
+    id: "anonymous",
+    title: "Anonymous Function",
+    category: "Function",
+    definition: "A function without a name, often used as a callback or assigned to a variable. Can be defined using function expressions or arrow functions.",
+    example: "let add = function(a, b) { return a + b; };\nsetTimeout(function() { console.log('Done'); }, 1000);",
+    relatedTerms: ["function", "callback", "arrow-function", "expression"]
+  },
+  {
+    id: "iife",
+    title: "IIFE (Immediately Invoked Function Expression)",
+    category: "Function",
+    definition: "A function that is defined and executed immediately. Used to create a private scope and avoid polluting the global namespace.",
+    example: "(function() {\n  let private = 'data';\n  console.log('Executed');\n})();",
+    relatedTerms: ["function", "scope", "closure", "encapsulation"]
+  },
+  {
+    id: "global-scope",
+    title: "Global Scope",
+    category: "Scope",
+    definition: "The outermost scope in a program where variables are accessible from anywhere in the code. Global variables should be used sparingly to avoid naming conflicts.",
+    relatedTerms: ["scope", "local-scope", "variable", "namespace"]
+  },
+  {
+    id: "local-scope",
+    title: "Local Scope",
+    category: "Scope",
+    definition: "A scope limited to a specific block, function, or context where variables are only accessible within that region. Helps prevent variable name conflicts.",
+    relatedTerms: ["scope", "global-scope", "block-scope", "variable"]
+  },
+  {
+    id: "block-scope",
+    title: "Block Scope",
+    category: "Scope",
+    definition: "A scope created by curly braces {} where variables declared with let or const are only accessible within that block.",
+    example: "if (true) {\n  let x = 10; // block-scoped\n}\n// x is not accessible here",
+    relatedTerms: ["scope", "let", "const", "local-scope"]
+  },
+  {
+    id: "let",
+    title: "let Keyword",
+    category: "Variable Declaration",
+    definition: "A keyword used to declare block-scoped variables that can be reassigned. Introduced in ES6 as an improvement over var.",
+    example: "let count = 0;\ncount = 1; // allowed\nif (true) {\n  let temp = 5; // block-scoped\n}",
+    relatedTerms: ["const", "var", "variable", "block-scope"]
+  },
+  {
+    id: "const",
+    title: "const Keyword",
+    category: "Variable Declaration",
+    definition: "A keyword used to declare block-scoped variables that cannot be reassigned. The variable identifier is constant, though object properties can still be modified.",
+    example: "const PI = 3.14;\nconst user = { name: 'Alice' };\nuser.name = 'Bob'; // allowed\n// user = {}; // error",
+    relatedTerms: ["let", "constant", "variable", "immutable"]
+  },
+  {
+    id: "var",
+    title: "var Keyword",
+    category: "Variable Declaration",
+    definition: "A legacy keyword for declaring function-scoped or globally-scoped variables. Has hoisting behavior and lacks block scope, making it less predictable than let and const.",
+    example: "var x = 10;\nif (true) {\n  var y = 20; // function-scoped, not block-scoped\n}",
+    relatedTerms: ["let", "const", "variable", "hoisting"]
+  },
+  {
+    id: "destructuring",
+    title: "Destructuring",
+    category: "Syntax",
+    definition: "A syntax that allows unpacking values from arrays or properties from objects into distinct variables. Provides a concise way to extract data.",
+    example: "let [a, b] = [1, 2]; // array destructuring\nlet {name, age} = {name: 'Alice', age: 25}; // object destructuring",
+    relatedTerms: ["array", "object", "assignment", "syntax"]
+  },
+  {
+    id: "template-literal",
+    title: "Template Literal",
+    category: "String",
+    definition: "String literals enclosed in backticks (`) that allow embedded expressions, multi-line strings, and string interpolation using ${}.",
+    example: "let name = 'World';\nlet greeting = `Hello ${name}!`;\nlet multi = `Line 1\nLine 2`;",
+    relatedTerms: ["string", "interpolation", "backtick", "expression"]
+  },
+  {
+    id: "keyword",
+    title: "Keyword",
+    category: "Syntax",
+    definition: "Reserved words in a programming language that have special meaning and cannot be used as identifiers. Examples include if, for, class, function, return.",
+    relatedTerms: ["syntax", "reserved", "identifier", "language"]
+  },
+  {
+    id: "delimiter",
+    title: "Delimiter",
+    category: "Syntax",
+    definition: "A character or sequence of characters used to separate or mark the boundaries of data. Common delimiters include commas, semicolons, spaces, and newlines.",
+    example: "// Comma delimiter in CSV\nlet csv = 'name,age,city';\nlet parts = csv.split(',');",
+    relatedTerms: ["separator", "parsing", "string", "syntax"]
+  },
+  {
+    id: "whitespace",
+    title: "Whitespace",
+    category: "Syntax",
+    definition: "Characters that represent horizontal or vertical space in code, including spaces, tabs, and newlines. Most programming languages ignore extra whitespace except in strings.",
+    relatedTerms: ["syntax", "formatting", "indentation", "character"]
+  },
+  {
+    id: "camelcase",
+    title: "camelCase",
+    category: "Naming Convention",
+    definition: "A naming convention where compound words are written without spaces, with each word except the first capitalized. Commonly used for variable and function names.",
+    example: "let firstName = 'John';\nfunction getUserData() { }",
+    relatedTerms: ["naming", "convention", "pascalcase", "identifier"]
+  },
+  {
+    id: "pascalcase",
+    title: "PascalCase",
+    category: "Naming Convention",
+    definition: "A naming convention similar to camelCase but with the first letter also capitalized. Typically used for class and constructor names.",
+    example: "class UserAccount { }\nfunction CreateUser() { }",
+    relatedTerms: ["naming", "convention", "camelcase", "class"]
+  },
+  {
+    id: "snake-case",
+    title: "snake_case",
+    category: "Naming Convention",
+    definition: "A naming convention where words are separated by underscores and typically lowercase. Common in Python and database column names.",
+    example: "let first_name = 'John';\nfunction get_user_data() { }",
+    relatedTerms: ["naming", "convention", "identifier", "style"]
+  },
+  {
+    id: "kebab-case",
+    title: "kebab-case",
+    category: "Naming Convention",
+    definition: "A naming convention where words are separated by hyphens and typically lowercase. Commonly used in URLs, CSS classes, and file names.",
+    example: "<!-- HTML -->\n<div class=\"user-profile\"></div>\n<!-- CSS -->\n.nav-bar { }",
+    relatedTerms: ["naming", "convention", "css", "url"]
+  },
+  {
+    id: "this",
+    title: "this Keyword",
+    category: "Object-Oriented",
+    definition: "A keyword that refers to the current object context. Its value depends on how a function is called - in methods, it refers to the object; in regular functions, behavior varies by mode.",
+    example: "let obj = {\n  name: 'Alice',\n  greet() {\n    console.log(this.name);\n  }\n};\nobj.greet(); // 'Alice'",
+    relatedTerms: ["object", "context", "method", "binding"]
+  },
+  {
+    id: "new",
+    title: "new Keyword",
+    category: "Object-Oriented",
+    definition: "A keyword used to create an instance of a user-defined object type or built-in object that has a constructor function.",
+    example: "class Person {\n  constructor(name) {\n    this.name = name;\n  }\n}\nlet user = new Person('Alice');",
+    relatedTerms: ["constructor", "object", "class", "instance"]
+  },
+  {
+    id: "static",
+    title: "Static Method/Property",
+    category: "Object-Oriented",
+    definition: "A method or property that belongs to the class itself rather than instances of the class. Called on the class directly, not on instances.",
+    example: "class Math {\n  static PI = 3.14;\n  static square(x) {\n    return x * x;\n  }\n}\nMath.square(5); // 25",
+    relatedTerms: ["class", "method", "property", "instance"]
+  },
+  {
+    id: "getter",
+    title: "Getter",
+    category: "Object-Oriented",
+    definition: "A method that gets the value of a specific property. Allows computed properties that look like regular properties but execute code when accessed.",
+    example: "class Circle {\n  constructor(radius) { this.radius = radius; }\n  get area() { return Math.PI * this.radius ** 2; }\n}",
+    relatedTerms: ["setter", "property", "accessor", "method"]
+  },
+  {
+    id: "setter",
+    title: "Setter",
+    category: "Object-Oriented",
+    definition: "A method that sets the value of a specific property. Allows validation or side effects when a property is assigned.",
+    example: "class User {\n  set age(value) {\n    if (value < 0) throw new Error('Invalid age');\n    this._age = value;\n  }\n}",
+    relatedTerms: ["getter", "property", "accessor", "validation"]
   }
 ];
