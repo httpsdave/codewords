@@ -1,0 +1,31 @@
+{
+  "name": "CodeWords - CS & IT Dictionary",
+  "short_name": "CodeWords",
+  "description": "Your comprehensive dictionary for computer science and IT terminology",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["education", "reference", "utilities"],
+  "lang": "en-US",
+  "dir": "ltr"
+}

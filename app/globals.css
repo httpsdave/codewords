@@ -25,3 +25,63 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Print Styles */
+@media print {
+  /* Hide non-essential elements */
+  .no-print,
+  button,
+  nav,
+  footer,
+  [role="navigation"],
+  aside {
+    display: none !important;
+  }
+
+  /* Optimize for print */
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Ensure content fits */
+  main {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Page breaks */
+  article {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  /* Show links */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  /* Remove shadows and unnecessary styling */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Code blocks */
+  pre, code {
+    border: 1px solid #ccc;
+    page-break-inside: avoid;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+}

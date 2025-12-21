@@ -6,6 +6,12 @@ interface SearchBarProps {
   onSearch: (query: string) => void;
 }
 
+export function highlightText(text: string, query: string): string {
+  if (!query.trim()) return text;
+  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  return text.replace(regex, '<mark class="bg-yellow-200 dark:bg-yellow-600">$1</mark>');
+}
+
 export default function SearchBar({ onSearch }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);

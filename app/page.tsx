@@ -14,6 +14,7 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedLetter, setSelectedLetter] = useState('all');
   const [isLoading, setIsLoading] = useState(true);
+  const [focusedIndex, setFocusedIndex] = useState(0);
 
   // Simulate initial load
   useEffect(() => {
@@ -67,6 +68,32 @@ export default function Home() {
     return filtered;
   }, [searchQuery, selectedCategory, selectedLetter]);
 
+  // Keyboard navigation for results
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setFocusedIndex(prev => Math.min(prev + 1, filteredTerms.length - 1));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setFocusedIndex(prev => Math.max(prev - 1, 0));
+      } else if (e.key === 'Enter' && focusedIndex >= 0) {
+        const term = filteredTerms[focusedIndex];
+        if (term) {
+          window.location.href = `/term/${term.id}`;
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [focusedIndex, filteredTerms]);
+
+  // Reset focused index when results change
+  useEffect(() => {
+    setFocusedIndex(0);
+  }, [searchQuery, selectedCategory, selectedLetter]);
+
   const handleClearFilters = useCallback(() => {
     setSearchQuery('');
     setSelectedCategory('all');
@@ -89,19 +116,21 @@ export default function Home() {
           </p>
         </div>
         
-        <SearchBar onSearch={setSearchQuery} />
+        <div className="no-print">
+          <SearchBar onSearch={setSearchQuery} />
 
-        <CategoryFilter 
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onSelectCategory={setSelectedCategory}
-        />
+          <CategoryFilter 
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onSelectCategory={setSelectedCategory}
+          />
 
-        <AlphabetNav 
-          selectedLetter={selectedLetter}
-          onSelectLetter={setSelectedLetter}
-          availableLetters={availableLetters}
-        />
+          <AlphabetNav 
+            selectedLetter={selectedLetter}
+            onSelectLetter={setSelectedLetter}
+            availableLetters={availableLetters}
+          />
+        </div>
         
         {filteredTerms.length === 0 ? (
           <div className="text-center py-12">
@@ -141,8 +170,14 @@ export default function Home() {
               </div>
             ) : (
               <div className="space-y-6" role="list" aria-label="Dictionary terms">
-                {filteredTerms.map((term) => (
-                  <TermCard key={term.id} term={term} />
+                {filteredTerms.map((term, index) => (
+                  <TermCard 
+                    key={term.id} 
+                    term={term} 
+                    searchQuery={searchQuery}
+                    isFocused={index === focusedIndex}
+                    onFocus={() => setFocusedIndex(index)}
+                  />
                 ))}
               </div>
             )}
