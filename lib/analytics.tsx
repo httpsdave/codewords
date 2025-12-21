@@ -28,9 +28,3 @@ export function trackEvent(name: string, properties?: Record<string, any>) {
     window.va('event', { name, ...properties });
   }
 }
-
-declare global {
-  interface Window {
-    va?: (event: string, data: any) => void;
-  }
-}
