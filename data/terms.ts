@@ -3896,5 +3896,564 @@ export const terms: Term[] = [
     category: "Networking",
     definition: "A logical subdivision of an IP network. Subnetting improves network performance and security by dividing a large network into smaller, manageable segments.",
     relatedTerms: ["network", "ip-address", "routing", "mask"]
+  },
+  {
+    id: "fortran",
+    title: "Fortran",
+    category: "Programming Language",
+    definition: "FORmula TRANslation - one of the oldest high-level programming languages, created in the 1950s for scientific and engineering calculations. Still used in computational science, weather modeling, and high-performance computing.",
+    example: "PROGRAM Hello\n  PRINT *, 'Hello World'\nEND PROGRAM Hello",
+    relatedTerms: ["scientific-computing", "legacy", "compiled", "numerical"]
+  },
+  {
+    id: "cobol",
+    title: "COBOL",
+    category: "Programming Language",
+    definition: "COmmon Business-Oriented Language - a legacy programming language designed in 1959 for business data processing. Still widely used in banking, finance, and government systems, powering many critical mainframe applications.",
+    example: "IDENTIFICATION DIVISION.\nPROGRAM-ID. HELLO.\nPROCEDURE DIVISION.\n    DISPLAY 'Hello World'.\n    STOP RUN.",
+    relatedTerms: ["legacy", "mainframe", "business", "fortran"]
+  },
+  {
+    id: "pascal",
+    title: "Pascal",
+    category: "Programming Language",
+    definition: "A procedural programming language designed by Niklaus Wirth in 1970 for teaching programming concepts. Known for strong typing and structured programming, it influenced languages like Ada and Delphi.",
+    example: "program HelloWorld;\nbegin\n  WriteLn('Hello, World!');\nend.",
+    relatedTerms: ["delphi", "structured", "procedural", "typed"]
+  },
+  {
+    id: "algol",
+    title: "ALGOL",
+    category: "Programming Language",
+    definition: "ALGOrithmic Language - a family of imperative programming languages developed in the 1950s-60s. ALGOL introduced many concepts like block structure and lexical scoping that influenced modern languages.",
+    relatedTerms: ["algorithm", "legacy", "procedural", "pascal"]
+  },
+  {
+    id: "lisp",
+    title: "Lisp",
+    category: "Programming Language",
+    definition: "LISt Processing - one of the oldest high-level programming languages (1958) and the first functional programming language. Known for its fully parenthesized prefix notation and use in AI research.",
+    example: "(defun hello () (print \"Hello World\"))\n(+ 1 2 3) ; evaluates to 6",
+    relatedTerms: ["functional", "scheme", "ai", "parentheses"]
+  },
+  {
+    id: "scheme",
+    title: "Scheme",
+    category: "Programming Language",
+    definition: "A minimalist dialect of Lisp created in 1970 for teaching computer science. Known for its simplicity, elegance, and use in academic settings to teach programming concepts.",
+    example: "(define (factorial n)\n  (if (<= n 1)\n      1\n      (* n (factorial (- n 1)))))",
+    relatedTerms: ["lisp", "functional", "academic", "minimalist"]
+  },
+  {
+    id: "prolog",
+    title: "Prolog",
+    category: "Programming Language",
+    definition: "PROgramming in LOGic - a logic programming language developed in 1972. Based on formal logic and used in artificial intelligence, computational linguistics, and expert systems.",
+    example: "parent(tom, bob).\nparent(bob, ann).\ngrandparent(X, Z) :- parent(X, Y), parent(Y, Z).",
+    relatedTerms: ["logic-programming", "ai", "declarative", "inference"]
+  },
+  {
+    id: "basic",
+    title: "BASIC",
+    category: "Programming Language",
+    definition: "Beginners' All-purpose Symbolic Instruction Code - a simple programming language designed in 1964 for teaching. Popular on early personal computers and evolved into Visual Basic.",
+    example: "10 PRINT \"Hello World\"\n20 GOTO 10",
+    relatedTerms: ["visual-basic", "beginner", "interpreted", "legacy"]
+  },
+  {
+    id: "visual-basic",
+    title: "Visual Basic",
+    category: "Programming Language",
+    definition: "A third-generation event-driven programming language from Microsoft, derived from BASIC. Widely used in the 1990s-2000s for Windows application development with a visual form designer.",
+    example: "Private Sub Button1_Click()\n  MsgBox \"Hello World\"\nEnd Sub",
+    relatedTerms: ["basic", "microsoft", "windows", "vb-net"]
+  },
+  {
+    id: "vb-net",
+    title: "VB.NET",
+    category: "Programming Language",
+    definition: "Visual Basic .NET - a modern, object-oriented version of Visual Basic that runs on the .NET Framework. Offers full access to .NET libraries and interoperability with other .NET languages.",
+    relatedTerms: ["visual-basic", "dotnet", "microsoft", "csharp"]
+  },
+  {
+    id: "csharp",
+    title: "C#",
+    category: "Programming Language",
+    definition: "A modern, object-oriented programming language developed by Microsoft for the .NET platform. Combines the power of C++ with the simplicity of Visual Basic, widely used for Windows applications, games (Unity), and web development.",
+    example: "using System;\nclass Program {\n  static void Main() {\n    Console.WriteLine(\"Hello World\");\n  }\n}",
+    relatedTerms: ["dotnet", "microsoft", "oop", "java"]
+  },
+  {
+    id: "dotnet",
+    title: ".NET",
+    category: "Framework",
+    definition: "A free, open-source developer platform from Microsoft for building many types of applications. Supports multiple languages (C#, F#, VB.NET) and runs on Windows, Linux, and macOS.",
+    relatedTerms: ["csharp", "microsoft", "framework", "clr"]
+  },
+  {
+    id: "fsharp",
+    title: "F#",
+    category: "Programming Language",
+    definition: "A functional-first programming language for the .NET platform. Combines functional programming with object-oriented and imperative features, ideal for data science and financial applications.",
+    example: "let hello name = \n  printfn \"Hello %s\" name\nhello \"World\"",
+    relatedTerms: ["functional", "dotnet", "ocaml", "microsoft"]
+  },
+  {
+    id: "ocaml",
+    title: "OCaml",
+    category: "Programming Language",
+    definition: "Objective Caml - a general-purpose, multi-paradigm programming language with emphasis on functional programming. Known for its powerful type system, pattern matching, and use in formal verification.",
+    relatedTerms: ["functional", "ml", "fsharp", "typed"]
+  },
+  {
+    id: "haskell",
+    title: "Haskell",
+    category: "Programming Language",
+    definition: "A purely functional programming language with strong static typing and lazy evaluation. Named after logician Haskell Curry, used in research, education, and industries requiring high assurance.",
+    example: "factorial 0 = 1\nfactorial n = n * factorial (n - 1)\nmain = print (factorial 5)",
+    relatedTerms: ["functional", "pure", "lazy", "typed"]
+  },
+  {
+    id: "erlang",
+    title: "Erlang",
+    category: "Programming Language",
+    definition: "A functional programming language designed for building concurrent, distributed, and fault-tolerant systems. Created by Ericsson for telecommunications, powers messaging systems like WhatsApp.",
+    example: "-module(hello).\n-export([world/0]).\nworld() -> io:format(\"Hello World~n\").",
+    relatedTerms: ["functional", "concurrent", "distributed", "elixir"]
+  },
+  {
+    id: "elixir",
+    title: "Elixir",
+    category: "Programming Language",
+    definition: "A dynamic, functional language built on the Erlang VM. Designed for building scalable and maintainable applications, popular for web development with the Phoenix framework.",
+    example: "defmodule Hello do\n  def world do\n    IO.puts \"Hello World\"\n  end\nend",
+    relatedTerms: ["erlang", "functional", "phoenix", "concurrent"]
+  },
+  {
+    id: "clojure",
+    title: "Clojure",
+    category: "Programming Language",
+    definition: "A modern, functional Lisp dialect that runs on the Java Virtual Machine. Emphasizes immutability and functional programming while providing easy Java interoperability.",
+    example: "(defn hello [name]\n  (println (str \"Hello \" name)))\n(hello \"World\")",
+    relatedTerms: ["lisp", "functional", "jvm", "immutable"]
+  },
+  {
+    id: "scala",
+    title: "Scala",
+    category: "Programming Language",
+    definition: "A language that combines object-oriented and functional programming, running on the JVM. Designed to be concise and type-safe, popular for big data processing with Apache Spark.",
+    example: "object Hello {\n  def main(args: Array[String]) = {\n    println(\"Hello World\")\n  }\n}",
+    relatedTerms: ["jvm", "functional", "oop", "spark"]
+  },
+  {
+    id: "groovy",
+    title: "Groovy",
+    category: "Programming Language",
+    definition: "A dynamic, object-oriented programming language for the JVM with syntax similar to Java. Used for scripting, testing (Spock framework), and build automation (Gradle).",
+    relatedTerms: ["jvm", "dynamic", "gradle", "java"]
+  },
+  {
+    id: "lua",
+    title: "Lua",
+    category: "Programming Language",
+    definition: "A lightweight, embeddable scripting language designed for extending applications. Popular in game development (World of Warcraft, Roblox) and embedded systems due to its small footprint.",
+    example: "function hello(name)\n  print(\"Hello \" .. name)\nend\nhello(\"World\")",
+    relatedTerms: ["scripting", "embedded", "game-dev", "lightweight"]
+  },
+  {
+    id: "perl",
+    title: "Perl",
+    category: "Programming Language",
+    definition: "Practical Extraction and Report Language - a high-level, interpreted language known for text processing and system administration. Famous for its motto 'There's more than one way to do it' (TMTOWTDI).",
+    example: "print \"Hello World\\n\";\n$text =~ s/old/new/g; # regex substitution",
+    relatedTerms: ["scripting", "regex", "text-processing", "cpan"]
+  },
+  {
+    id: "r",
+    title: "R",
+    category: "Programming Language",
+    definition: "A programming language and environment for statistical computing and graphics. Widely used by statisticians, data scientists, and researchers for data analysis and visualization.",
+    example: "x <- c(1, 2, 3, 4, 5)\nmean(x)\nplot(x, x^2)",
+    relatedTerms: ["statistics", "data-science", "visualization", "analysis"]
+  },
+  {
+    id: "matlab",
+    title: "MATLAB",
+    category: "Programming Language",
+    definition: "MATrix LABoratory - a proprietary programming language and environment for numerical computing, data analysis, and algorithm development. Widely used in engineering and scientific research.",
+    example: "x = 0:pi/100:2*pi;\ny = sin(x);\nplot(x, y)",
+    relatedTerms: ["numerical", "scientific", "matrix", "simulink"]
+  },
+  {
+    id: "julia",
+    title: "Julia",
+    category: "Programming Language",
+    definition: "A high-level, high-performance programming language for technical computing. Combines the ease of Python with the speed of C, designed for numerical and scientific computing.",
+    example: "function hello(name)\n  println(\"Hello $name\")\nend\nhello(\"World\")",
+    relatedTerms: ["scientific", "numerical", "jit", "performance"]
+  },
+  {
+    id: "dart",
+    title: "Dart",
+    category: "Programming Language",
+    definition: "An object-oriented, class-based language developed by Google. Primarily used with the Flutter framework for building cross-platform mobile, web, and desktop applications.",
+    example: "void main() {\n  print('Hello World');\n}\nvar greeting = 'Hello $name';",
+    relatedTerms: ["flutter", "google", "mobile", "cross-platform"]
+  },
+  {
+    id: "objective-c",
+    title: "Objective-C",
+    category: "Programming Language",
+    definition: "An object-oriented language that adds Smalltalk-style messaging to C. Was the primary language for iOS and macOS development before Swift, still used in legacy Apple applications.",
+    example: "@interface HelloWorld : NSObject\n- (void)sayHello;\n@end",
+    relatedTerms: ["swift", "apple", "ios", "legacy"]
+  },
+  {
+    id: "assembly",
+    title: "Assembly Language",
+    category: "Programming Language",
+    definition: "A low-level programming language with a strong correspondence to machine code instructions. Provides direct hardware manipulation and maximum performance but is architecture-specific and difficult to write.",
+    example: "MOV AX, 1\nADD AX, 2\nINT 21h",
+    relatedTerms: ["low-level", "machine-code", "assembler", "hardware"]
+  },
+  {
+    id: "machine-code",
+    title: "Machine Code",
+    category: "Computer Science",
+    definition: "The lowest-level programming language consisting of binary instructions that can be directly executed by a computer's CPU. All higher-level languages must ultimately be translated to machine code.",
+    example: "01001000 01100101 01101100 01101100 01101111 (binary)",
+    relatedTerms: ["binary", "assembly", "cpu", "instruction"]
+  },
+  {
+    id: "assembler",
+    title: "Assembler",
+    category: "Development Tool",
+    definition: "A program that translates assembly language into machine code. Each assembly instruction typically corresponds to one machine code instruction.",
+    relatedTerms: ["assembly", "machine-code", "compiler", "translation"]
+  },
+  {
+    id: "vhdl",
+    title: "VHDL",
+    category: "Hardware Description Language",
+    definition: "VHSIC Hardware Description Language - used to describe digital circuits and systems. Essential for FPGA programming and integrated circuit design.",
+    relatedTerms: ["hardware", "fpga", "verilog", "synthesis"]
+  },
+  {
+    id: "verilog",
+    title: "Verilog",
+    category: "Hardware Description Language",
+    definition: "A hardware description language used to model electronic systems. Competitor to VHDL, widely used in digital design and verification of circuits.",
+    relatedTerms: ["hardware", "fpga", "vhdl", "circuit"]
+  },
+  {
+    id: "smalltalk",
+    title: "Smalltalk",
+    category: "Programming Language",
+    definition: "An object-oriented, dynamically typed programming language created in the 1970s. Pioneered many OOP concepts and influenced languages like Objective-C, Java, and Ruby.",
+    example: "Transcript show: 'Hello World'.\n5 factorial. \"everything is an object\"",
+    relatedTerms: ["oop", "pure", "image-based", "messaging"]
+  },
+  {
+    id: "ada",
+    title: "Ada",
+    category: "Programming Language",
+    definition: "A structured, statically typed programming language designed for embedded and real-time systems. Named after Ada Lovelace, used in aerospace, defense, and safety-critical systems.",
+    relatedTerms: ["pascal", "real-time", "safety-critical", "military"]
+  },
+  {
+    id: "apl",
+    title: "APL",
+    category: "Programming Language",
+    definition: "A Programming Language - an array-oriented language that uses special graphic symbols. Known for extreme conciseness and ability to express complex operations in single lines.",
+    example: "⍳10     ⍝ Generate numbers 1 to 10\n+/⍳100  ⍝ Sum of 1 to 100",
+    relatedTerms: ["array", "mathematical", "symbolic", "terse"]
+  },
+  {
+    id: "j-language",
+    title: "J",
+    category: "Programming Language",
+    definition: "A high-level array programming language descended from APL. Uses ASCII characters instead of special symbols, known for terse code and mathematical operations.",
+    relatedTerms: ["apl", "array", "mathematical", "functional"]
+  },
+  {
+    id: "tcl",
+    title: "Tcl",
+    category: "Programming Language",
+    definition: "Tool Command Language - a scripting language commonly used for rapid prototyping, testing, and GUI development with the Tk toolkit. Known for its simplicity and embeddability.",
+    relatedTerms: ["scripting", "tk", "embedded", "gui"]
+  },
+  {
+    id: "awk",
+    title: "AWK",
+    category: "Programming Language",
+    definition: "A text-processing language designed for pattern scanning and processing. Named after its creators (Aho, Weinberger, Kernighan), essential for Unix shell scripting.",
+    example: "awk '{print $1}' file.txt  # Print first column\nawk '/pattern/ {sum += $2} END {print sum}'",
+    relatedTerms: ["text-processing", "unix", "scripting", "pattern"]
+  },
+  {
+    id: "sed",
+    title: "sed",
+    category: "Programming Language",
+    definition: "Stream EDitor - a Unix utility for parsing and transforming text. Used for find-and-replace operations, text manipulation, and filtering in shell scripts.",
+    example: "sed 's/old/new/g' file.txt\nsed -n '5,10p' file.txt  # Print lines 5-10",
+    relatedTerms: ["text-processing", "unix", "regex", "stream"]
+  },
+  {
+    id: "powershell",
+    title: "PowerShell",
+    category: "Shell/Scripting",
+    definition: "A task automation framework from Microsoft consisting of a command-line shell and scripting language. Built on .NET, uses cmdlets and objects rather than text streams.",
+    example: "Get-Process | Where-Object {$_.CPU -gt 100}\n$files = Get-ChildItem -Recurse *.txt",
+    relatedTerms: ["shell", "dotnet", "microsoft", "cmdlet"]
+  },
+  {
+    id: "d-language",
+    title: "D",
+    category: "Programming Language",
+    definition: "A systems programming language with C-like syntax that aims to combine efficiency with modern programming features like garbage collection, contracts, and compile-time function execution.",
+    relatedTerms: ["systems", "c-like", "performance", "modern"]
+  },
+  {
+    id: "nim",
+    title: "Nim",
+    category: "Programming Language",
+    definition: "A statically typed compiled language that combines successful concepts from Python, Ada, and Modula. Offers Python-like syntax with C-like performance.",
+    example: "echo \"Hello World\"\nproc greet(name: string) =\n  echo \"Hello \", name",
+    relatedTerms: ["compiled", "python-like", "efficient", "expressive"]
+  },
+  {
+    id: "crystal",
+    title: "Crystal",
+    category: "Programming Language",
+    definition: "A compiled language with Ruby-like syntax and static type checking. Aims to have the elegance of Ruby with the performance of C.",
+    example: "def greet(name : String)\n  puts \"Hello #{name}\"\nend\ngreet(\"World\")",
+    relatedTerms: ["ruby-like", "compiled", "typed", "fast"]
+  },
+  {
+    id: "zig",
+    title: "Zig",
+    category: "Programming Language",
+    definition: "A general-purpose programming language designed for robustness, optimality, and maintainability. Aims to be a better C with manual memory management and no hidden control flow.",
+    relatedTerms: ["systems", "c-replacement", "performance", "safety"]
+  },
+  {
+    id: "racket",
+    title: "Racket",
+    category: "Programming Language",
+    definition: "A general-purpose, multi-paradigm programming language descended from Scheme. Known for its powerful macro system and use in programming language research and education.",
+    relatedTerms: ["scheme", "lisp", "macros", "academic"]
+  },
+  {
+    id: "elm",
+    title: "Elm",
+    category: "Programming Language",
+    definition: "A functional language that compiles to JavaScript for building web UIs. Known for its strong type system, no runtime errors guarantee, and friendly error messages.",
+    example: "greet name =\n  \"Hello \" ++ name\nmain =\n  text (greet \"World\")",
+    relatedTerms: ["functional", "web", "typed", "javascript"]
+  },
+  {
+    id: "purescript",
+    title: "PureScript",
+    category: "Programming Language",
+    definition: "A strongly-typed, purely functional programming language that compiles to JavaScript. Similar to Haskell but designed specifically for web development.",
+    relatedTerms: ["functional", "haskell-like", "javascript", "typed"]
+  },
+  {
+    id: "coffeescript",
+    title: "CoffeeScript",
+    category: "Programming Language",
+    definition: "A language that transcompiles to JavaScript, adding syntactic sugar inspired by Ruby, Python, and Haskell. Popular before ES6 added similar features to JavaScript.",
+    example: "greet = (name) -> \"Hello #{name}\"\narray.map (x) -> x * 2",
+    relatedTerms: ["javascript", "transpilation", "syntactic-sugar"]
+  },
+  {
+    id: "scratch",
+    title: "Scratch",
+    category: "Programming Language",
+    definition: "A visual, block-based programming language designed for children and beginners. Created by MIT to teach programming concepts through interactive stories and games.",
+    relatedTerms: ["visual", "educational", "blocks", "beginner"]
+  },
+  {
+    id: "logo",
+    title: "Logo",
+    category: "Programming Language",
+    definition: "An educational programming language famous for turtle graphics, where commands move a turtle that draws lines. Created in 1967 to teach programming concepts to children.",
+    example: "FORWARD 100\nRIGHT 90\nFORWARD 100",
+    relatedTerms: ["educational", "turtle-graphics", "beginner", "teaching"]
+  },
+  {
+    id: "processing",
+    title: "Processing",
+    category: "Programming Language",
+    definition: "A flexible software sketchbook and language for learning to code in the context of visual arts. Built on Java, popular for creative coding and data visualization.",
+    relatedTerms: ["visual", "creative-coding", "java", "graphics"]
+  },
+  {
+    id: "actionscript",
+    title: "ActionScript",
+    category: "Programming Language",
+    definition: "An object-oriented language used with Adobe Flash for creating interactive content and Rich Internet Applications. Largely obsolete after Flash's deprecation.",
+    relatedTerms: ["flash", "adobe", "web", "legacy"]
+  },
+  {
+    id: "vbscript",
+    title: "VBScript",
+    category: "Programming Language",
+    definition: "Visual Basic Scripting Edition - a lightweight scripting language developed by Microsoft, modeled on Visual Basic. Used for Windows administration and web scripting (now deprecated).",
+    relatedTerms: ["visual-basic", "scripting", "microsoft", "legacy"]
+  },
+  {
+    id: "imperative",
+    title: "Imperative Programming",
+    category: "Programming Paradigm",
+    definition: "A programming paradigm that uses statements to change program state. Code describes explicit steps for the computer to perform to achieve the desired result.",
+    relatedTerms: ["procedural", "declarative", "paradigm", "statement"]
+  },
+  {
+    id: "declarative",
+    title: "Declarative Programming",
+    category: "Programming Paradigm",
+    definition: "A programming paradigm that expresses the logic of computation without describing its control flow. Focuses on what to solve rather than how to solve it.",
+    relatedTerms: ["functional", "sql", "html", "imperative"]
+  },
+  {
+    id: "procedural",
+    title: "Procedural Programming",
+    category: "Programming Paradigm",
+    definition: "A programming paradigm based on the concept of procedure calls. Programs are structured as sequences of procedures (functions) that operate on data.",
+    relatedTerms: ["imperative", "structured", "c", "pascal"]
+  },
+  {
+    id: "functional-programming",
+    title: "Functional Programming",
+    category: "Programming Paradigm",
+    definition: "A programming paradigm that treats computation as evaluation of mathematical functions, avoiding changing state and mutable data. Emphasizes pure functions and immutability.",
+    relatedTerms: ["haskell", "lisp", "pure", "immutable"]
+  },
+  {
+    id: "logic-programming",
+    title: "Logic Programming",
+    category: "Programming Paradigm",
+    definition: "A programming paradigm based on formal logic. Programs consist of facts and rules, and execution involves proving goals through logical inference.",
+    relatedTerms: ["prolog", "declarative", "inference", "clause"]
+  },
+  {
+    id: "concurrent-programming",
+    title: "Concurrent Programming",
+    category: "Programming Paradigm",
+    definition: "A programming paradigm for writing programs that execute multiple computations simultaneously. Essential for modern multi-core processors and responsive applications.",
+    relatedTerms: ["parallel", "thread", "async", "synchronization"]
+  },
+  {
+    id: "metaprogramming",
+    title: "Metaprogramming",
+    category: "Programming Technique",
+    definition: "Writing programs that write or manipulate other programs (or themselves) as data. Includes techniques like macros, reflection, and code generation.",
+    relatedTerms: ["macro", "reflection", "code-generation", "template"]
+  },
+  {
+    id: "duck-typing",
+    title: "Duck Typing",
+    category: "Type System",
+    definition: "A programming concept where an object's suitability is determined by the presence of methods and properties rather than the object's type. 'If it walks like a duck and quacks like a duck, it's a duck.'",
+    relatedTerms: ["dynamic-typing", "python", "structural", "interface"]
+  },
+  {
+    id: "strong-typing",
+    title: "Strong Typing",
+    category: "Type System",
+    definition: "A type system that enforces strict type rules and doesn't allow implicit type conversions that could lose information. Type errors are caught at compile-time or runtime.",
+    relatedTerms: ["weak-typing", "type-system", "type-safety", "static"]
+  },
+  {
+    id: "weak-typing",
+    title: "Weak Typing",
+    category: "Type System",
+    definition: "A type system that allows implicit type conversions between different types. Makes code more flexible but can lead to unexpected behavior and bugs.",
+    relatedTerms: ["strong-typing", "type-coercion", "implicit", "dynamic"]
+  },
+  {
+    id: "type-inference",
+    title: "Type Inference",
+    category: "Type System",
+    definition: "The automatic detection of data types by the compiler without explicit type annotations. Common in modern languages like TypeScript, Swift, and Rust.",
+    example: "let x = 5;  // inferred as number\nlet name = \"Alice\";  // inferred as string",
+    relatedTerms: ["static-typing", "compiler", "implicit", "typed"]
+  },
+  {
+    id: "generic-programming",
+    title: "Generic Programming",
+    category: "Programming Technique",
+    definition: "A programming paradigm where algorithms are written in terms of types that are specified later. Enables code reuse and type safety through parameterized types.",
+    relatedTerms: ["template", "generics", "type-parameter", "polymorphism"]
+  },
+  {
+    id: "generics",
+    title: "Generics",
+    category: "Programming Concept",
+    definition: "A feature that allows defining functions, classes, and interfaces with type parameters. Provides type safety while enabling code reuse across different data types.",
+    example: "// TypeScript\nfunction identity<T>(arg: T): T { return arg; }\n// Java\nList<String> names = new ArrayList<String>();",
+    relatedTerms: ["generic-programming", "type-parameter", "template", "polymorphism"]
+  },
+  {
+    id: "pure-function",
+    title: "Pure Function",
+    category: "Functional Programming",
+    definition: "A function that always returns the same output for the same input and has no side effects. Pure functions are predictable, testable, and enable optimization.",
+    example: "// Pure\nconst add = (a, b) => a + b;\n// Impure (side effect)\nlet total = 0;\nconst addToTotal = (n) => { total += n; }",
+    relatedTerms: ["functional", "side-effect", "immutable", "referential-transparency"]
+  },
+  {
+    id: "lazy-evaluation",
+    title: "Lazy Evaluation",
+    category: "Programming Concept",
+    definition: "An evaluation strategy that delays computation until the value is needed. Enables working with infinite data structures and can improve performance.",
+    relatedTerms: ["haskell", "evaluation", "thunk", "stream"]
+  },
+  {
+    id: "tail-recursion",
+    title: "Tail Recursion",
+    category: "Programming Concept",
+    definition: "A form of recursion where the recursive call is the last operation in the function. Can be optimized by compilers to avoid stack overflow.",
+    example: "function factorial(n, acc = 1) {\n  if (n <= 1) return acc;\n  return factorial(n - 1, n * acc);  // tail call\n}",
+    relatedTerms: ["recursion", "optimization", "stack", "functional"]
+  },
+  {
+    id: "memoization",
+    title: "Memoization",
+    category: "Optimization Technique",
+    definition: "An optimization technique that stores the results of expensive function calls and returns the cached result when the same inputs occur again.",
+    example: "const memo = {};\nfunction fib(n) {\n  if (n in memo) return memo[n];\n  if (n <= 2) return 1;\n  memo[n] = fib(n-1) + fib(n-2);\n  return memo[n];\n}",
+    relatedTerms: ["caching", "dynamic-programming", "optimization", "recursion"]
+  },
+  {
+    id: "coroutine",
+    title: "Coroutine",
+    category: "Programming Concept",
+    definition: "A function that can pause execution and yield control back to the caller, then resume from where it left off. Enables cooperative multitasking.",
+    example: "// Python generator (simple coroutine)\ndef counter():\n    i = 0\n    while True:\n        yield i\n        i += 1",
+    relatedTerms: ["generator", "async", "yield", "concurrent"]
+  },
+  {
+    id: "jit-compiler",
+    title: "JIT Compiler",
+    category: "Compiler Technology",
+    definition: "Just-In-Time compiler - compiles code during execution rather than before. Combines benefits of interpretation (fast startup) with compilation (execution speed). Used in Java, JavaScript, .NET.",
+    relatedTerms: ["compiler", "runtime", "optimization", "jvm"]
+  },
+  {
+    id: "linker",
+    title: "Linker",
+    category: "Development Tool",
+    definition: "A program that combines compiled object files and libraries into a single executable. Resolves symbols and addresses to create the final program.",
+    relatedTerms: ["compiler", "object-file", "executable", "build"]
+  },
+  {
+    id: "preprocessor",
+    title: "Preprocessor",
+    category: "Compiler Technology",
+    definition: "A program that processes source code before compilation. In C/C++, handles directives like #include, #define, and conditional compilation (#ifdef).",
+    example: "#include <stdio.h>\n#define PI 3.14159\n#ifdef DEBUG\n  // debug code\n#endif",
+    relatedTerms: ["compiler", "macro", "directive", "c"]
   }
 ];
