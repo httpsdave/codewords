@@ -1921,5 +1921,344 @@ export const terms: Term[] = [
     category: "JavaScript Compiler",
     definition: "A JavaScript compiler that converts modern JavaScript (ES6+) into backwards-compatible versions for older browsers. Babel enables developers to use the latest language features while maintaining compatibility.",
     relatedTerms: ["javascript", "transpiler", "compiler", "es6"]
+  },
+  {
+    id: "bit",
+    title: "Bit",
+    category: "Computer Fundamentals",
+    definition: "The smallest unit of data in computing, representing a binary digit that can be either 0 or 1. Bits are the foundation of all digital data and computing operations.",
+    relatedTerms: ["byte", "binary", "data", "digital"]
+  },
+  {
+    id: "byte",
+    title: "Byte",
+    category: "Computer Fundamentals",
+    definition: "A unit of digital information consisting of 8 bits. A byte can represent 256 different values (0-255) and is the standard unit for measuring computer memory and storage.",
+    example: "1 KB = 1024 bytes, 1 MB = 1024 KB, 1 GB = 1024 MB",
+    relatedTerms: ["bit", "memory", "storage", "kilobyte"]
+  },
+  {
+    id: "binary",
+    title: "Binary",
+    category: "Number System",
+    definition: "A base-2 number system using only two digits: 0 and 1. Binary is the fundamental language of computers, where all data and instructions are represented as sequences of bits.",
+    example: "Decimal 5 = Binary 101, Decimal 10 = Binary 1010",
+    relatedTerms: ["bit", "byte", "hexadecimal", "decimal"]
+  },
+  {
+    id: "ascii",
+    title: "ASCII",
+    category: "Character Encoding",
+    definition: "American Standard Code for Information Interchange - a character encoding standard that assigns numbers to letters, digits, and symbols. ASCII uses 7 bits to represent 128 characters.",
+    example: "'A' = 65, 'a' = 97, '0' = 48, space = 32",
+    relatedTerms: ["unicode", "character", "encoding", "text"]
+  },
+  {
+    id: "unicode",
+    title: "Unicode",
+    category: "Character Encoding",
+    definition: "A universal character encoding standard that assigns a unique number to every character across all writing systems and languages. Unicode supports over 140,000 characters including emojis.",
+    relatedTerms: ["ascii", "utf-8", "character", "encoding"]
+  },
+  {
+    id: "memory",
+    title: "Memory (RAM)",
+    category: "Computer Hardware",
+    definition: "Random Access Memory - temporary storage that holds data and programs currently being used by the CPU. Memory is fast but volatile, losing all data when power is off.",
+    relatedTerms: ["ram", "cpu", "storage", "volatile"]
+  },
+  {
+    id: "cpu",
+    title: "CPU (Central Processing Unit)",
+    category: "Computer Hardware",
+    definition: "The primary component of a computer that performs instructions and calculations. Often called the 'brain' of the computer, the CPU executes program instructions and processes data.",
+    relatedTerms: ["processor", "memory", "hardware", "clock-speed"]
+  },
+  {
+    id: "operating-system",
+    title: "Operating System",
+    category: "System Software",
+    definition: "System software that manages computer hardware and software resources, providing services for programs. Examples include Windows, macOS, Linux, iOS, and Android.",
+    relatedTerms: ["os", "kernel", "system", "software"]
+  },
+  {
+    id: "syntax",
+    title: "Syntax",
+    category: "Programming Concept",
+    definition: "The set of rules that define the structure and format of valid statements in a programming language. Syntax errors occur when code doesn't follow these rules and prevent program compilation or execution.",
+    example: "Python: print('Hello') ✓ vs print 'Hello' ✗ (syntax error)",
+    relatedTerms: ["semantics", "grammar", "language", "error"]
+  },
+  {
+    id: "semantics",
+    title: "Semantics",
+    category: "Programming Concept",
+    definition: "The meaning of syntactically correct code - what the code actually does when executed. While syntax is about structure, semantics is about behavior and logic.",
+    relatedTerms: ["syntax", "logic", "meaning", "behavior"]
+  },
+  {
+    id: "identifier",
+    title: "Identifier",
+    category: "Programming Concept",
+    definition: "A name used to identify variables, functions, classes, or other entities in code. Identifiers must follow language-specific naming rules and should be descriptive and meaningful.",
+    example: "let userName = 'John'; // userName is an identifier",
+    relatedTerms: ["variable", "name", "naming-convention", "camelCase"]
+  },
+  {
+    id: "literal",
+    title: "Literal",
+    category: "Programming Concept",
+    definition: "A fixed value written directly in code, such as numbers, strings, or booleans. Literals represent actual data values rather than variables or expressions.",
+    example: "42 // number literal\n'Hello' // string literal\ntrue // boolean literal",
+    relatedTerms: ["value", "constant", "data-type", "hardcoded"]
+  },
+  {
+    id: "comment",
+    title: "Comment",
+    category: "Programming Concept",
+    definition: "Text in source code that is ignored by the compiler/interpreter, used to explain code, add notes, or temporarily disable code. Comments improve code readability and maintainability.",
+    example: "// Single-line comment\n/* Multi-line\n   comment */",
+    relatedTerms: ["documentation", "annotation", "code-quality"]
+  },
+  {
+    id: "indentation",
+    title: "Indentation",
+    category: "Code Style",
+    definition: "The practice of adding whitespace at the beginning of lines to visually represent code structure and nesting. Proper indentation makes code more readable and, in Python, is syntactically required.",
+    example: "if (condition) {\n  // indented code block\n  console.log('nested');\n}",
+    relatedTerms: ["formatting", "code-style", "readability", "whitespace"]
+  },
+  {
+    id: "concatenation",
+    title: "Concatenation",
+    category: "String Operation",
+    definition: "The operation of joining two or more strings together to form a single string. Concatenation is fundamental to string manipulation and building dynamic text.",
+    example: "'Hello' + ' ' + 'World' // 'Hello World'\n`${first} ${last}` // template literal",
+    relatedTerms: ["string", "operator", "joining", "plus"]
+  },
+  {
+    id: "type-conversion",
+    title: "Type Conversion (Casting)",
+    category: "Programming Concept",
+    definition: "The process of converting a value from one data type to another, either explicitly (casting) or implicitly (coercion). Type conversion is essential when working with different data types.",
+    example: "String(123) // '123'\nNumber('456') // 456\nparseInt('789') // 789",
+    relatedTerms: ["casting", "data-type", "coercion", "conversion"]
+  },
+  {
+    id: "tuple",
+    title: "Tuple",
+    category: "Data Structure",
+    definition: "An ordered, immutable collection of elements that can contain different data types. Unlike arrays, tuples have fixed size and cannot be modified after creation.",
+    example: "person = ('Alice', 25, 'Engineer') # Python tuple\nlet point: [number, number] = [10, 20]; // TypeScript",
+    relatedTerms: ["array", "list", "immutable", "collection"]
+  },
+  {
+    id: "struct",
+    title: "Struct (Structure)",
+    category: "Data Structure",
+    definition: "A composite data type that groups together variables of different types under a single name. Structs are used to represent records or complex data in languages like C and Go.",
+    example: "struct Person {\n  char name[50];\n  int age;\n  float salary;\n};",
+    relatedTerms: ["record", "object", "data-type", "composite"]
+  },
+  {
+    id: "enum",
+    title: "Enum (Enumeration)",
+    category: "Data Type",
+    definition: "A data type consisting of a set of named constants, making code more readable and maintainable. Enums restrict variables to one of a predefined set of values.",
+    example: "enum Color { RED, GREEN, BLUE }\nenum Status { PENDING = 0, APPROVED = 1, REJECTED = 2 }",
+    relatedTerms: ["constant", "data-type", "named-values"]
+  },
+  {
+    id: "matrix",
+    title: "Matrix",
+    category: "Data Structure",
+    definition: "A two-dimensional array arranged in rows and columns, commonly used in mathematics, graphics, and data science. Matrices enable efficient representation of tabular data.",
+    example: "matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]] // 3x3 matrix",
+    relatedTerms: ["array", "2d-array", "grid", "table"]
+  },
+  {
+    id: "deque",
+    title: "Deque (Double-Ended Queue)",
+    category: "Data Structure",
+    definition: "A data structure that allows insertion and deletion of elements from both front and rear ends. Deques are more flexible than standard queues and can function as both stacks and queues.",
+    relatedTerms: ["queue", "stack", "data-structure", "double-ended"]
+  },
+  {
+    id: "immutable",
+    title: "Immutable",
+    category: "Programming Concept",
+    definition: "A property of data that cannot be changed after creation. Immutable objects provide safety, predictability, and are essential in functional programming and concurrent systems.",
+    relatedTerms: ["mutable", "constant", "readonly", "functional"]
+  },
+  {
+    id: "linear-search",
+    title: "Linear Search",
+    category: "Algorithm",
+    definition: "A simple search algorithm that checks each element in a list sequentially until the target is found or the list ends. Linear search has O(n) time complexity and works on unsorted data.",
+    example: "function linearSearch(arr, target) {\n  for(let i = 0; i < arr.length; i++) {\n    if(arr[i] === target) return i;\n  }\n  return -1;\n}",
+    relatedTerms: ["search", "algorithm", "binary-search", "sequential"]
+  },
+  {
+    id: "selection-sort",
+    title: "Selection Sort",
+    category: "Sorting Algorithm",
+    definition: "A simple sorting algorithm that repeatedly finds the minimum element from the unsorted portion and places it at the beginning. Selection sort has O(n²) time complexity.",
+    example: "Find min, swap with first; find next min, swap with second; repeat",
+    relatedTerms: ["sorting", "algorithm", "bubble-sort", "insertion-sort"]
+  },
+  {
+    id: "insertion-sort",
+    title: "Insertion Sort",
+    category: "Sorting Algorithm",
+    definition: "A simple sorting algorithm that builds the sorted array one element at a time by inserting each element into its correct position. Efficient for small datasets with O(n²) worst-case complexity.",
+    example: "Like sorting playing cards: pick each card and insert it in the right position",
+    relatedTerms: ["sorting", "algorithm", "selection-sort", "bubble-sort"]
+  },
+  {
+    id: "traversal",
+    title: "Traversal",
+    category: "Algorithm",
+    definition: "The process of visiting each element in a data structure exactly once. Common traversals include array iteration, tree traversals (inorder, preorder, postorder), and graph traversals (DFS, BFS).",
+    relatedTerms: ["iteration", "visit", "dfs", "bfs", "loop"]
+  },
+  {
+    id: "comparison",
+    title: "Comparison Operator",
+    category: "Programming Concept",
+    definition: "Operators that compare two values and return a boolean result. Common comparison operators include == (equal), != (not equal), < (less than), > (greater than), <= and >=.",
+    example: "5 > 3 // true\n10 == 10 // true\n'a' < 'b' // true",
+    relatedTerms: ["operator", "boolean", "conditional", "relational"]
+  },
+  {
+    id: "abstract-class",
+    title: "Abstract Class",
+    category: "OOP Concept",
+    definition: "A class that cannot be instantiated and serves as a blueprint for other classes. Abstract classes can contain both implemented and abstract methods that subclasses must implement.",
+    example: "abstract class Animal {\n  abstract makeSound(): void;\n  move() { console.log('moving'); }\n}",
+    relatedTerms: ["class", "abstraction", "inheritance", "interface"]
+  },
+  {
+    id: "static-method",
+    title: "Static Method",
+    category: "OOP Concept",
+    definition: "A method that belongs to the class itself rather than instances of the class. Static methods can be called without creating an object and typically perform utility functions.",
+    example: "class Math {\n  static add(a, b) { return a + b; }\n}\nMath.add(5, 3); // Call without instance",
+    relatedTerms: ["class", "method", "class-method", "instance"]
+  },
+  {
+    id: "getter-setter",
+    title: "Getter/Setter",
+    category: "OOP Concept",
+    definition: "Special methods that provide controlled access to object properties. Getters retrieve property values while setters assign new values, enabling validation and encapsulation.",
+    example: "class Person {\n  get name() { return this._name; }\n  set name(value) { this._name = value; }\n}",
+    relatedTerms: ["property", "encapsulation", "accessor", "mutator"]
+  },
+  {
+    id: "destructor",
+    title: "Destructor",
+    category: "OOP Concept",
+    definition: "A special method automatically called when an object is destroyed or goes out of scope. Destructors clean up resources like memory, file handles, or network connections.",
+    example: "class File {\n  ~File() { // C++ destructor\n    closeFile();\n  }\n}",
+    relatedTerms: ["constructor", "cleanup", "memory", "lifecycle"]
+  },
+  {
+    id: "this-keyword",
+    title: "This/Self Keyword",
+    category: "OOP Concept",
+    definition: "A keyword that refers to the current instance of a class within its methods. 'this' (JavaScript, Java) or 'self' (Python) allows access to instance properties and methods.",
+    example: "class Person {\n  constructor(name) {\n    this.name = name; // 'this' refers to current instance\n  }\n}",
+    relatedTerms: ["instance", "object", "reference", "context"]
+  },
+  {
+    id: "overloading",
+    title: "Method Overloading",
+    category: "OOP Concept",
+    definition: "The ability to define multiple methods with the same name but different parameters. Overloading enables the same operation to behave differently based on input types or counts.",
+    example: "class Calculator {\n  add(a, b) { return a + b; }\n  add(a, b, c) { return a + b + c; }\n}",
+    relatedTerms: ["polymorphism", "method", "parameters", "overriding"]
+  },
+  {
+    id: "ip-address",
+    title: "IP Address",
+    category: "Networking",
+    definition: "Internet Protocol address - a unique numerical label assigned to each device on a network. IP addresses identify and locate devices, with IPv4 (32-bit) and IPv6 (128-bit) formats.",
+    example: "IPv4: 192.168.1.1\nIPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+    relatedTerms: ["network", "dns", "tcp-ip", "subnet"]
+  },
+  {
+    id: "dns",
+    title: "DNS (Domain Name System)",
+    category: "Networking",
+    definition: "A hierarchical system that translates human-readable domain names (like google.com) into IP addresses. DNS acts as the internet's phone book, enabling users to access websites using names.",
+    relatedTerms: ["domain", "ip-address", "network", "url"]
+  },
+  {
+    id: "url",
+    title: "URL (Uniform Resource Locator)",
+    category: "Internet",
+    definition: "A reference to a web resource that specifies its location and how to retrieve it. URLs contain the protocol (http/https), domain name, and optional path, parameters, and fragments.",
+    example: "https://www.example.com/path/page.html?id=123#section",
+    relatedTerms: ["uri", "http", "domain", "web"]
+  },
+  {
+    id: "port",
+    title: "Port",
+    category: "Networking",
+    definition: "A virtual endpoint for network communication identified by a number (0-65535). Ports allow multiple services to run on the same IP address, with common ports like 80 (HTTP) and 443 (HTTPS).",
+    example: "localhost:3000 // Port 3000\nhttp://example.com:8080 // Port 8080",
+    relatedTerms: ["network", "tcp", "socket", "endpoint"]
+  },
+  {
+    id: "tcp-ip",
+    title: "TCP/IP",
+    category: "Network Protocol",
+    definition: "Transmission Control Protocol/Internet Protocol - the fundamental communication protocols of the internet. TCP ensures reliable data delivery while IP handles addressing and routing.",
+    relatedTerms: ["protocol", "network", "internet", "packet"]
+  },
+  {
+    id: "packet",
+    title: "Packet",
+    category: "Networking",
+    definition: "A unit of data transmitted over a network, containing both the payload (actual data) and header (metadata like source, destination, protocol). Networks break data into packets for efficient transmission.",
+    relatedTerms: ["network", "tcp-ip", "data", "transmission"]
+  },
+  {
+    id: "pseudocode",
+    title: "Pseudocode",
+    category: "Algorithm Design",
+    definition: "A plain-language description of algorithm steps that resembles code but isn't tied to any specific programming language. Pseudocode helps plan logic before actual coding.",
+    example: "BEGIN\n  SET total to 0\n  FOR each number in list\n    ADD number to total\n  END FOR\n  DISPLAY total\nEND",
+    relatedTerms: ["algorithm", "flowchart", "planning", "design"]
+  },
+  {
+    id: "flowchart",
+    title: "Flowchart",
+    category: "Algorithm Design",
+    definition: "A diagram that uses shapes and arrows to represent the steps and flow of an algorithm or process. Flowcharts visually illustrate program logic, decisions, and loops.",
+    relatedTerms: ["algorithm", "pseudocode", "diagram", "visualization"]
+  },
+  {
+    id: "input",
+    title: "Input",
+    category: "Programming Concept",
+    definition: "Data provided to a program from external sources like users, files, or other programs. Input allows programs to process different data and respond to user interactions.",
+    example: "let name = prompt('Enter your name'); // User input\nfs.readFile('data.txt'); // File input",
+    relatedTerms: ["output", "user-input", "data", "stdin"]
+  },
+  {
+    id: "increment-decrement",
+    title: "Increment/Decrement",
+    category: "Programming Concept",
+    definition: "Operations that increase (increment) or decrease (decrement) a variable's value, typically by 1. Common in loops and counters using ++ and -- operators.",
+    example: "let count = 5;\ncount++; // 6 (increment)\ncount--; // 5 (decrement)\ncount += 2; // 7",
+    relatedTerms: ["operator", "counter", "loop", "arithmetic"]
+  },
+  {
+    id: "modulo",
+    title: "Modulo Operation",
+    category: "Mathematical Operator",
+    definition: "An operation that returns the remainder after division. The modulo operator (%) is useful for checking divisibility, cycling through values, and determining even/odd numbers.",
+    example: "10 % 3 // 1 (remainder)\n15 % 5 // 0 (evenly divisible)\n7 % 2 // 1 (odd number)",
+    relatedTerms: ["operator", "remainder", "division", "arithmetic"]
   }
 ];
