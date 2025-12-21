@@ -1449,5 +1449,477 @@ export const terms: Term[] = [
     category: "Software Property",
     definition: "The ability of software to run on different operating systems and hardware platforms without modification. Java's 'write once, run anywhere' philosophy exemplifies platform independence through the JVM.",
     relatedTerms: ["jvm", "portability", "cross-platform", "java"]
+  },
+  {
+    id: "graphql",
+    title: "GraphQL",
+    category: "API Technology",
+    definition: "A query language and runtime for APIs that allows clients to request exactly the data they need. GraphQL provides a more efficient, powerful, and flexible alternative to REST APIs.",
+    example: "query { user(id: \"123\") { name email posts { title } } }",
+    relatedTerms: ["api", "rest", "query", "web-service"]
+  },
+  {
+    id: "websocket",
+    title: "WebSocket",
+    category: "Network Protocol",
+    definition: "A communication protocol that provides full-duplex, bidirectional communication channels over a single TCP connection. WebSockets enable real-time data exchange between clients and servers.",
+    relatedTerms: ["protocol", "real-time", "tcp", "http"]
+  },
+  {
+    id: "pwa",
+    title: "PWA (Progressive Web App)",
+    category: "Web Technology",
+    definition: "Web applications that use modern web capabilities to deliver app-like experiences. PWAs are reliable, fast, and engaging, working offline and installable on devices like native apps.",
+    relatedTerms: ["web-app", "service-worker", "offline", "manifest"]
+  },
+  {
+    id: "spa",
+    title: "SPA (Single Page Application)",
+    category: "Web Architecture",
+    definition: "A web application that loads a single HTML page and dynamically updates content as users interact with it. SPAs provide a seamless user experience without page reloads.",
+    relatedTerms: ["react", "angular", "vue", "client-side"]
+  },
+  {
+    id: "ssr",
+    title: "SSR (Server-Side Rendering)",
+    category: "Web Technology",
+    definition: "A technique where web pages are rendered on the server and sent to the client as fully-formed HTML. SSR improves initial load time and SEO compared to client-side rendering.",
+    relatedTerms: ["next-js", "rendering", "seo", "performance"]
+  },
+  {
+    id: "ssg",
+    title: "SSG (Static Site Generation)",
+    category: "Web Technology",
+    definition: "A method of pre-rendering pages at build time, generating static HTML files. SSG offers excellent performance and security, ideal for content that doesn't change frequently.",
+    relatedTerms: ["next-js", "jamstack", "build", "static"]
+  },
+  {
+    id: "operator",
+    title: "Operator",
+    category: "Programming Concept",
+    definition: "A symbol that performs operations on variables and values. Operators include arithmetic (+, -, *, /), comparison (==, !=, <, >), logical (&&, ||, !), and assignment (=, +=, -=) operators.",
+    example: "let sum = 5 + 3; // + is an arithmetic operator\nlet isEqual = (x == y); // == is a comparison operator",
+    relatedTerms: ["expression", "operand", "arithmetic", "logical"]
+  },
+  {
+    id: "expression",
+    title: "Expression",
+    category: "Programming Concept",
+    definition: "A combination of values, variables, operators, and function calls that evaluates to a single value. Expressions are the building blocks of statements and can be assigned to variables.",
+    example: "5 + 3 * 2 // Expression that evaluates to 11\ngetName() // Function call expression",
+    relatedTerms: ["operator", "value", "statement", "evaluation"]
+  },
+  {
+    id: "statement",
+    title: "Statement",
+    category: "Programming Concept",
+    definition: "A complete instruction that performs an action in a program. Statements can declare variables, control flow, call functions, or assign values, typically ending with a semicolon.",
+    example: "let x = 5; // Declaration statement\nif (x > 0) { console.log('positive'); } // Control statement",
+    relatedTerms: ["expression", "declaration", "instruction", "syntax"]
+  },
+  {
+    id: "constant",
+    title: "Constant",
+    category: "Programming Concept",
+    definition: "A variable whose value cannot be changed after initialization. Constants are declared using keywords like 'const' and help prevent accidental modifications and improve code clarity.",
+    example: "const PI = 3.14159;\nconst MAX_USERS = 100;\n// PI = 3.14; // Error: Cannot reassign constant",
+    relatedTerms: ["variable", "immutable", "final", "readonly"]
+  },
+  {
+    id: "scope",
+    title: "Scope",
+    category: "Programming Concept",
+    definition: "The region of code where a variable is accessible and visible. Scope can be global (accessible everywhere), function/local (within a function), or block (within { } braces).",
+    example: "let global = 'accessible everywhere';\nfunction test() {\n  let local = 'only in function';\n}",
+    relatedTerms: ["variable", "closure", "namespace", "visibility"]
+  },
+  {
+    id: "null",
+    title: "Null/Undefined",
+    category: "Data Type",
+    definition: "Special values representing the absence of a value. 'Null' is an intentional absence, while 'undefined' means a variable has been declared but not assigned a value.",
+    example: "let x = null; // Intentionally empty\nlet y; // undefined - declared but not initialized",
+    relatedTerms: ["data-type", "value", "void", "optional"]
+  },
+  {
+    id: "heap",
+    title: "Heap",
+    category: "Data Structure",
+    definition: "A specialized tree-based data structure that satisfies the heap property: in a max heap, parent nodes are greater than children; in a min heap, parent nodes are smaller. Heaps are used in priority queues and heap sort.",
+    relatedTerms: ["tree", "priority-queue", "binary-tree", "data-structure"]
+  },
+  {
+    id: "trie",
+    title: "Trie (Prefix Tree)",
+    category: "Data Structure",
+    definition: "A tree-like data structure used to store strings where each node represents a character. Tries enable efficient prefix-based searching, autocomplete, and spell checking with O(m) time complexity where m is the string length.",
+    relatedTerms: ["tree", "string", "search", "prefix"]
+  },
+  {
+    id: "dfs",
+    title: "DFS (Depth-First Search)",
+    category: "Algorithm",
+    definition: "A graph traversal algorithm that explores as far as possible along each branch before backtracking. DFS uses a stack (or recursion) and is used in pathfinding, cycle detection, and topological sorting.",
+    relatedTerms: ["graph", "bfs", "traversal", "recursion", "stack"]
+  },
+  {
+    id: "bfs",
+    title: "BFS (Breadth-First Search)",
+    category: "Algorithm",
+    definition: "A graph traversal algorithm that explores all neighbors at the current depth before moving to nodes at the next depth level. BFS uses a queue and finds shortest paths in unweighted graphs.",
+    relatedTerms: ["graph", "dfs", "traversal", "queue", "shortest-path"]
+  },
+  {
+    id: "dynamic-programming",
+    title: "Dynamic Programming",
+    category: "Algorithm Technique",
+    definition: "An optimization technique that solves complex problems by breaking them into simpler overlapping subproblems and storing their solutions to avoid redundant calculations. Used in optimization, counting, and decision problems.",
+    example: "Fibonacci with memoization, longest common subsequence, knapsack problem",
+    relatedTerms: ["algorithm", "memoization", "optimization", "recursion"]
+  },
+  {
+    id: "greedy-algorithm",
+    title: "Greedy Algorithm",
+    category: "Algorithm Technique",
+    definition: "An algorithmic approach that makes the locally optimal choice at each step, hoping to find a global optimum. Greedy algorithms are simple and efficient but don't always guarantee the best solution.",
+    example: "Dijkstra's shortest path, Huffman coding, activity selection",
+    relatedTerms: ["algorithm", "optimization", "heuristic", "local-optimum"]
+  },
+  {
+    id: "refactoring",
+    title: "Refactoring",
+    category: "Software Engineering",
+    definition: "The process of restructuring existing code without changing its external behavior to improve readability, maintainability, and performance. Refactoring reduces technical debt and makes code easier to understand.",
+    relatedTerms: ["code-quality", "technical-debt", "clean-code", "maintenance"]
+  },
+  {
+    id: "technical-debt",
+    title: "Technical Debt",
+    category: "Software Engineering",
+    definition: "The implied cost of future rework caused by choosing quick, easy solutions instead of better approaches that would take longer. Technical debt accumulates over time and must be paid back through refactoring.",
+    relatedTerms: ["refactoring", "code-quality", "maintenance", "legacy-code"]
+  },
+  {
+    id: "ruby",
+    title: "Ruby",
+    category: "Programming Language",
+    definition: "A dynamic, object-oriented programming language known for its elegant syntax and developer happiness. Ruby emphasizes simplicity and productivity, and powers the Rails web framework.",
+    example: "puts 'Hello, World!'\n5.times { print 'Ruby ' }",
+    relatedTerms: ["rails", "scripting", "oop", "dynamic"]
+  },
+  {
+    id: "php",
+    title: "PHP",
+    category: "Programming Language",
+    definition: "A server-side scripting language designed for web development. PHP is embedded in HTML and powers millions of websites including WordPress, Facebook, and Wikipedia.",
+    example: "<?php echo 'Hello, World!'; ?>",
+    relatedTerms: ["web-development", "backend", "server-side", "scripting"]
+  },
+  {
+    id: "swift",
+    title: "Swift",
+    category: "Programming Language",
+    definition: "A powerful, modern programming language developed by Apple for iOS, macOS, watchOS, and tvOS development. Swift is fast, safe, and designed to work with Apple's Cocoa frameworks.",
+    example: "print(\"Hello, World!\")\nvar greeting = \"Swift is awesome\"",
+    relatedTerms: ["ios", "apple", "mobile", "objective-c"]
+  },
+  {
+    id: "kotlin",
+    title: "Kotlin",
+    category: "Programming Language",
+    definition: "A modern, statically-typed programming language that runs on the JVM and is fully interoperable with Java. Kotlin is the preferred language for Android development and emphasizes conciseness and safety.",
+    example: "fun main() { println(\"Hello, Kotlin!\") }",
+    relatedTerms: ["java", "jvm", "android", "mobile"]
+  },
+  {
+    id: "go",
+    title: "Go (Golang)",
+    category: "Programming Language",
+    definition: "A statically-typed, compiled language developed by Google, designed for simplicity, efficiency, and excellent concurrency support. Go is popular for cloud services, DevOps tools, and microservices.",
+    example: "package main\nimport \"fmt\"\nfunc main() { fmt.Println(\"Hello, Go!\") }",
+    relatedTerms: ["google", "concurrent", "compiled", "backend"]
+  },
+  {
+    id: "rust",
+    title: "Rust",
+    category: "Programming Language",
+    definition: "A systems programming language focused on safety, speed, and concurrency without a garbage collector. Rust prevents memory errors at compile-time, making it ideal for performance-critical applications.",
+    example: "fn main() { println!(\"Hello, Rust!\"); }",
+    relatedTerms: ["systems-programming", "memory-safety", "compiled", "performance"]
+  },
+  {
+    id: "angular",
+    title: "Angular",
+    category: "Frontend Framework",
+    definition: "A TypeScript-based web application framework developed by Google. Angular provides a complete solution for building large-scale applications with two-way data binding, dependency injection, and a powerful CLI.",
+    relatedTerms: ["typescript", "frontend", "spa", "google"]
+  },
+  {
+    id: "vue",
+    title: "Vue.js",
+    category: "Frontend Framework",
+    definition: "A progressive JavaScript framework for building user interfaces. Vue is designed to be incrementally adoptable, with a simple core that can be extended with official libraries for routing and state management.",
+    relatedTerms: ["javascript", "frontend", "spa", "component"]
+  },
+  {
+    id: "next-js",
+    title: "Next.js",
+    category: "React Framework",
+    definition: "A React framework for production that provides server-side rendering, static site generation, API routes, and optimized performance out of the box. Next.js simplifies building full-stack React applications.",
+    relatedTerms: ["react", "ssr", "ssg", "vercel", "fullstack"]
+  },
+  {
+    id: "django",
+    title: "Django",
+    category: "Web Framework",
+    definition: "A high-level Python web framework that encourages rapid development and clean design. Django follows the 'batteries included' philosophy, providing an ORM, authentication, admin interface, and more.",
+    relatedTerms: ["python", "backend", "framework", "mvc"]
+  },
+  {
+    id: "flask",
+    title: "Flask",
+    category: "Web Framework",
+    definition: "A lightweight, micro web framework for Python that provides the basics for building web applications. Flask is simple, flexible, and allows developers to choose their own tools and libraries.",
+    relatedTerms: ["python", "backend", "framework", "microframework"]
+  },
+  {
+    id: "spring",
+    title: "Spring Framework",
+    category: "Java Framework",
+    definition: "A comprehensive framework for enterprise Java development. Spring provides infrastructure support for developing robust applications with dependency injection, aspect-oriented programming, and extensive modules.",
+    relatedTerms: ["java", "backend", "framework", "enterprise"]
+  },
+  {
+    id: "full-stack",
+    title: "Full-Stack Development",
+    category: "Software Development",
+    definition: "The practice of working on both frontend (client-side) and backend (server-side) parts of a web application. Full-stack developers have knowledge of databases, servers, systems engineering, and client-facing interfaces.",
+    relatedTerms: ["frontend", "backend", "web-development", "fullstack"]
+  },
+  {
+    id: "mvc",
+    title: "MVC (Model-View-Controller)",
+    category: "Design Pattern",
+    definition: "A software architectural pattern that separates an application into three interconnected components: Model (data), View (UI), and Controller (business logic). MVC promotes organized code and separation of concerns.",
+    relatedTerms: ["design-pattern", "architecture", "separation-of-concerns"]
+  },
+  {
+    id: "state-management",
+    title: "State Management",
+    category: "Frontend Development",
+    definition: "The practice of managing and synchronizing application state (data) across components. State management libraries like Redux, MobX, and Vuex help maintain consistent data flow in complex applications.",
+    relatedTerms: ["react", "redux", "frontend", "data-flow"]
+  },
+  {
+    id: "middleware",
+    title: "Middleware",
+    category: "Software Architecture",
+    definition: "Software that acts as a bridge between an operating system or database and applications, especially on a network. Middleware intercepts requests/responses to add functionality like logging, authentication, or error handling.",
+    relatedTerms: ["backend", "express", "pipeline", "layer"]
+  },
+  {
+    id: "webhook",
+    title: "Webhook",
+    category: "API Pattern",
+    definition: "An HTTP callback that sends real-time data to other applications when specific events occur. Webhooks enable event-driven communication, allowing systems to notify each other automatically.",
+    relatedTerms: ["api", "callback", "event-driven", "http"]
+  },
+  {
+    id: "rate-limiting",
+    title: "Rate Limiting",
+    category: "API Security",
+    definition: "A technique to control the number of requests a user can make to an API within a specified time period. Rate limiting prevents abuse, ensures fair usage, and protects server resources.",
+    relatedTerms: ["api", "security", "throttling", "quota"]
+  },
+  {
+    id: "caching",
+    title: "Caching",
+    category: "Performance Optimization",
+    definition: "The practice of storing frequently accessed data in a temporary storage location (cache) for faster retrieval. Caching reduces load times, decreases server load, and improves application performance.",
+    relatedTerms: ["performance", "redis", "cdn", "memory"]
+  },
+  {
+    id: "load-balancing",
+    title: "Load Balancing",
+    category: "System Architecture",
+    definition: "The process of distributing network traffic across multiple servers to ensure no single server becomes overwhelmed. Load balancing improves availability, reliability, and scalability of applications.",
+    relatedTerms: ["scalability", "distributed", "high-availability", "server"]
+  },
+  {
+    id: "authentication",
+    title: "Authentication",
+    category: "Security",
+    definition: "The process of verifying the identity of a user, device, or system. Authentication confirms 'you are who you say you are' through credentials like passwords, tokens, biometrics, or multi-factor methods.",
+    relatedTerms: ["authorization", "security", "login", "credentials", "jwt"]
+  },
+  {
+    id: "authorization",
+    title: "Authorization",
+    category: "Security",
+    definition: "The process of determining what actions an authenticated user is allowed to perform. Authorization controls access to resources and operations based on user roles and permissions.",
+    relatedTerms: ["authentication", "security", "permissions", "access-control"]
+  },
+  {
+    id: "jwt",
+    title: "JWT (JSON Web Token)",
+    category: "Authentication",
+    definition: "A compact, URL-safe token format for securely transmitting information between parties as a JSON object. JWTs are commonly used for authentication and information exchange in web applications.",
+    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0...",
+    relatedTerms: ["authentication", "token", "json", "security"]
+  },
+  {
+    id: "oauth",
+    title: "OAuth",
+    category: "Authorization Protocol",
+    definition: "An open standard authorization framework that enables applications to obtain limited access to user accounts on HTTP services. OAuth allows third-party applications to access user data without exposing passwords.",
+    relatedTerms: ["authorization", "authentication", "security", "api"]
+  },
+  {
+    id: "cors",
+    title: "CORS (Cross-Origin Resource Sharing)",
+    category: "Web Security",
+    definition: "A security feature that allows or restricts web applications running at one origin to access resources from a different origin. CORS headers control which domains can make cross-origin requests.",
+    relatedTerms: ["security", "http", "browser", "same-origin"]
+  },
+  {
+    id: "redis",
+    title: "Redis",
+    category: "In-Memory Database",
+    definition: "An open-source, in-memory data structure store used as a database, cache, and message broker. Redis supports various data structures like strings, hashes, lists, sets, and provides exceptional performance.",
+    relatedTerms: ["nosql", "caching", "key-value", "database"]
+  },
+  {
+    id: "postgresql",
+    title: "PostgreSQL",
+    category: "Relational Database",
+    definition: "A powerful, open-source object-relational database system known for reliability, feature robustness, and performance. PostgreSQL supports advanced data types, full-text search, and JSON storage.",
+    relatedTerms: ["sql", "relational", "database", "rdbms"]
+  },
+  {
+    id: "mysql",
+    title: "MySQL",
+    category: "Relational Database",
+    definition: "An open-source relational database management system that is widely used for web applications. MySQL is known for its speed, reliability, and ease of use, powering many popular websites.",
+    relatedTerms: ["sql", "relational", "database", "rdbms"]
+  },
+  {
+    id: "elasticsearch",
+    title: "Elasticsearch",
+    category: "Search Engine",
+    definition: "A distributed, RESTful search and analytics engine built on Apache Lucene. Elasticsearch enables fast, scalable full-text search, logging, and real-time analytics across large datasets.",
+    relatedTerms: ["search", "nosql", "analytics", "indexing"]
+  },
+  {
+    id: "database-index",
+    title: "Database Index",
+    category: "Database",
+    definition: "A data structure that improves the speed of data retrieval operations on a database table. Indexes work like book indexes, allowing the database to find data without scanning every row.",
+    relatedTerms: ["database", "performance", "query", "optimization"]
+  },
+  {
+    id: "transaction",
+    title: "Transaction",
+    category: "Database",
+    definition: "A sequence of database operations treated as a single unit of work that either completes entirely or not at all. Transactions ensure data consistency and integrity through ACID properties.",
+    relatedTerms: ["acid", "database", "commit", "rollback"]
+  },
+  {
+    id: "acid",
+    title: "ACID",
+    category: "Database Concept",
+    definition: "A set of properties (Atomicity, Consistency, Isolation, Durability) that guarantee reliable database transactions. ACID ensures data validity despite errors, power failures, or other mishaps.",
+    relatedTerms: ["transaction", "database", "consistency", "reliability"]
+  },
+  {
+    id: "schema",
+    title: "Database Schema",
+    category: "Database",
+    definition: "The structure or blueprint of a database that defines how data is organized, including tables, fields, relationships, and constraints. Schemas enforce data organization and integrity rules.",
+    relatedTerms: ["database", "table", "structure", "design"]
+  },
+  {
+    id: "machine-learning",
+    title: "Machine Learning",
+    category: "Artificial Intelligence",
+    definition: "A subset of AI that enables systems to learn and improve from experience without being explicitly programmed. Machine learning uses algorithms to find patterns in data and make predictions or decisions.",
+    relatedTerms: ["ai", "data-science", "neural-network", "deep-learning"]
+  },
+  {
+    id: "ai",
+    title: "AI (Artificial Intelligence)",
+    category: "Computer Science",
+    definition: "The simulation of human intelligence processes by machines, especially computer systems. AI includes learning, reasoning, problem-solving, perception, and language understanding.",
+    relatedTerms: ["machine-learning", "neural-network", "nlp", "deep-learning"]
+  },
+  {
+    id: "blockchain",
+    title: "Blockchain",
+    category: "Distributed Technology",
+    definition: "A decentralized, distributed ledger technology that records transactions across multiple computers. Blockchain ensures data integrity through cryptographic hashing and consensus mechanisms.",
+    relatedTerms: ["cryptocurrency", "distributed", "decentralized", "ledger"]
+  },
+  {
+    id: "cryptocurrency",
+    title: "Cryptocurrency",
+    category: "Digital Currency",
+    definition: "A digital or virtual currency that uses cryptography for security and operates on blockchain technology. Cryptocurrencies like Bitcoin and Ethereum enable decentralized financial transactions.",
+    relatedTerms: ["blockchain", "bitcoin", "decentralized", "digital"]
+  },
+  {
+    id: "iot",
+    title: "IoT (Internet of Things)",
+    category: "Technology",
+    definition: "A network of physical devices embedded with sensors, software, and connectivity that enables them to collect and exchange data. IoT connects everyday objects to the internet for automation and monitoring.",
+    relatedTerms: ["sensors", "smart-devices", "connectivity", "automation"]
+  },
+  {
+    id: "serverless",
+    title: "Serverless Computing",
+    category: "Cloud Computing",
+    definition: "A cloud execution model where the cloud provider manages server infrastructure, automatically allocating resources as needed. Developers focus on code while the provider handles scaling, availability, and maintenance.",
+    example: "AWS Lambda, Azure Functions, Google Cloud Functions",
+    relatedTerms: ["cloud-computing", "faas", "lambda", "scalability"]
+  },
+  {
+    id: "edge-computing",
+    title: "Edge Computing",
+    category: "Distributed Computing",
+    definition: "A distributed computing paradigm that brings computation and data storage closer to the data source or end users. Edge computing reduces latency, bandwidth usage, and improves response times.",
+    relatedTerms: ["distributed", "cloud-computing", "iot", "latency"]
+  },
+  {
+    id: "webassembly",
+    title: "WebAssembly (WASM)",
+    category: "Web Technology",
+    definition: "A binary instruction format that enables high-performance execution of code in web browsers. WebAssembly allows languages like C, C++, and Rust to run on the web at near-native speed.",
+    relatedTerms: ["web", "performance", "binary", "browser"]
+  },
+  {
+    id: "linter",
+    title: "Linter",
+    category: "Development Tool",
+    definition: "A static code analysis tool that checks source code for programming errors, bugs, stylistic errors, and suspicious constructs. Linters like ESLint enforce code quality and consistency.",
+    relatedTerms: ["code-quality", "eslint", "static-analysis", "error"]
+  },
+  {
+    id: "prettier",
+    title: "Prettier",
+    category: "Development Tool",
+    definition: "An opinionated code formatter that enforces a consistent code style by parsing and reprinting code. Prettier supports multiple languages and integrates with most editors and CI systems.",
+    relatedTerms: ["formatting", "code-style", "developer-tool", "consistency"]
+  },
+  {
+    id: "webpack",
+    title: "Webpack",
+    category: "Build Tool",
+    definition: "A module bundler for JavaScript applications that packages code and assets into optimized bundles for browsers. Webpack handles dependencies, transformations, and optimization for web projects.",
+    relatedTerms: ["bundler", "build", "javascript", "module"]
+  },
+  {
+    id: "babel",
+    title: "Babel",
+    category: "JavaScript Compiler",
+    definition: "A JavaScript compiler that converts modern JavaScript (ES6+) into backwards-compatible versions for older browsers. Babel enables developers to use the latest language features while maintaining compatibility.",
+    relatedTerms: ["javascript", "transpiler", "compiler", "es6"]
   }
 ];
