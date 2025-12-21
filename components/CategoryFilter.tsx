@@ -1,6 +1,7 @@
 'use client';
 
 import { terms } from '@/data/terms';
+import { useState } from 'react';
 
 interface CategoryFilterProps {
   categories: string[];
@@ -9,9 +10,20 @@ interface CategoryFilterProps {
 }
 
 export default function CategoryFilter({ categories, selectedCategory, onSelectCategory }: CategoryFilterProps) {
+  const [showAll, setShowAll] = useState(false);
+  
   const getCategoryCount = (category: string) => {
     return terms.filter(term => term.category === category).length;
   };
+
+  // Sort categories by count (descending) and get top 12
+  const categoriesWithCounts = categories.map(cat => ({
+    name: cat,
+    count: getCategoryCount(cat)
+  })).sort((a, b) => b.count - a.count);
+
+  const topCategories = showAll ? categoriesWithCounts : categoriesWithCounts.slice(0, 12);
+  const hasMore = categoriesWithCounts.length > 12;
 
   return (
     <div className="mb-6">
@@ -30,20 +42,28 @@ export default function CategoryFilter({ categories, selectedCategory, onSelectC
         >
           All Categories <span className="ml-1 text-xs opacity-75">({terms.length})</span>
         </button>
-        {categories.map((category) => (
+        {topCategories.map(({ name, count }) => (
           <button
-            key={category}
-            onClick={() => onSelectCategory(category)}
+            key={name}
+            onClick={() => onSelectCategory(name)}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              selectedCategory === category
+              selectedCategory === name
                 ? 'bg-blue-600 text-white'
                 : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
             }`}
-            aria-pressed={selectedCategory === category}
+            aria-pressed={selectedCategory === name}
           >
-            {category} <span className="ml-1 text-xs opacity-75">({getCategoryCount(category)})</span>
+            {name} <span className="ml-1 text-xs opacity-75">({count})</span>
           </button>
         ))}
+        {hasMore && (
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-gray-100 dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600"
+          >
+            {showAll ? '− Show Less' : `+ Show ${categoriesWithCounts.length - 12} More`}
+          </button>
+        )}
       </div>
     </div>
   );
