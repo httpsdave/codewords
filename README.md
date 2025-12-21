@@ -27,92 +27,15 @@ Your comprehensive dictionary for computer science and IT terminology.
 - 🌙 **Dark Mode** - Automatic theme support
 - 🎨 **Clean UI** - Modern design with Tailwind CSS
 
----
+## About
 
-## For Developers
+CodeWords is a free, open-source dictionary built to help developers, students, and tech enthusiasts understand computer science and IT terminology. Whether you're learning to code or looking up a quick definition, we've got you covered.
 
-Want to contribute or run this locally?
+## Contributing
 
-### Getting Started
+Want to add a term or suggest improvements? Open an issue or pull request on [GitHub](https://github.com/httpsdave/codewords).
 
-First, install dependencies:
-
-```bash
-npm install
-```
-
-Then, run the development server:.
-
-#```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Tech Stack
-
-- **Next.js 15** - React framework with App Router
-- **TypeScript** - Type safety
-- **Tailwind CSS** - Styling
-- **React 19** - UI library
-
-### Project Structure
-
-```
-CodeWords/
-├── app/
-│   ├── term/[slug]/     # Individual term pages
-│   ├── layout.tsx       # Root layout with SEO
-│   ├── page.tsx         # Home page with search & filters
-│   ├── not-found.tsx    # Custom 404 page
-│   ├── sitemap.ts       # Auto-generated sitemap
-│   └── robots.ts        # Robots.txt configuration
-├── components/
-│   ├── SearchBar.tsx         # Search with debouncing
-│   ├── TermCard.tsx          # Term preview card
-│   ├── CategoryFilter.tsx    # Category filtering
-│   ├── AlphabetNav.tsx       # A-Z navigation
-│   ├── CopyButton.tsx        # Code copy functionality
-│   └── ShareButton.tsx       # Share functionality
-├── data/
-│   └── terms.ts         # Term definitions
-└── public/              # Static assets
-```
-
-### Adding New Terms
-
-Edit `data/terms.ts` and add a new term object:
-
-```typescript
-{
-  id: "unique-id",
-  title: "Term Name",
-  category: "Category Name",
-  definition: "Clear definition...",
-  example: "Code example (optional)",
-  relatedTerms: ["related-id-1", "related-id-2"]
-}
-```
-
-### Deploy on Vercel
-
-1. Push code to GitHub
-2. Import project in Vercel dashboard
-3. Deploy automatically
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com).
-
----
-
-## Roadmap
-
-- [ ] Database integration for scalable term management
-- [ ] Admin panel for content management
-- [ ] User authentication
-- [ ] Favorites/bookmarks
-- [ ] Community contributions
-- [ ] Advanced search with Algolia
-- [ ] Code syntax highlighting
+Built with Next.js 15, TypeScript, and Tailwind CSS.
 
 ## License
 
