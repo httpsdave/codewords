@@ -2260,5 +2260,339 @@ export const terms: Term[] = [
     definition: "An operation that returns the remainder after division. The modulo operator (%) is useful for checking divisibility, cycling through values, and determining even/odd numbers.",
     example: "10 % 3 // 1 (remainder)\n15 % 5 // 0 (evenly divisible)\n7 % 2 // 1 (odd number)",
     relatedTerms: ["operator", "remainder", "division", "arithmetic"]
+  },
+  {
+    id: "exception",
+    title: "Exception",
+    category: "Error Handling",
+    definition: "An event that disrupts the normal flow of program execution, typically caused by errors. Exceptions can be caught and handled to prevent program crashes and provide graceful error recovery.",
+    relatedTerms: ["error", "try-catch", "throw", "exception-handling"]
+  },
+  {
+    id: "try-catch",
+    title: "Try-Catch Block",
+    category: "Error Handling",
+    definition: "A control structure that handles exceptions by attempting code in the 'try' block and catching errors in the 'catch' block. An optional 'finally' block executes regardless of success or failure.",
+    example: "try {\n  riskyOperation();\n} catch (error) {\n  console.error(error);\n} finally {\n  cleanup();\n}",
+    relatedTerms: ["exception", "error", "throw", "finally"]
+  },
+  {
+    id: "throw",
+    title: "Throw Statement",
+    category: "Error Handling",
+    definition: "A statement that creates and throws an exception, interrupting normal program flow. Throw allows programmers to signal errors and pass them up to exception handlers.",
+    example: "if (age < 0) {\n  throw new Error('Age cannot be negative');\n}",
+    relatedTerms: ["exception", "try-catch", "error", "raise"]
+  },
+  {
+    id: "finally",
+    title: "Finally Block",
+    category: "Error Handling",
+    definition: "A block of code in exception handling that always executes, whether an exception occurs or not. Finally blocks are used for cleanup operations like closing files or releasing resources.",
+    example: "try {\n  openFile();\n} catch (e) {\n  handleError(e);\n} finally {\n  closeFile(); // Always runs\n}",
+    relatedTerms: ["try-catch", "exception", "cleanup", "guaranteed"]
+  },
+  {
+    id: "stack-trace",
+    title: "Stack Trace",
+    category: "Debugging",
+    definition: "A report showing the sequence of function calls that led to an error or current execution point. Stack traces help developers identify where errors occurred and the path of execution.",
+    relatedTerms: ["error", "debugging", "call-stack", "exception"]
+  },
+  {
+    id: "lambda",
+    title: "Lambda Function",
+    category: "Programming Concept",
+    definition: "An anonymous function defined without a name, often used for short, simple operations. Lambda functions are common in functional programming and callbacks.",
+    example: "// JavaScript arrow function (lambda)\nconst add = (a, b) => a + b;\n// Python lambda\nlambda x: x * 2",
+    relatedTerms: ["arrow-function", "anonymous-function", "functional", "callback"]
+  },
+  {
+    id: "arrow-function",
+    title: "Arrow Function",
+    category: "JavaScript",
+    definition: "A concise syntax for writing functions in JavaScript using the => operator. Arrow functions have lexical 'this' binding and are commonly used for callbacks and short functions.",
+    example: "const multiply = (a, b) => a * b;\narray.map(x => x * 2);",
+    relatedTerms: ["lambda", "function", "javascript", "es6"]
+  },
+  {
+    id: "closure",
+    title: "Closure",
+    category: "Programming Concept",
+    definition: "A function that retains access to variables from its outer scope even after the outer function has finished executing. Closures enable data privacy and factory patterns.",
+    example: "function counter() {\n  let count = 0;\n  return () => ++count; // Closure over 'count'\n}",
+    relatedTerms: ["scope", "function", "lexical", "encapsulation"]
+  },
+  {
+    id: "hoisting",
+    title: "Hoisting",
+    category: "JavaScript",
+    definition: "JavaScript's behavior of moving variable and function declarations to the top of their scope during compilation. Understanding hoisting helps prevent unexpected undefined values and errors.",
+    example: "console.log(x); // undefined (not error)\nvar x = 5; // Declaration hoisted, assignment not",
+    relatedTerms: ["javascript", "scope", "var", "temporal-dead-zone"]
+  },
+  {
+    id: "prototype",
+    title: "Prototype",
+    category: "JavaScript",
+    definition: "An object from which other objects inherit properties and methods in JavaScript. Prototypes form the basis of JavaScript's inheritance model before ES6 classes.",
+    example: "Array.prototype.customMethod = function() { };\n// All arrays inherit customMethod",
+    relatedTerms: ["inheritance", "javascript", "object", "prototype-chain"]
+  },
+  {
+    id: "truthy-falsy",
+    title: "Truthy/Falsy",
+    category: "JavaScript",
+    definition: "Values that evaluate to true or false in boolean contexts. Falsy values include false, 0, '', null, undefined, and NaN; all other values are truthy.",
+    example: "if ('hello') { } // 'hello' is truthy\nif (0) { } // 0 is falsy, block skipped",
+    relatedTerms: ["boolean", "coercion", "conditional", "javascript"]
+  },
+  {
+    id: "ternary-operator",
+    title: "Ternary Operator",
+    category: "Programming Concept",
+    definition: "A conditional operator that evaluates a condition and returns one of two values. The ternary operator (? :) provides a concise alternative to if-else statements.",
+    example: "let status = age >= 18 ? 'adult' : 'minor';\nlet max = a > b ? a : b;",
+    relatedTerms: ["conditional", "operator", "if-else", "expression"]
+  },
+  {
+    id: "dom",
+    title: "DOM (Document Object Model)",
+    category: "Web Technology",
+    definition: "A programming interface for HTML and XML documents that represents the page structure as a tree of objects. The DOM allows scripts to dynamically access and update content, structure, and styles.",
+    relatedTerms: ["html", "javascript", "browser", "web", "tree"]
+  },
+  {
+    id: "cookie",
+    title: "Cookie",
+    category: "Web Technology",
+    definition: "Small pieces of data stored by web browsers on the user's device. Cookies are used for session management, personalization, and tracking user behavior across websites.",
+    example: "document.cookie = 'username=John; expires=Fri, 31 Dec 2025 23:59:59 GMT';",
+    relatedTerms: ["session", "browser", "storage", "http"]
+  },
+  {
+    id: "local-storage",
+    title: "Local Storage",
+    category: "Web Storage",
+    definition: "A web storage API that allows websites to store key-value pairs in the browser with no expiration. Local storage persists even after the browser is closed, unlike session storage.",
+    example: "localStorage.setItem('user', 'Alice');\nconst user = localStorage.getItem('user');",
+    relatedTerms: ["session-storage", "cookie", "browser", "persistence"]
+  },
+  {
+    id: "session-storage",
+    title: "Session Storage",
+    category: "Web Storage",
+    definition: "A web storage API similar to local storage, but data is cleared when the browser tab is closed. Session storage is scoped to a single tab or window.",
+    example: "sessionStorage.setItem('tempData', 'value');\nsessionStorage.getItem('tempData');",
+    relatedTerms: ["local-storage", "cookie", "browser", "temporary"]
+  },
+  {
+    id: "ajax",
+    title: "AJAX (Asynchronous JavaScript and XML)",
+    category: "Web Technology",
+    definition: "A technique for creating asynchronous web applications that can update parts of a page without reloading the entire page. AJAX uses XMLHttpRequest or Fetch API to communicate with servers.",
+    relatedTerms: ["asynchronous", "xhr", "fetch", "javascript"]
+  },
+  {
+    id: "fetch-api",
+    title: "Fetch API",
+    category: "Web API",
+    definition: "A modern interface for making HTTP requests in JavaScript that returns Promises. Fetch provides a cleaner, more powerful alternative to XMLHttpRequest.",
+    example: "fetch('/api/data')\n  .then(response => response.json())\n  .then(data => console.log(data));",
+    relatedTerms: ["ajax", "promise", "http", "api"]
+  },
+  {
+    id: "responsive-design",
+    title: "Responsive Design",
+    category: "Web Design",
+    definition: "An approach to web design that makes pages render well on different devices and screen sizes. Responsive design uses flexible grids, images, and CSS media queries.",
+    relatedTerms: ["css", "media-query", "mobile", "flexible"]
+  },
+  {
+    id: "flexbox",
+    title: "Flexbox (CSS Flexible Box)",
+    category: "CSS Layout",
+    definition: "A CSS layout module that provides an efficient way to arrange, distribute, and align items in a container, even when sizes are unknown or dynamic. Flexbox is ideal for one-dimensional layouts.",
+    example: ".container { display: flex; justify-content: space-between; }",
+    relatedTerms: ["css", "layout", "grid", "responsive"]
+  },
+  {
+    id: "css-grid",
+    title: "CSS Grid",
+    category: "CSS Layout",
+    definition: "A two-dimensional CSS layout system that enables complex responsive layouts using rows and columns. Grid provides precise control over both horizontal and vertical positioning.",
+    example: ".container { display: grid; grid-template-columns: 1fr 2fr 1fr; }",
+    relatedTerms: ["css", "layout", "flexbox", "responsive"]
+  },
+  {
+    id: "priority-queue",
+    title: "Priority Queue",
+    category: "Data Structure",
+    definition: "An abstract data type where each element has a priority value, and elements with higher priority are served before elements with lower priority. Often implemented using heaps.",
+    relatedTerms: ["heap", "queue", "data-structure", "tree"]
+  },
+  {
+    id: "bst",
+    title: "BST (Binary Search Tree)",
+    category: "Data Structure",
+    definition: "A binary tree where each node's left subtree contains only values less than the node's value, and the right subtree contains only values greater. BSTs enable efficient searching, insertion, and deletion in O(log n) average time.",
+    relatedTerms: ["tree", "binary-tree", "data-structure", "search"]
+  },
+  {
+    id: "avl-tree",
+    title: "AVL Tree",
+    category: "Data Structure",
+    definition: "A self-balancing binary search tree where the heights of left and right subtrees of any node differ by at most one. Named after inventors Adelson-Velsky and Landis.",
+    relatedTerms: ["bst", "tree", "balanced", "data-structure"]
+  },
+  {
+    id: "hash-collision",
+    title: "Hash Collision",
+    category: "Data Structure",
+    definition: "Occurs when two different inputs produce the same hash value in a hash table. Collisions are resolved using techniques like chaining or open addressing.",
+    relatedTerms: ["hash-table", "hashing", "data-structure"]
+  },
+  {
+    id: "adjacency-list",
+    title: "Adjacency List",
+    category: "Data Structure",
+    definition: "A graph representation that stores a list of adjacent vertices for each vertex. Space-efficient for sparse graphs and commonly used in graph algorithms.",
+    relatedTerms: ["graph", "data-structure", "adjacency-matrix"]
+  },
+  {
+    id: "regex",
+    title: "Regular Expression (Regex)",
+    category: "Programming Concept",
+    definition: "A sequence of characters that defines a search pattern, used for pattern matching in strings. Regular expressions are powerful tools for validation, searching, and text manipulation.",
+    example: "const emailPattern = /^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$/;\nemailPattern.test('user@example.com'); // true",
+    relatedTerms: ["string", "pattern", "validation"]
+  },
+  {
+    id: "code-review",
+    title: "Code Review",
+    category: "Development Practice",
+    definition: "A software quality assurance process where developers examine code written by peers to identify bugs, ensure quality, and share knowledge. Code reviews improve code quality and team collaboration.",
+    relatedTerms: ["pull-request", "git", "quality", "collaboration"]
+  },
+  {
+    id: "pair-programming",
+    title: "Pair Programming",
+    category: "Development Practice",
+    definition: "An agile development technique where two programmers work together at one workstation. One writes code (driver) while the other reviews each line (observer/navigator).",
+    relatedTerms: ["agile", "collaboration", "development"]
+  },
+  {
+    id: "semantic-versioning",
+    title: "Semantic Versioning",
+    category: "Development Practice",
+    definition: "A versioning scheme using MAJOR.MINOR.PATCH format (e.g., 2.1.3). Increment MAJOR for breaking changes, MINOR for new features, and PATCH for bug fixes.",
+    relatedTerms: ["version", "release", "npm"]
+  },
+  {
+    id: "changelog",
+    title: "Changelog",
+    category: "Documentation",
+    definition: "A file or document that chronologically lists notable changes for each version of a project. Changelogs help users and contributors understand what has changed between releases.",
+    relatedTerms: ["version", "documentation", "release"]
+  },
+  {
+    id: "open-source",
+    title: "Open Source",
+    category: "Software Development",
+    definition: "Software with source code that anyone can inspect, modify, and enhance. Open source projects promote collaboration and transparency, often using licenses like MIT or GPL.",
+    relatedTerms: ["github", "license", "collaboration"]
+  },
+  {
+    id: "cli",
+    title: "CLI (Command Line Interface)",
+    category: "Tool",
+    definition: "A text-based interface for interacting with software or operating systems by typing commands. CLIs provide powerful control and automation capabilities.",
+    example: "git commit -m 'Add feature'\nnpm install express",
+    relatedTerms: ["terminal", "shell", "bash"]
+  },
+  {
+    id: "environment-variable",
+    title: "Environment Variable",
+    category: "Configuration",
+    definition: "A dynamic value that can affect running processes on a computer. Environment variables are used to configure applications without hardcoding sensitive data like API keys.",
+    example: "process.env.DATABASE_URL\nexport API_KEY='your-key-here'",
+    relatedTerms: ["configuration", "security", "deployment"]
+  },
+  {
+    id: "singleton",
+    title: "Singleton Pattern",
+    category: "Design Pattern",
+    definition: "A creational design pattern that ensures a class has only one instance and provides a global access point to it. Useful for managing shared resources like database connections.",
+    relatedTerms: ["design-pattern", "oop", "class"]
+  },
+  {
+    id: "factory-pattern",
+    title: "Factory Pattern",
+    category: "Design Pattern",
+    definition: "A creational design pattern that provides an interface for creating objects without specifying their exact classes. The factory method lets subclasses decide which class to instantiate.",
+    relatedTerms: ["design-pattern", "oop", "object"]
+  },
+  {
+    id: "observer-pattern",
+    title: "Observer Pattern",
+    category: "Design Pattern",
+    definition: "A behavioral design pattern where an object (subject) maintains a list of dependents (observers) and notifies them of state changes. Widely used in event-driven programming.",
+    relatedTerms: ["design-pattern", "event", "pub-sub"]
+  },
+  {
+    id: "pub-sub",
+    title: "Pub/Sub (Publish-Subscribe)",
+    category: "Design Pattern",
+    definition: "A messaging pattern where publishers send messages to topics without knowing subscribers, and subscribers receive messages from topics they're interested in. Enables loose coupling between components.",
+    relatedTerms: ["observer-pattern", "event", "messaging"]
+  },
+  {
+    id: "dependency-injection",
+    title: "Dependency Injection",
+    category: "Design Pattern",
+    definition: "A design pattern where dependencies are provided (injected) to an object rather than created by the object itself. This promotes loose coupling and testability.",
+    relatedTerms: ["design-pattern", "oop", "testing"]
+  },
+  {
+    id: "minification",
+    title: "Minification",
+    category: "Optimization",
+    definition: "The process of removing unnecessary characters from code (whitespace, comments, etc.) without changing functionality. Minification reduces file size and improves load times.",
+    relatedTerms: ["optimization", "bundler", "build"]
+  },
+  {
+    id: "tree-shaking",
+    title: "Tree Shaking",
+    category: "Optimization",
+    definition: "A dead code elimination technique that removes unused exports from JavaScript modules during bundling. Tree shaking reduces bundle size by only including code that is actually used.",
+    relatedTerms: ["webpack", "bundler", "optimization"]
+  },
+  {
+    id: "code-splitting",
+    title: "Code Splitting",
+    category: "Optimization",
+    definition: "A technique that splits code into smaller chunks that can be loaded on demand. Code splitting improves initial load time by only loading necessary code for the current page.",
+    relatedTerms: ["lazy-loading", "webpack", "optimization"]
+  },
+  {
+    id: "lazy-loading",
+    title: "Lazy Loading",
+    category: "Optimization",
+    definition: "A design pattern that delays loading of resources until they are needed. Commonly used for images, components, and routes to improve initial page load performance.",
+    relatedTerms: ["code-splitting", "optimization", "performance"]
+  },
+  {
+    id: "transpilation",
+    title: "Transpilation",
+    category: "Build Process",
+    definition: "The process of converting source code from one programming language to another at the same level of abstraction. Examples include TypeScript to JavaScript or modern JavaScript to older versions.",
+    relatedTerms: ["babel", "typescript", "compiler"]
+  },
+  {
+    id: "polyfill",
+    title: "Polyfill",
+    category: "Web Development",
+    definition: "Code that provides modern functionality to older browsers that don't natively support it. Polyfills enable developers to use newer JavaScript features while maintaining backward compatibility.",
+    relatedTerms: ["browser", "compatibility", "javascript"]
   }
 ];
