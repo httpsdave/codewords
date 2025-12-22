@@ -240,14 +240,14 @@ export default function Home() {
           {/* Quick Actions Bar */}
           <div className="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
             {recentTermsData.length > 0 && (
-              <div className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-                <span className="text-sm text-gray-600 dark:text-gray-400">Recent:</span>
-                <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 w-full sm:w-auto">
+                <span className="text-sm text-gray-600 dark:text-gray-400 flex-shrink-0">Recent:</span>
+                <div className="flex flex-wrap gap-2">
                   {recentTermsData.map(term => (
                     <Link
                       key={term!.id}
                       href={`/term/${term!.id}`}
-                      className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                      className="text-sm text-blue-600 dark:text-blue-400 hover:underline whitespace-nowrap"
                     >
                       {term!.title}
                     </Link>
