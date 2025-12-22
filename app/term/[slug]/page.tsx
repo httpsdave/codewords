@@ -5,6 +5,7 @@ import { terms } from '@/data/terms';
 import { getValidRelatedTerms } from '@/data/validation';
 import CopyButton from '@/components/CopyButton';
 import ShareButton from '@/components/ShareButton';
+import TermViewTracker from '@/components/TermViewTracker';
 
 interface TermPageProps {
   params: Promise<{ slug: string }>;
@@ -71,11 +72,12 @@ export default async function TermPage({ params }: TermPageProps) {
 
   return (
     <>
+      <TermViewTracker termId={slug} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
       <main className="max-w-4xl mx-auto" id="main-content">
         {/* Breadcrumbs */}
         <nav className="mb-6 text-sm">

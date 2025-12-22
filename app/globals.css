@@ -4,17 +4,32 @@
 
 :root {
   --foreground: #111827;
+  --background: #f9fafb;
+  color-scheme: light;
+}
+
+.dark {
+  --foreground: #e5e7eb;
+  --background: #111827;
+  color-scheme: dark;
+}
+
+html {
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 body {
   color: var(--foreground);
-  background: #f9fafb; /* light: gray-50 */
+  background: var(--background);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-.dark body {
-  color: #e5e7eb; /* dark: gray-200 */
-  background: #111827; /* dark: gray-900 to match page & footer */
+/* Smooth dark mode transitions for common elements */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 @layer utilities {

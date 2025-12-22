@@ -11,6 +11,9 @@ import BackToTop from '@/components/BackToTop';
 import KeyboardShortcutsModal from '@/components/KeyboardShortcutsModal';
 import { trackEvent } from '@/lib/analytics';
 import { terms } from '@/data/terms';
+import { useFavorites } from '@/hooks/useFavorites';
+import { useRecentTerms } from '@/hooks/useRecentTerms';
+import Link from 'next/link';
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -20,9 +23,15 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'all');
   const [selectedLetter, setSelectedLetter] = useState(searchParams.get('letter') || 'all');
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [showShortcuts, setShowShortcuts] = useState(false);
+  const [displayedCount, setDisplayedCount] = useState(50);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  
+  const { favorites, toggleFavorite, isFavorite, mounted: favoritesLoaded } = useFavorites();
+  const { recentTerms, mounted: recentLoaded } = useRecentTerms();
 
   // Simulate initial load
   useEffect(() => {
@@ -50,6 +59,11 @@ export default function Home() {
   const filteredTerms = useMemo(() => {
     let filtered = terms;
 
+    // Filter by favorites first
+    if (showFavoritesOnly && favoritesLoaded) {
+      filtered = filtered.filter(term => favorites.includes(term.id));
+    }
+
     // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
@@ -74,7 +88,39 @@ export default function Home() {
     }
 
     return filtered;
-  }, [searchQuery, selectedCategory, selectedLetter]);
+  }, [searchQuery, selectedCategory, selectedLetter, showFavoritesOnly, favorites, favoritesLoaded]);
+
+  // Display only a subset of filtered terms for performance
+  const displayedTerms = useMemo(() => {
+    return filteredTerms.slice(0, displayedCount);
+  }, [filteredTerms, displayedCount]);
+
+  // Reset displayed count when filters change
+  useEffect(() => {
+    setDisplayedCount(50);
+    setFocusedIndex(0);
+  }, [searchQuery, selectedCategory, selectedLetter, showFavoritesOnly]);
+
+  // Infinite scroll handler
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isLoadingMore || displayedCount >= filteredTerms.length) return;
+
+      const scrollPosition = window.innerHeight + window.scrollY;
+      const threshold = document.documentElement.scrollHeight - 500;
+
+      if (scrollPosition >= threshold) {
+        setIsLoadingMore(true);
+        setTimeout(() => {
+          setDisplayedCount(prev => Math.min(prev + 50, filteredTerms.length));
+          setIsLoadingMore(false);
+        }, 300);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isLoadingMore, displayedCount, filteredTerms.length]);
 
   // Keyboard navigation for results
   useEffect(() => {
@@ -88,12 +134,12 @@ export default function Home() {
 
       if (e.key === 'ArrowDown') {
         e.preventDefault();
-        setFocusedIndex(prev => Math.min(prev + 1, filteredTerms.length - 1));
+        setFocusedIndex(prev => Math.min(prev + 1, displayedTerms.length - 1));
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
         setFocusedIndex(prev => Math.max(prev - 1, 0));
       } else if (e.key === 'Enter' && focusedIndex >= 0) {
-        const term = filteredTerms[focusedIndex];
+        const term = displayedTerms[focusedIndex];
         if (term) {
           trackEvent('term_opened', { term: term.id, method: 'keyboard' });
           window.location.href = `/term/${term.id}`;
@@ -103,7 +149,7 @@ export default function Home() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [focusedIndex, filteredTerms, showShortcuts]);
+  }, [focusedIndex, displayedTerms, showShortcuts]);
 
   // Reset focused index when results change
   useEffect(() => {
@@ -145,10 +191,27 @@ export default function Home() {
     setSearchQuery('');
     setSelectedCategory('all');
     setSelectedLetter('all');
+    setShowFavoritesOnly(false);
   }, []);
 
+  const getRandomTerm = useCallback(() => {
+    const randomIndex = Math.floor(Math.random() * terms.length);
+    const randomTerm = terms[randomIndex];
+    trackEvent('random_term', { term: randomTerm.id });
+    router.push(`/term/${randomTerm.id}`);
+  }, [router]);
+
+  // Get recently viewed terms data
+  const recentTermsData = useMemo(() => {
+    if (!recentLoaded) return [];
+    return recentTerms
+      .map(id => terms.find(t => t.id === id))
+      .filter(Boolean)
+      .slice(0, 5);
+  }, [recentTerms, recentLoaded]);
+
   return (
-    <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
       <main className="max-w-5xl mx-auto pb-16 outline-none focus:outline-none" role="main" id="main-content" ref={mainRef} tabIndex={-1}>
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 
@@ -158,20 +221,65 @@ export default function Home() {
           <p className="text-lg text-gray-600 dark:text-gray-400">
             Your comprehensive dictionary for computer science and IT terminology
           </p>
-          <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
-            {terms.length} terms available • Press{' '}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-sm text-gray-500 dark:text-gray-500 mt-3">
+            <span>{terms.length} terms available</span>
+            <span>•</span>
             <button
               onClick={() => setShowShortcuts(true)}
               className="text-blue-600 dark:text-blue-400 hover:underline font-mono"
             >
-              ?
+              Press ? for shortcuts
             </button>
-            {' '}for shortcuts
-          </p>
+            <span>•</span>
+            <button
+              onClick={getRandomTerm}
+              className="text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              Random term
+            </button>
+          </div>
         </div>
         
         <div className="no-print">
           <SearchBar onSearch={setSearchQuery} />
+
+          {/* Quick Actions Bar */}
+          <div className="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
+            {favoritesLoaded && favorites.length > 0 && (
+              <button
+                onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
+                  showFavoritesOnly
+                    ? 'bg-red-500 text-white shadow-lg'
+                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-red-500 dark:hover:border-red-400'
+                }`}
+              >
+                <svg className="w-4 h-4" fill={showFavoritesOnly ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                {showFavoritesOnly ? 'Show All' : `Favorites (${favorites.length})`}
+              </button>
+            )}
+            {recentTermsData.length > 0 && (
+              <div className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+                <span className="text-sm text-gray-600 dark:text-gray-400">Recent:</span>
+                <div className="flex gap-2">
+                  {recentTermsData.map(term => (
+                    <Link
+                      key={term!.id}
+                      href={`/term/${term!.id}`}
+                      className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                    >
+                      {term!.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
 
           <CategoryFilter 
             categories={categories}
@@ -190,6 +298,7 @@ export default function Home() {
           <div className="text-center py-12">
             <p className="text-gray-500 dark:text-gray-400 text-lg mb-4">
               No terms found {searchQuery && `for "${searchQuery}"`}
+              {showFavoritesOnly && ' in your favorites'}
             </p>
             <button
               onClick={handleClearFilters}
@@ -204,9 +313,11 @@ export default function Home() {
           <>
             <div className="flex justify-between items-center mb-4">
               <p className="text-sm text-gray-600 dark:text-gray-400" role="status" aria-live="polite">
-                Showing {filteredTerms.length} of {terms.length} terms
+                Showing {displayedTerms.length} of {filteredTerms.length} terms
+                {filteredTerms.length !== terms.length && ` (${terms.length} total)`}
+                {showFavoritesOnly && ' • Favorites only'}
               </p>
-              {(searchQuery || selectedCategory !== 'all' || selectedLetter !== 'all') && (
+              {(searchQuery || selectedCategory !== 'all' || selectedLetter !== 'all' || showFavoritesOnly) && (
                 <button
                   onClick={handleClearFilters}
                   className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
@@ -223,17 +334,51 @@ export default function Home() {
                 ))}
               </div>
             ) : (
-              <div className="space-y-6" role="list" aria-label="Dictionary terms">
-                {filteredTerms.map((term, index) => (
-                  <TermCard 
-                    key={term.id} 
-                    term={term} 
-                    searchQuery={searchQuery}
-                    isFocused={index === focusedIndex}
-                    onFocus={() => setFocusedIndex(index)}
-                  />
-                ))}
-              </div>
+              <>
+                <div className="space-y-6" role="list" aria-label="Dictionary terms">
+                  {displayedTerms.map((term, index) => (
+                    <TermCard 
+                      key={term.id} 
+                      term={term} 
+                      searchQuery={searchQuery}
+                      isFocused={index === focusedIndex}
+                      onFocus={() => setFocusedIndex(index)}
+                      isFavorite={isFavorite(term.id)}
+                      onToggleFavorite={() => toggleFavorite(term.id)}
+                    />
+                  ))}
+                </div>
+                
+                {/* Load More section */}
+                {displayedCount < filteredTerms.length && (
+                  <div className="mt-8 text-center">
+                    {isLoadingMore ? (
+                      <div className="flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400">
+                        <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        <span>Loading more terms...</span>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          setIsLoadingMore(true);
+                          setTimeout(() => {
+                            setDisplayedCount(prev => Math.min(prev + 50, filteredTerms.length));
+                            setIsLoadingMore(false);
+                          }, 300);
+                        }}
+                        className="px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 
+                                 transition-colors font-medium shadow-md hover:shadow-lg"
+                        aria-label={`Load more terms (${filteredTerms.length - displayedCount} remaining)`}
+                      >
+                        Load More ({filteredTerms.length - displayedCount} remaining)
+                      </button>
+                    )}
+                  </div>
+                )}
+              </>
             )}
           </>
         )}
