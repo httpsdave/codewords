@@ -82,7 +82,7 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
           onBlur={() => setIsFocused(false)}
           className="w-full pl-12 sm:pl-14 pr-24 sm:pr-28 py-3 sm:py-4 text-base sm:text-lg 
                    rounded-xl sm:rounded-2xl border-2 
-                   bg-white dark:bg-gray-800/50 backdrop-blur-sm
+                   bg-white dark:bg-gray-800
                    border-gray-200 dark:border-gray-700
                    hover:border-gray-300 dark:hover:border-gray-600
                    focus:outline-none focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10
