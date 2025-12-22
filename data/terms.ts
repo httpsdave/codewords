@@ -4455,5 +4455,786 @@ export const terms: Term[] = [
     definition: "A program that processes source code before compilation. In C/C++, handles directives like #include, #define, and conditional compilation (#ifdef).",
     example: "#include <stdio.h>\n#define PI 3.14159\n#ifdef DEBUG\n  // debug code\n#endif",
     relatedTerms: ["compiler", "macro", "directive", "c"]
+  },
+  {
+    id: "null-undefined",
+    title: "Null/Undefined",
+    category: "Programming Concept",
+    definition: "A special value representing the intentional absence of any object value. Null means 'no value' or 'empty', while undefined (in JavaScript) means a variable has been declared but not assigned a value.",
+    example: "let x = null; // explicitly no value\nlet y; // undefined - declared but not assigned\nlet obj = { name: null }; // property exists but has no value",
+    relatedTerms: ["variable", "value", "data-type", "javascript"]
+  },
+  {
+    id: "const-keyword",
+    title: "Constant",
+    category: "Programming Concept",
+    definition: "A variable whose value cannot be changed once assigned. Constants provide immutability and help prevent accidental modifications, improving code safety and readability.",
+    example: "const PI = 3.14159;\nconst MAX_USERS = 100;\n// PI = 3.14; // Error: Cannot reassign constant",
+    relatedTerms: ["variable", "immutable", "declaration", "value"]
+  },
+  {
+    id: "operators-overview",
+    title: "Operator",
+    category: "Programming Concept",
+    definition: "A symbol that tells the compiler or interpreter to perform specific mathematical, logical, or relational operations. Common types include arithmetic (+, -, *, /), comparison (==, !=, <, >), logical (&&, ||, !), and assignment (=) operators.",
+    example: "let sum = 5 + 3; // arithmetic\nlet isEqual = (x == y); // comparison\nlet result = (a && b); // logical\nx += 5; // assignment",
+    relatedTerms: ["code-expression", "arithmetic", "comparison", "logical"]
+  },
+  {
+    id: "code-expression",
+    title: "Expression",
+    category: "Programming Concept",
+    definition: "A combination of values, variables, operators, and function calls that evaluates to a single value. Expressions are the building blocks of statements and can be used wherever a value is expected.",
+    example: "5 + 3 // evaluates to 8\nx * 2 + 1 // evaluates to a number\ngetName() // evaluates to return value\n(a > b) ? a : b // evaluates to larger value",
+    relatedTerms: ["operators-overview", "value", "code-statement", "evaluation"]
+  },
+  {
+    id: "code-statement",
+    title: "Statement",
+    category: "Programming Concept",
+    definition: "A complete unit of execution in a program that performs an action. Statements typically end with a semicolon and include declarations, assignments, control flow, and function calls.",
+    example: "let x = 5; // declaration statement\nx = x + 1; // assignment statement\nif (x > 0) { } // control flow statement\nconsole.log(x); // function call statement",
+    relatedTerms: ["expression", "syntax", "semicolon", "code"]
+  },
+  {
+    id: "variable-scope",
+    title: "Scope",
+    category: "Programming Concept",
+    definition: "The region of code where a variable, function, or identifier is accessible. Scope determines variable visibility and lifetime, including global scope (accessible everywhere), function scope (within a function), and block scope (within braces).",
+    example: "let global = 'accessible everywhere';\nfunction test() {\n  let local = 'only in function'; // function scope\n  if (true) {\n    let block = 'only in block'; // block scope\n  }\n}",
+    relatedTerms: ["variable", "closure", "global", "local"]
+  },
+  {
+    id: "namespace",
+    title: "Namespace",
+    category: "Programming Concept",
+    definition: "A container that provides a context for identifiers to avoid naming conflicts. Namespaces organize code by grouping related functionality and preventing name collisions in large applications.",
+    example: "// TypeScript/C++\nnamespace Math {\n  export function add(a, b) { return a + b; }\n}\nMath.add(2, 3);",
+    relatedTerms: ["module", "scope", "identifier", "organization"]
+  },
+  {
+    id: "exception-handling",
+    title: "Exception",
+    category: "Programming Concept",
+    definition: "An error or unexpected condition that occurs during program execution, disrupting the normal flow. Exceptions can be caught and handled to prevent program crashes and provide graceful error recovery.",
+    example: "try {\n  let result = divide(10, 0);\n} catch (error) {\n  console.log('Cannot divide by zero');\n}",
+    relatedTerms: ["error", "try-catch", "throw", "handling"]
+  },
+  {
+    id: "try-catch-block",
+    title: "Try-Catch",
+    category: "Error Handling",
+    definition: "A control structure for handling exceptions. Code in the 'try' block is executed, and if an error occurs, control passes to the 'catch' block to handle the error gracefully without crashing the program.",
+    example: "try {\n  JSON.parse(invalidJSON);\n} catch (error) {\n  console.error('Parse error:', error.message);\n} finally {\n  console.log('Cleanup code');\n}",
+    relatedTerms: ["exception", "error", "throw", "finally"]
+  },
+  {
+    id: "import-export",
+    title: "Import/Export",
+    category: "Module System",
+    definition: "Keywords used to share code between files. Export makes functions, objects, or values available to other modules, while import brings them into the current file, enabling code organization and reusability.",
+    example: "// math.js\nexport function add(a, b) { return a + b; }\n// main.js\nimport { add } from './math.js';\nadd(2, 3);",
+    relatedTerms: ["module", "require", "package", "es6"]
+  },
+  {
+    id: "path",
+    title: "Path",
+    category: "File System",
+    definition: "The location of a file or directory in a file system hierarchy. Paths can be absolute (full path from root) or relative (from current location), using separators like / (Unix) or \\ (Windows).",
+    example: "// Absolute\nC:\\Users\\John\\Documents\\file.txt\n/home/user/documents/file.txt\n// Relative\n./folder/file.txt\n../parent/file.txt",
+    relatedTerms: ["directory", "file", "absolute", "relative"]
+  },
+  {
+    id: "directory",
+    title: "Directory/Folder",
+    category: "File System",
+    definition: "A file system container that organizes files and other directories in a hierarchical structure. Directories (folders) help organize and manage files logically on storage devices.",
+    example: "project/\n  src/\n    components/\n    utils/\n  tests/\n  README.md",
+    relatedTerms: ["path", "file", "file-system", "hierarchy"]
+  },
+  {
+    id: "file-extension",
+    title: "File Extension",
+    category: "File System",
+    definition: "A suffix at the end of a filename that indicates the file type or format. Extensions help operating systems and applications determine how to handle the file.",
+    example: ".js - JavaScript\n.py - Python\n.html - HTML\n.txt - Text\n.json - JSON\n.css - CSS\n.md - Markdown",
+    relatedTerms: ["file", "format", "type", "mime"]
+  },
+  {
+    id: "command-line-interface",
+    title: "CLI (Command Line Interface)",
+    category: "Interface",
+    definition: "A text-based user interface for interacting with software and operating systems by typing commands. CLIs are powerful for automation, scripting, and efficient system administration.",
+    example: "npm install express\ngit commit -m 'message'\ncd /home/user\nls -la",
+    relatedTerms: ["terminal", "shell", "command", "bash"]
+  },
+  {
+    id: "localhost",
+    title: "Localhost",
+    category: "Networking",
+    definition: "A hostname that refers to the current computer, resolving to the IP address 127.0.0.1 (IPv4) or ::1 (IPv6). Used for local development and testing without network access.",
+    example: "http://localhost:3000\nhttp://127.0.0.1:8080\nmongodb://localhost:27017",
+    relatedTerms: ["internet-protocol-address", "development", "server", "port"]
+  },
+  {
+    id: "env-variables",
+    title: "Environment Variable",
+    category: "Configuration",
+    definition: "A dynamic value stored at the operating system level that can affect how processes behave. Environment variables store configuration like API keys, database URLs, and system paths.",
+    example: "// .env file\nDATABASE_URL=mongodb://localhost:27017\nAPI_KEY=abc123\nNODE_ENV=production\n// Access in code\nprocess.env.DATABASE_URL",
+    relatedTerms: ["configuration", "env", "dotenv", "process"]
+  },
+  {
+    id: "config-file",
+    title: "Configuration File",
+    category: "Software Development",
+    definition: "A file that contains settings and parameters for software applications. Common formats include JSON, YAML, XML, and .env files. Configuration files separate settings from code for easier management.",
+    example: "package.json\ntsconfig.json\n.env\nwebpack.config.js\nappsettings.json",
+    relatedTerms: ["environment-variable", "json", "yaml", "settings"]
+  },
+  {
+    id: "readme",
+    title: "README",
+    category: "Documentation",
+    definition: "A text file (usually README.md in Markdown format) that provides essential information about a project, including description, installation instructions, usage, and contribution guidelines. It's typically the first file users see in a repository.",
+    example: "# Project Name\n## Description\n## Installation\n```npm install```\n## Usage\n## Contributing\n## License",
+    relatedTerms: ["documentation", "markdown", "github", "project"]
+  },
+  {
+    id: "license",
+    title: "Software License",
+    category: "Legal",
+    definition: "A legal document that defines how software can be used, modified, and distributed. Common licenses include MIT (permissive), GPL (copyleft), Apache, and BSD.",
+    example: "MIT License - Very permissive\nGPL - Must share modifications\nApache 2.0 - Patent protection\nProprietary - All rights reserved",
+    relatedTerms: ["open-source", "copyright", "legal", "repository"]
+  },
+  {
+    id: "open-source-software",
+    title: "Open Source",
+    category: "Software Development",
+    definition: "Software with source code that is freely available for anyone to view, modify, and distribute. Open source promotes collaboration, transparency, and community-driven development.",
+    example: "Linux, React, VS Code, Node.js, Python - all open source projects",
+    relatedTerms: ["github", "license", "community", "repository"]
+  },
+  {
+    id: "proprietary",
+    title: "Proprietary Software",
+    category: "Software Development",
+    definition: "Software owned by an individual or company where the source code is kept private and users must agree to terms that restrict how they can use, modify, or distribute the software.",
+    example: "Microsoft Windows, Adobe Photoshop, Oracle Database - closed source, commercial software",
+    relatedTerms: ["license", "closed-source", "commercial", "copyright"]
+  },
+  {
+    id: "legacy-code",
+    title: "Legacy Code",
+    category: "Software Development",
+    definition: "Existing code from older systems that is outdated but still in use. Legacy code may use deprecated technologies, lack documentation, or be difficult to maintain, but is often critical to business operations.",
+    example: "COBOL banking systems, old Java applications, unmaintained libraries still in production",
+    relatedTerms: ["technical-debt", "maintenance", "deprecated", "refactoring"]
+  },
+  {
+    id: "code-refactoring",
+    title: "Refactoring",
+    category: "Software Development",
+    definition: "The process of restructuring existing code to improve its internal structure, readability, and maintainability without changing its external behavior. Refactoring reduces technical debt and makes code easier to understand.",
+    example: "// Before\nfunction calc(a,b,c){return a*b+c;}\n// After (refactored)\nfunction calculateTotal(price, quantity, discount) {\n  return (price * quantity) + discount;\n}",
+    relatedTerms: ["clean-code", "technical-debt", "optimization", "maintenance"]
+  },
+  {
+    id: "tech-debt",
+    title: "Technical Debt",
+    category: "Software Development",
+    definition: "The implied cost of additional work caused by choosing quick, easy solutions now instead of better approaches that would take longer. Like financial debt, technical debt accumulates 'interest' through increased maintenance costs.",
+    relatedTerms: ["refactoring", "legacy-code", "maintenance", "architecture"]
+  },
+  {
+    id: "production",
+    title: "Production Environment",
+    category: "Deployment",
+    definition: "The live environment where software runs and is accessible to end users. Production is the final stage after development and testing, requiring high stability, security, and performance.",
+    example: "NODE_ENV=production\nhttps://app.example.com (live site)",
+    relatedTerms: ["deployment", "staging", "development", "environment"]
+  },
+  {
+    id: "staging",
+    title: "Staging Environment",
+    category: "Deployment",
+    definition: "A pre-production environment that closely mirrors production for final testing before deployment. Staging allows teams to test changes in a production-like setting without affecting real users.",
+    example: "https://staging.example.com\nNODE_ENV=staging",
+    relatedTerms: ["production", "development", "testing", "deployment"]
+  },
+  {
+    id: "dev-environment",
+    title: "Development Environment",
+    category: "Software Development",
+    definition: "The local setup where developers write, test, and debug code. Includes IDE, local servers, databases, and development tools configured for rapid iteration and testing.",
+    example: "NODE_ENV=development\nlocalhost:3000\nHot reload enabled",
+    relatedTerms: ["ide", "localhost", "debugging", "staging"]
+  },
+  {
+    id: "internet-protocol-address",
+    title: "IP Address",
+    category: "Networking",
+    definition: "A unique numerical identifier assigned to each device on a network. IPv4 addresses use four numbers (e.g., 192.168.1.1), while IPv6 uses longer hexadecimal notation to support more devices.",
+    example: "192.168.1.1 (IPv4 - local)\n8.8.8.8 (Google DNS)\n2001:0db8:85a3::8a2e:0370:7334 (IPv6)",
+    relatedTerms: ["network", "dns", "localhost", "tcp-ip"]
+  },
+  {
+    id: "domain",
+    title: "Domain Name",
+    category: "Internet",
+    definition: "A human-readable address for websites that maps to IP addresses through DNS. Domains have a hierarchical structure with top-level domains (TLDs) like .com, .org, and country codes.",
+    example: "google.com\nexample.org\ngithub.io\namazon.co.uk",
+    relatedTerms: ["dns", "url", "subdomain", "tld"]
+  },
+  {
+    id: "subdomain",
+    title: "Subdomain",
+    category: "Internet",
+    definition: "A prefix to a domain name that creates a separate section of a website. Subdomains are part of the main domain but can point to different servers or content.",
+    example: "blog.example.com\napi.example.com\ndocs.github.com\nmail.google.com",
+    relatedTerms: ["domain", "dns", "url", "hosting"]
+  },
+  {
+    id: "root-directory",
+    title: "Root Directory",
+    category: "File System",
+    definition: "The top-level directory in a file system hierarchy that contains all other files and directories. On Unix/Linux it's /, on Windows it's typically C:\\. Also refers to a project's main folder.",
+    example: "/ (Unix root)\nC:\\ (Windows root)\n/home/user/ (user home)\nproject/ (project root)",
+    relatedTerms: ["directory", "path", "file-system", "hierarchy"]
+  },
+  {
+    id: "absolute-path",
+    title: "Absolute Path",
+    category: "File System",
+    definition: "The complete path to a file or directory from the root directory. Absolute paths always start from the root and work regardless of the current working directory.",
+    example: "C:\\Users\\John\\Documents\\file.txt\n/home/user/projects/app/src/index.js\n/var/www/html/index.html",
+    relatedTerms: ["path", "root-directory", "relative-path", "file-system"]
+  },
+  {
+    id: "relative-path",
+    title: "Relative Path",
+    category: "File System",
+    definition: "A path to a file or directory relative to the current working directory. Uses . (current directory) and .. (parent directory) for navigation.",
+    example: "./file.txt (current directory)\n../parent/file.txt (parent directory)\nfolder/subfolder/file.txt (nested)",
+    relatedTerms: ["path", "absolute-path", "directory", "navigation"]
+  },
+  {
+    id: "wildcard",
+    title: "Wildcard",
+    category: "Pattern Matching",
+    definition: "A character used to represent one or more other characters in pattern matching. Common wildcards include * (matches any characters) and ? (matches single character).",
+    example: "*.js (all JavaScript files)\nfile?.txt (file1.txt, fileA.txt)\ntest*.spec.ts (all test spec files)",
+    relatedTerms: ["regex", "glob", "pattern", "search"]
+  },
+  {
+    id: "regular-expressions",
+    title: "Regular Expression (Regex)",
+    category: "Pattern Matching",
+    definition: "A sequence of characters that defines a search pattern for text matching, validation, and manipulation. Regex provides powerful pattern matching capabilities using special syntax.",
+    example: "/^[a-z]+@[a-z]+\\.[a-z]{2,}$/ (email pattern)\n/\\d{3}-\\d{3}-\\d{4}/ (phone: 123-456-7890)\n/[A-Z][a-z]+/ (capitalized words)",
+    relatedTerms: ["pattern", "validation", "string", "search"]
+  },
+  {
+    id: "string-concatenation",
+    title: "String Concatenation",
+    category: "String Operation",
+    definition: "The operation of joining two or more strings end-to-end to create a new string. Concatenation can be done using operators like + or concat() method.",
+    example: "let greeting = 'Hello' + ' ' + 'World'; // 'Hello World'\nlet name = 'John'.concat(' ', 'Doe'); // 'John Doe'",
+    relatedTerms: ["string", "operator", "template-literal", "join"]
+  },
+  {
+    id: "template-literals",
+    title: "Template Literal",
+    category: "String Feature",
+    definition: "A modern JavaScript string syntax using backticks (`) that allows embedded expressions, multi-line strings, and easier string interpolation using ${} syntax.",
+    example: "const name = 'John';\nconst age = 30;\nconst message = `Hello ${name}, you are ${age} years old`;\nconst multiline = `Line 1\nLine 2\nLine 3`;",
+    relatedTerms: ["string", "interpolation", "es6", "javascript"]
+  },
+  {
+    id: "ternary-conditional",
+    title: "Ternary Operator",
+    category: "Operator",
+    definition: "A shorthand conditional operator that evaluates a condition and returns one of two values. Written as condition ? valueIfTrue : valueIfFalse, it's a concise alternative to if-else statements.",
+    example: "let status = (age >= 18) ? 'adult' : 'minor';\nlet max = (a > b) ? a : b;\nlet message = isLoggedIn ? 'Welcome' : 'Please login';",
+    relatedTerms: ["conditional", "operator", "if-else", "expression"]
+  },
+  {
+    id: "truthy-falsy-values",
+    title: "Truthy/Falsy",
+    category: "Type Coercion",
+    definition: "Values in JavaScript that evaluate to true or false in boolean contexts. Falsy values include false, 0, '', null, undefined, NaN. All other values are truthy.",
+    example: "if ('hello') { } // truthy\nif (0) { } // falsy\nif ([]) { } // truthy (empty array)\nif ('') { } // falsy (empty string)",
+    relatedTerms: ["boolean", "coercion", "conditional", "javascript"]
+  },
+  {
+    id: "type-coercion",
+    title: "Type Coercion",
+    category: "Type System",
+    definition: "The automatic or implicit conversion of values from one data type to another. JavaScript performs type coercion in operations involving different types.",
+    example: "'5' + 3 // '53' (string concatenation)\n'5' - 3 // 2 (number subtraction)\n!!'hello' // true (boolean coercion)\n5 == '5' // true (coercion in comparison)",
+    relatedTerms: ["casting", "type", "conversion", "truthy-falsy"]
+  },
+  {
+    id: "type-casting-convert",
+    title: "Type Casting",
+    category: "Type System",
+    definition: "The explicit conversion of a value from one data type to another. Unlike coercion (automatic), casting is done intentionally by the programmer using functions or operators.",
+    example: "Number('123') // 123\nString(456) // '456'\nBoolean(1) // true\nparseInt('42px') // 42\nparseFloat('3.14') // 3.14",
+    relatedTerms: ["type-coercion", "conversion", "data-type", "parsing"]
+  },
+  {
+    id: "overflow",
+    title: "Integer Overflow",
+    category: "Computer Science",
+    definition: "A condition that occurs when an arithmetic operation produces a result larger than the maximum value a data type can hold. The value wraps around, potentially causing bugs.",
+    example: "// JavaScript uses 64-bit floats, no integer overflow\n// C/C++:\nint max = 2147483647;\nmax + 1; // -2147483648 (overflow wraps around)",
+    relatedTerms: ["integer", "data-type", "memory", "bug"]
+  },
+  {
+    id: "not-a-number",
+    title: "NaN (Not a Number)",
+    category: "JavaScript",
+    definition: "A special numeric value representing an undefined or unrepresentable mathematical result. NaN is the result of invalid numeric operations.",
+    example: "0 / 0 // NaN\nparseInt('hello') // NaN\nMath.sqrt(-1) // NaN\nNaN === NaN // false (NaN is not equal to itself)\nisNaN(NaN) // true",
+    relatedTerms: ["number", "javascript", "infinity", "error"]
+  },
+  {
+    id: "infinity-value",
+    title: "Infinity",
+    category: "JavaScript",
+    definition: "A numeric value representing mathematical infinity. JavaScript has Infinity (positive) and -Infinity (negative) values, resulting from operations like division by zero.",
+    example: "1 / 0 // Infinity\n-1 / 0 // -Infinity\nNumber.POSITIVE_INFINITY\nNumber.NEGATIVE_INFINITY\nInfinity > 1000000 // true",
+    relatedTerms: ["number", "javascript", "nan", "mathematical"]
+  },
+  {
+    id: "code-comments",
+    title: "Comment",
+    category: "Programming Concept",
+    definition: "Non-executable text in source code used to explain, document, or temporarily disable code. Comments are ignored by compilers/interpreters and exist solely for human readers.",
+    example: "// Single-line comment in JavaScript, C++, Java\n/* Multi-line comment\n   spans multiple lines */\n# Python, Ruby comment\n<!-- HTML comment -->",
+    relatedTerms: ["documentation", "code", "syntax", "annotation"]
+  },
+  {
+    id: "documentation",
+    title: "Documentation",
+    category: "Software Development",
+    definition: "Written descriptions, guides, and references that explain how software works, how to use it, and how it's structured. Good documentation improves maintainability and user adoption.",
+    example: "README.md files\nAPI documentation\nCode comments\nJSDoc/Javadoc\nUser manuals\nTutorials",
+    relatedTerms: ["comment", "readme", "api", "jsdoc"]
+  },
+  {
+    id: "data-delimiter",
+    title: "Delimiter",
+    category: "Data Format",
+    definition: "A character or sequence of characters used to separate or mark boundaries between data elements. Common delimiters include commas, semicolons, tabs, and newlines.",
+    example: "CSV: name,age,city (comma delimiter)\nTSV: name\tage\tcity (tab delimiter)\nURL: ?key=value&foo=bar (& delimiter)",
+    relatedTerms: ["csv", "parsing", "separator", "format"]
+  },
+  {
+    id: "eof",
+    title: "EOF (End of File)",
+    category: "File System",
+    definition: "A condition or marker indicating that no more data can be read from a file or data stream. EOF is used in file operations to detect when reading is complete.",
+    example: "while not EOF:\n    line = file.readline()\nif (file.eof()):\n    // reached end of file",
+    relatedTerms: ["file", "stream", "io", "reading"]
+  },
+  {
+    id: "crud",
+    title: "CRUD",
+    category: "Database Operations",
+    definition: "An acronym for Create, Read, Update, Delete - the four basic operations for persistent storage. CRUD operations form the foundation of most database interactions and APIs.",
+    example: "CREATE: INSERT INTO users VALUES...\nREAD: SELECT * FROM users\nUPDATE: UPDATE users SET name=...\nDELETE: DELETE FROM users WHERE...",
+    relatedTerms: ["database", "api", "rest", "sql"]
+  },
+  {
+    id: "acid-properties",
+    title: "ACID",
+    category: "Database",
+    definition: "Database transaction properties: Atomicity (all or nothing), Consistency (valid state), Isolation (concurrent transactions don't interfere), Durability (committed data persists). ACID ensures reliable database operations.",
+    relatedTerms: ["database", "transaction", "consistency", "sql"]
+  },
+  {
+    id: "database-schema-design",
+    title: "Database Schema",
+    category: "Database",
+    definition: "The structure and organization of a database, defining tables, columns, data types, relationships, and constraints. Schema provides a blueprint for how data is stored and related.",
+    example: "CREATE TABLE users (\n  id INT PRIMARY KEY,\n  name VARCHAR(100),\n  email VARCHAR(100) UNIQUE,\n  created_at TIMESTAMP\n);",
+    relatedTerms: ["database", "table", "sql", "migration"]
+  },
+  {
+    id: "migration",
+    title: "Database Migration",
+    category: "Database",
+    definition: "A version-controlled way to modify database schema over time. Migrations track and apply incremental changes to database structure, ensuring consistency across environments.",
+    example: "// Migration: Add column\nALTER TABLE users ADD COLUMN age INT;\n// Rollback\nALTER TABLE users DROP COLUMN age;",
+    relatedTerms: ["schema", "database", "version-control", "deployment"]
+  },
+  {
+    id: "seed-data",
+    title: "Seed Data",
+    category: "Database",
+    definition: "Initial or sample data inserted into a database for development, testing, or demonstration purposes. Seed data provides a consistent starting state for applications.",
+    example: "// seeds.js\ndb.users.insertMany([\n  { name: 'Alice', role: 'admin' },\n  { name: 'Bob', role: 'user' }\n]);",
+    relatedTerms: ["database", "testing", "development", "fixture"]
+  },
+  {
+    id: "orm",
+    title: "ORM (Object-Relational Mapping)",
+    category: "Database",
+    definition: "A technique that converts data between incompatible type systems (object-oriented programming and relational databases). ORMs like Sequelize, TypeORM, and Hibernate let developers work with databases using objects instead of SQL.",
+    example: "// Instead of SQL\nconst user = await User.findOne({ where: { id: 1 } });\nuser.name = 'John';\nawait user.save();",
+    relatedTerms: ["database", "sql", "model", "abstraction"]
+  },
+  {
+    id: "foreign-key",
+    title: "Foreign Key",
+    category: "Database",
+    definition: "A column or set of columns in a database table that references the primary key of another table. Foreign keys establish relationships between tables and maintain referential integrity.",
+    example: "CREATE TABLE orders (\n  id INT PRIMARY KEY,\n  user_id INT,\n  FOREIGN KEY (user_id) REFERENCES users(id)\n);",
+    relatedTerms: ["primary-key", "database", "relationship", "sql"]
+  },
+  {
+    id: "primary-key",
+    title: "Primary Key",
+    category: "Database",
+    definition: "A unique identifier for each record in a database table. Primary keys ensure each row can be uniquely identified and are often auto-incrementing integers or UUIDs.",
+    example: "CREATE TABLE users (\n  id INT PRIMARY KEY AUTO_INCREMENT,\n  email VARCHAR(100) UNIQUE\n);",
+    relatedTerms: ["foreign-key", "database", "unique", "sql"]
+  },
+  {
+    id: "db-index",
+    title: "Database Index",
+    category: "Database",
+    definition: "A data structure that improves the speed of data retrieval operations on a database table. Indexes work like a book's index, allowing quick lookups but requiring extra storage and slower writes.",
+    example: "CREATE INDEX idx_email ON users(email);\nCREATE INDEX idx_name_age ON users(name, age);",
+    relatedTerms: ["database", "performance", "optimization", "query"]
+  },
+  {
+    id: "sql-join-operation",
+    title: "SQL Join",
+    category: "Database",
+    definition: "An operation that combines rows from two or more tables based on related columns. Common types include INNER JOIN (matching rows), LEFT JOIN (all from left + matches), and RIGHT JOIN.",
+    example: "SELECT users.name, orders.total\nFROM users\nINNER JOIN orders ON users.id = orders.user_id;",
+    relatedTerms: ["sql", "database", "query", "relationship"]
+  },
+  {
+    id: "middleware-layer",
+    title: "Middleware",
+    category: "Software Architecture",
+    definition: "Software that sits between applications, services, or layers, processing requests and responses. In web development, middleware handles tasks like authentication, logging, and data parsing before reaching route handlers.",
+    example: "app.use(express.json()); // body parser middleware\napp.use(authenticate); // auth middleware\napp.use(logger); // logging middleware",
+    relatedTerms: ["express", "api", "server", "architecture"]
+  },
+  {
+    id: "endpoint",
+    title: "API Endpoint",
+    category: "Web API",
+    definition: "A specific URL path where an API can be accessed to perform operations. Endpoints define the interface for client-server communication, typically combined with HTTP methods.",
+    example: "GET /api/users - List users\nPOST /api/users - Create user\nGET /api/users/:id - Get specific user\nDELETE /api/users/:id - Delete user",
+    relatedTerms: ["api", "rest", "route", "http"]
+  },
+  {
+    id: "request-response",
+    title: "Request/Response",
+    category: "HTTP",
+    definition: "The fundamental communication pattern in client-server architecture. A client sends a request to a server, which processes it and sends back a response containing data or status information.",
+    example: "// Request\nGET /api/users HTTP/1.1\nHost: example.com\n// Response\nHTTP/1.1 200 OK\nContent-Type: application/json\n{\"users\": [...]}",
+    relatedTerms: ["http", "client", "server", "api"]
+  },
+  {
+    id: "status-code",
+    title: "HTTP Status Code",
+    category: "HTTP",
+    definition: "A three-digit code returned by servers indicating the result of an HTTP request. Categories: 2xx (success), 3xx (redirection), 4xx (client error), 5xx (server error).",
+    example: "200 OK - Success\n201 Created - Resource created\n400 Bad Request - Client error\n401 Unauthorized - Authentication required\n404 Not Found - Resource not found\n500 Internal Server Error",
+    relatedTerms: ["http", "response", "api", "error"]
+  },
+  {
+    id: "http-cookie",
+    title: "Cookie",
+    category: "Web Technology",
+    definition: "A small piece of data stored by a web browser and sent to the server with each request. Cookies maintain state, store session information, track users, and remember preferences.",
+    example: "document.cookie = 'username=John; expires=Fri, 31 Dec 2024';\n// Server sets cookie\nres.cookie('session', 'abc123', { httpOnly: true });",
+    relatedTerms: ["session", "browser", "http", "storage"]
+  },
+  {
+    id: "session",
+    title: "Session",
+    category: "Web Technology",
+    definition: "A temporary interactive information exchange between a user and web application. Sessions maintain state across multiple requests, typically stored on the server with a session ID in a cookie.",
+    example: "// Express session\nreq.session.userId = user.id;\nreq.session.cart = [];\nreq.session.destroy(); // logout",
+    relatedTerms: ["cookie", "authentication", "state", "server"]
+  },
+  {
+    id: "token",
+    title: "Authentication Token",
+    category: "Security",
+    definition: "A piece of data used to authenticate a user or authorize access to resources. Tokens (like JWT) are often used in stateless authentication, passed in headers or cookies.",
+    example: "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\nconst token = jwt.sign({ userId: 123 }, secret);",
+    relatedTerms: ["jwt", "authentication", "authorization", "security"]
+  },
+  {
+    id: "cors-policy",
+    title: "CORS (Cross-Origin Resource Sharing)",
+    category: "Web Security",
+    definition: "A security mechanism that allows or restricts web pages from making requests to a different domain than the one serving the page. CORS headers control cross-origin access.",
+    example: "// Server enables CORS\nres.setHeader('Access-Control-Allow-Origin', '*');\nres.setHeader('Access-Control-Allow-Methods', 'GET, POST');",
+    relatedTerms: ["http", "security", "api", "browser"]
+  },
+  {
+    id: "cache-invalidation",
+    title: "Cache Invalidation",
+    category: "Caching",
+    definition: "The process of removing or updating stale data from a cache when the original data changes. Cache invalidation is crucial for maintaining data consistency in cached systems.",
+    example: "// Clear specific cache\ncache.del('user:123');\n// Set expiration\ncache.set('key', value, { ttl: 3600 }); // 1 hour",
+    relatedTerms: ["caching", "redis", "performance", "consistency"]
+  },
+  {
+    id: "api-rate-limiting",
+    title: "Rate Limiting",
+    category: "API Security",
+    definition: "A technique to control the number of requests a client can make to an API within a time period. Rate limiting prevents abuse, ensures fair usage, and protects against DDoS attacks.",
+    example: "// Express rate limiter\nconst limiter = rateLimit({\n  windowMs: 15 * 60 * 1000, // 15 minutes\n  max: 100 // limit each IP to 100 requests per window\n});",
+    relatedTerms: ["api", "security", "throttling", "ddos"]
+  },
+  {
+    id: "pagination",
+    title: "Pagination",
+    category: "Data Presentation",
+    definition: "The practice of dividing large datasets into smaller, manageable pages or chunks. Pagination improves performance and user experience by loading data incrementally.",
+    example: "GET /api/users?page=2&limit=20\n// SQL\nSELECT * FROM users LIMIT 20 OFFSET 20;",
+    relatedTerms: ["api", "database", "query", "performance"]
+  },
+  {
+    id: "webhook-callback",
+    title: "Webhook",
+    category: "API",
+    definition: "An HTTP callback that sends real-time data from one application to another when an event occurs. Webhooks enable event-driven integrations without constant polling.",
+    example: "// GitHub webhook on push\nPOST https://yourapp.com/webhook\n{ \"event\": \"push\", \"repository\": \"...\", \"commits\": [...] }",
+    relatedTerms: ["api", "event", "callback", "integration"]
+  },
+  {
+    id: "thread",
+    title: "Thread",
+    category: "Concurrency",
+    definition: "The smallest sequence of programmed instructions that can be managed independently by a scheduler. Threads within the same process share memory, enabling concurrent execution.",
+    example: "// Java\nThread thread = new Thread(() -> {\n  System.out.println('Running in thread');\n});\nthread.start();",
+    relatedTerms: ["process", "concurrency", "parallelism", "multi-threading"]
+  },
+  {
+    id: "process",
+    title: "Process",
+    category: "Operating System",
+    definition: "An instance of a running program with its own memory space, resources, and execution context. Processes are isolated from each other, unlike threads which share memory within a process.",
+    example: "// Node.js\nconst { spawn } = require('child_process');\nconst child = spawn('ls', ['-la']);\nprocess.env.NODE_ENV",
+    relatedTerms: ["thread", "operating-system", "memory", "cpu"]
+  },
+  {
+    id: "daemon-process",
+    title: "Daemon",
+    category: "System Software",
+    definition: "A background process that runs continuously, typically without user interaction. Daemons perform system tasks, handle services, and respond to events (e.g., web servers, database servers).",
+    example: "systemd (Linux init daemon)\nnginx daemon\nmongod (MongoDB daemon)\nsshd (SSH daemon)",
+    relatedTerms: ["process", "service", "background", "linux"]
+  },
+  {
+    id: "concurrency",
+    title: "Concurrency",
+    category: "Programming Concept",
+    definition: "The ability to handle multiple tasks by switching between them, giving the illusion of simultaneous execution. Concurrency is about dealing with many things at once, not necessarily doing them simultaneously.",
+    example: "// JavaScript async (concurrent but not parallel)\nasync function fetchData() {\n  const [users, posts] = await Promise.all([\n    fetchUsers(),\n    fetchPosts()\n  ]);\n}",
+    relatedTerms: ["parallelism", "async", "thread", "multi-tasking"]
+  },
+  {
+    id: "parallelism",
+    title: "Parallelism",
+    category: "Programming Concept",
+    definition: "The simultaneous execution of multiple computations, typically on multiple CPU cores or processors. Unlike concurrency (task management), parallelism involves actual simultaneous execution.",
+    example: "// Node.js worker threads\nconst { Worker } = require('worker_threads');\nconst worker = new Worker('./worker.js');",
+    relatedTerms: ["concurrency", "multi-threading", "cpu", "performance"]
+  },
+  {
+    id: "race-condition",
+    title: "Race Condition",
+    category: "Concurrency Bug",
+    definition: "A bug that occurs when the behavior of software depends on the timing or sequence of uncontrolled events. Race conditions happen in concurrent systems when multiple threads access shared resources.",
+    example: "// Both threads read count=0, increment, write 1\n// Expected: 2, Actual: 1\nlet count = 0;\nthread1: count++;\nthread2: count++;",
+    relatedTerms: ["concurrency", "thread", "bug", "synchronization"]
+  },
+  {
+    id: "deadlock",
+    title: "Deadlock",
+    category: "Concurrency Bug",
+    definition: "A situation where two or more processes or threads are blocked forever, each waiting for the other to release a resource. Deadlocks require four conditions: mutual exclusion, hold and wait, no preemption, and circular wait.",
+    example: "Thread 1: locks A, waits for B\nThread 2: locks B, waits for A\n// Both threads blocked forever",
+    relatedTerms: ["concurrency", "thread", "lock", "synchronization"]
+  },
+  {
+    id: "mutex",
+    title: "Mutex (Mutual Exclusion)",
+    category: "Concurrency",
+    definition: "A synchronization primitive that prevents multiple threads from simultaneously executing critical sections of code. A mutex ensures only one thread can access a shared resource at a time.",
+    example: "// Pseudocode\nmutex.lock();\n// critical section - only one thread at a time\nsharedResource.update();\nmutex.unlock();",
+    relatedTerms: ["thread", "lock", "synchronization", "semaphore"]
+  },
+  {
+    id: "semaphore",
+    title: "Semaphore",
+    category: "Concurrency",
+    definition: "A synchronization mechanism that controls access to a shared resource through counters. Unlike mutexes (binary), semaphores can allow multiple threads to access a resource up to a limit.",
+    example: "// Allow 5 concurrent database connections\nconst semaphore = new Semaphore(5);\nawait semaphore.acquire();\n// use resource\nsemaphore.release();",
+    relatedTerms: ["mutex", "thread", "synchronization", "concurrency"]
+  },
+  {
+    id: "sandbox",
+    title: "Sandbox",
+    category: "Security",
+    definition: "An isolated testing environment that separates running programs from the rest of the system. Sandboxes protect the main system from potentially harmful code while allowing safe experimentation.",
+    example: "Browser sandbox for JavaScript\nDocker containers\nVirtual machines\nCodeSandbox, JSFiddle (online sandboxes)",
+    relatedTerms: ["security", "isolation", "testing", "virtualization"]
+  },
+  {
+    id: "dependency-injection-pattern",
+    title: "Dependency Injection",
+    category: "Design Pattern",
+    definition: "A design pattern where dependencies are provided to an object rather than the object creating them. This promotes loose coupling, testability, and flexibility in software design.",
+    example: "// Instead of: new Service(new Database())\nclass UserService {\n  constructor(database) { // dependency injected\n    this.db = database;\n  }\n}",
+    relatedTerms: ["design-pattern", "testing", "architecture", "inversion"]
+  },
+  {
+    id: "singleton-design-pattern",
+    title: "Singleton Pattern",
+    category: "Design Pattern",
+    definition: "A design pattern that restricts a class to a single instance and provides a global point of access to it. Useful for managing shared resources like database connections or configuration.",
+    example: "class Singleton {\n  static instance;\n  static getInstance() {\n    if (!this.instance) {\n      this.instance = new Singleton();\n    }\n    return this.instance;\n  }\n}",
+    relatedTerms: ["design-pattern", "instance", "global", "class"]
+  },
+  {
+    id: "factory-design-pattern",
+    title: "Factory Pattern",
+    category: "Design Pattern",
+    definition: "A creational design pattern that provides an interface for creating objects without specifying their exact classes. Factories encapsulate object creation logic and promote loose coupling.",
+    example: "class CarFactory {\n  createCar(type) {\n    if (type === 'sedan') return new Sedan();\n    if (type === 'suv') return new SUV();\n  }\n}",
+    relatedTerms: ["design-pattern", "creational", "abstraction", "class"]
+  },
+  {
+    id: "observer-design-pattern",
+    title: "Observer Pattern",
+    category: "Design Pattern",
+    definition: "A behavioral design pattern where an object (subject) maintains a list of dependents (observers) and notifies them of state changes. Used extensively in event-driven systems and reactive programming.",
+    example: "class Subject {\n  observers = [];\n  subscribe(observer) { this.observers.push(observer); }\n  notify(data) { this.observers.forEach(o => o.update(data)); }\n}",
+    relatedTerms: ["design-pattern", "event", "pubsub", "reactive"]
+  },
+  {
+    id: "mvc-architecture",
+    title: "MVC (Model-View-Controller)",
+    category: "Architecture Pattern",
+    definition: "An architectural pattern that separates an application into three interconnected components: Model (data), View (presentation), Controller (logic). MVC promotes separation of concerns and maintainability.",
+    example: "Model: User.js (database model)\nView: user-profile.html (UI)\nController: UserController.js (handles requests)",
+    relatedTerms: ["architecture", "separation", "pattern", "design"]
+  },
+  {
+    id: "separation-of-concerns",
+    title: "Separation of Concerns",
+    category: "Design Principle",
+    definition: "A design principle that divides a program into distinct sections, each addressing a separate concern or responsibility. This improves modularity, maintainability, and reduces complexity.",
+    example: "Frontend/Backend separation\nMVC pattern\nLayered architecture (UI, Business Logic, Data Access)",
+    relatedTerms: ["architecture", "modularity", "mvc", "design"]
+  },
+  {
+    id: "dry",
+    title: "DRY (Don't Repeat Yourself)",
+    category: "Design Principle",
+    definition: "A software development principle aimed at reducing repetition of code patterns. Every piece of knowledge should have a single, unambiguous representation within a system.",
+    example: "// Bad: Repeated code\nif (user.age > 18) { ... }\nif (user.age > 18) { ... }\n// Good: Function\nfunction isAdult(user) { return user.age > 18; }",
+    relatedTerms: ["principle", "refactoring", "function", "reusability"]
+  },
+  {
+    id: "solid",
+    title: "SOLID Principles",
+    category: "Design Principles",
+    definition: "Five object-oriented design principles: Single Responsibility, Open-Closed, Liskov Substitution, Interface Segregation, Dependency Inversion. SOLID principles guide writing maintainable, flexible code.",
+    relatedTerms: ["oop", "design", "architecture", "principles"]
+  },
+  {
+    id: "idempotent",
+    title: "Idempotent",
+    category: "API Design",
+    definition: "A property where performing an operation multiple times produces the same result as performing it once. Idempotency is crucial for reliable APIs and distributed systems.",
+    example: "GET, PUT, DELETE are idempotent\nPOST is NOT idempotent\nSetting user.name = 'John' multiple times has same effect",
+    relatedTerms: ["api", "rest", "http", "reliability"]
+  },
+  {
+    id: "side-effect",
+    title: "Side Effect",
+    category: "Programming Concept",
+    definition: "Any observable change in state or interaction with the outside world beyond returning a value. Side effects include modifying variables, I/O operations, and changing external state.",
+    example: "// Side effects:\ncount++; // modifies external state\nconsole.log('hi'); // I/O operation\nfetch('/api'); // network call",
+    relatedTerms: ["functional-pure-function", "functional", "state", "mutation"]
+  },
+  {
+    id: "functional-pure-function",
+    title: "Pure Function",
+    category: "Functional Programming",
+    definition: "A function that always returns the same output for the same inputs and has no side effects. Pure functions are predictable, testable, and form the foundation of functional programming.",
+    example: "// Pure\nfunction add(a, b) { return a + b; }\n// Impure (side effect)\nlet total = 0;\nfunction addToTotal(n) { total += n; }",
+    relatedTerms: ["functional", "side-effect", "immutable-data", "deterministic"]
+  },
+  {
+    id: "immutable-data",
+    title: "Immutable",
+    category: "Programming Concept",
+    definition: "Data that cannot be modified after creation. Immutability prevents bugs from unexpected changes, simplifies reasoning about code, and is central to functional programming.",
+    example: "const arr = [1, 2, 3];\nconst newArr = [...arr, 4]; // create new array\nconst obj = Object.freeze({ name: 'John' }); // immutable",
+    relatedTerms: ["constant", "functional", "pure-function", "mutable"]
+  },
+  {
+    id: "mutable",
+    title: "Mutable",
+    category: "Programming Concept",
+    definition: "Data that can be modified after creation. Most objects and arrays in JavaScript are mutable by default, allowing in-place modifications but requiring careful state management.",
+    example: "let arr = [1, 2, 3];\narr.push(4); // modifies original array\nlet obj = { count: 0 };\nobj.count++; // modifies original object",
+    relatedTerms: ["immutable", "state", "reference", "variable"]
+  },
+  {
+    id: "shallow-copy",
+    title: "Shallow Copy",
+    category: "Data Structure",
+    definition: "A copy of an object that copies only the top-level properties. Nested objects remain as references, so changes to nested objects affect both the original and the copy.",
+    example: "const obj = { a: 1, nested: { b: 2 } };\nconst copy = { ...obj }; // shallow\ncopy.nested.b = 3; // affects original!",
+    relatedTerms: ["deep-copy", "reference", "clone", "object"]
+  },
+  {
+    id: "deep-copy",
+    title: "Deep Copy",
+    category: "Data Structure",
+    definition: "A complete copy of an object including all nested objects and arrays. Changes to a deep copy do not affect the original object, as all levels are recursively duplicated.",
+    example: "const obj = { a: 1, nested: { b: 2 } };\nconst deepCopy = JSON.parse(JSON.stringify(obj));\nconst deepCopy2 = structuredClone(obj); // modern method",
+    relatedTerms: ["shallow-copy", "clone", "reference", "object"]
+  },
+  {
+    id: "memory-leak",
+    title: "Memory Leak",
+    category: "Bug",
+    definition: "A situation where a program fails to release memory that is no longer needed, causing memory usage to grow over time. Memory leaks can eventually exhaust available memory and crash applications.",
+    example: "// Memory leak example\nlet leaks = [];\nsetInterval(() => {\n  leaks.push(new Array(1000000)); // grows forever\n}, 1000);",
+    relatedTerms: ["memory", "garbage-collection", "bug", "performance"]
+  },
+  {
+    id: "heap-memory-allocation",
+    title: "Heap Memory",
+    category: "Memory Management",
+    definition: "A region of memory used for dynamic memory allocation where variables are allocated and freed in arbitrary order. Objects, arrays, and dynamically allocated data live on the heap.",
+    example: "// Stack: primitive values, function calls\nlet x = 5;\n// Heap: objects, arrays\nlet obj = { name: 'John' };\nlet arr = [1, 2, 3];",
+    relatedTerms: ["stack", "memory", "allocation", "garbage-collection"]
+  },
+  {
+    id: "call-stack",
+    title: "Call Stack",
+    category: "Runtime",
+    definition: "A data structure that tracks function calls in a program. When a function is called, it's pushed onto the stack; when it returns, it's popped off. The call stack enables function execution and return.",
+    example: "function first() { second(); }\nfunction second() { third(); }\nfunction third() { /* call stack: third, second, first */ }\nfirst();",
+    relatedTerms: ["stack", "recursion", "function", "execution"]
   }
 ];
