@@ -2,17 +2,24 @@
 
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import SearchBar from '@/components/SearchBar';
 import TermCard from '@/components/TermCard';
 import TermCardSkeleton from '@/components/TermCardSkeleton';
 import CategoryFilter from '@/components/CategoryFilter';
 import AlphabetNav from '@/components/AlphabetNav';
-import BackToTop from '@/components/BackToTop';
-import KeyboardShortcutsModal from '@/components/KeyboardShortcutsModal';
 import { trackEvent } from '@/lib/analytics';
 import { terms } from '@/data/terms';
 import { useRecentTerms } from '@/hooks/useRecentTerms';
 import Link from 'next/link';
+
+// Lazy load non-critical components
+const BackToTop = dynamic(() => import('@/components/BackToTop'), {
+  ssr: false,
+});
+const KeyboardShortcutsModal = dynamic(() => import('@/components/KeyboardShortcutsModal'), {
+  ssr: false,
+});
 
 export default function Home() {
   const searchParams = useSearchParams();

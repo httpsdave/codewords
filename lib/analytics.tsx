@@ -10,13 +10,31 @@ export function WebVitals() {
       console.log(metric);
     }
 
-    // Send to analytics in production
-    if (typeof window !== 'undefined' && window.va) {
-      window.va('event', {
-        name: metric.name,
-        value: metric.value,
-        label: metric.id,
-      });
+    // Send to analytics in production - defer to reduce blocking
+    if (typeof window !== 'undefined') {
+      // Use requestIdleCallback for better performance
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+          if (window.va) {
+            window.va('event', {
+              name: metric.name,
+              value: metric.value,
+              label: metric.id,
+            });
+          }
+        });
+      } else {
+        // Fallback for browsers without requestIdleCallback
+        setTimeout(() => {
+          if (window.va) {
+            window.va('event', {
+              name: metric.name,
+              value: metric.value,
+              label: metric.id,
+            });
+          }
+        }, 0);
+      }
     }
   });
 
@@ -24,7 +42,20 @@ export function WebVitals() {
 }
 
 export function trackEvent(name: string, properties?: Record<string, any>) {
-  if (typeof window !== 'undefined' && window.va) {
-    window.va('event', { name, ...properties });
+  // Defer event tracking to not block main thread
+  if (typeof window !== 'undefined') {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        if (window.va) {
+          window.va('event', { name, ...properties });
+        }
+      });
+    } else {
+      setTimeout(() => {
+        if (window.va) {
+          window.va('event', { name, ...properties });
+        }
+      }, 0);
+    }
   }
 }

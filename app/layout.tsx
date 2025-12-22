@@ -10,11 +10,15 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: 'swap',
+  preload: false,
 });
 
 export const viewport: Viewport = {
@@ -91,7 +95,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Inline script to prevent FOUC - must be in head before any render */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  const theme = localStorage.getItem('theme') || 
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+        {/* Preload critical resources */}
+        <link rel="preload" href="/manifest.json" as="fetch" crossOrigin="anonymous" />
         <link rel="manifest" href="/manifest.json" />
+        {/* DNS prefetch and preconnect for faster external resource loading */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://vercel.live" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -112,8 +140,13 @@ export default function RootLayout({
           {children}
         </ErrorBoundary>
         <Footer />
-        <Analytics />
-        <WebVitals />
+        {/* Defer analytics to reduce blocking */}
+        {typeof window !== 'undefined' && (
+          <>
+            <Analytics />
+            <WebVitals />
+          </>
+        )}
       </body>
     </html>
   );
