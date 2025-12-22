@@ -11,7 +11,6 @@ import BackToTop from '@/components/BackToTop';
 import KeyboardShortcutsModal from '@/components/KeyboardShortcutsModal';
 import { trackEvent } from '@/lib/analytics';
 import { terms } from '@/data/terms';
-import { useFavorites } from '@/hooks/useFavorites';
 import { useRecentTerms } from '@/hooks/useRecentTerms';
 import Link from 'next/link';
 
@@ -23,14 +22,12 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') || '');
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'all');
   const [selectedLetter, setSelectedLetter] = useState(searchParams.get('letter') || 'all');
-  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [showShortcuts, setShowShortcuts] = useState(false);
-  const [displayedCount, setDisplayedCount] = useState(50);
+  const [displayedCount, setDisplayedCount] = useState(30);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   
-  const { favorites, toggleFavorite, isFavorite, mounted: favoritesLoaded } = useFavorites();
   const { recentTerms, mounted: recentLoaded } = useRecentTerms();
 
   // Simulate initial load
@@ -59,11 +56,6 @@ export default function Home() {
   const filteredTerms = useMemo(() => {
     let filtered = terms;
 
-    // Filter by favorites first
-    if (showFavoritesOnly && favoritesLoaded) {
-      filtered = filtered.filter(term => favorites.includes(term.id));
-    }
-
     // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
@@ -88,7 +80,7 @@ export default function Home() {
     }
 
     return filtered;
-  }, [searchQuery, selectedCategory, selectedLetter, showFavoritesOnly, favorites, favoritesLoaded]);
+  }, [searchQuery, selectedCategory, selectedLetter]);
 
   // Display only a subset of filtered terms for performance
   const displayedTerms = useMemo(() => {
@@ -97,9 +89,9 @@ export default function Home() {
 
   // Reset displayed count when filters change
   useEffect(() => {
-    setDisplayedCount(50);
+    setDisplayedCount(30);
     setFocusedIndex(0);
-  }, [searchQuery, selectedCategory, selectedLetter, showFavoritesOnly]);
+  }, [searchQuery, selectedCategory, selectedLetter]);
 
   // Infinite scroll handler
   useEffect(() => {
@@ -112,9 +104,9 @@ export default function Home() {
       if (scrollPosition >= threshold) {
         setIsLoadingMore(true);
         setTimeout(() => {
-          setDisplayedCount(prev => Math.min(prev + 50, filteredTerms.length));
+          setDisplayedCount(prev => Math.min(prev + 30, filteredTerms.length));
           setIsLoadingMore(false);
-        }, 300);
+        }, 200);
       }
     };
 
@@ -191,7 +183,6 @@ export default function Home() {
     setSearchQuery('');
     setSelectedCategory('all');
     setSelectedLetter('all');
-    setShowFavoritesOnly(false);
   }, []);
 
   const getRandomTerm = useCallback(() => {
@@ -248,21 +239,6 @@ export default function Home() {
 
           {/* Quick Actions Bar */}
           <div className="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
-            {favoritesLoaded && favorites.length > 0 && (
-              <button
-                onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
-                  showFavoritesOnly
-                    ? 'bg-red-500 text-white shadow-lg'
-                    : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-red-500 dark:hover:border-red-400'
-                }`}
-              >
-                <svg className="w-4 h-4" fill={showFavoritesOnly ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                </svg>
-                {showFavoritesOnly ? 'Show All' : `Favorites (${favorites.length})`}
-              </button>
-            )}
             {recentTermsData.length > 0 && (
               <div className="flex items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
                 <span className="text-sm text-gray-600 dark:text-gray-400">Recent:</span>
@@ -298,7 +274,6 @@ export default function Home() {
           <div className="text-center py-12">
             <p className="text-gray-500 dark:text-gray-400 text-lg mb-4">
               No terms found {searchQuery && `for "${searchQuery}"`}
-              {showFavoritesOnly && ' in your favorites'}
             </p>
             <button
               onClick={handleClearFilters}
@@ -315,9 +290,8 @@ export default function Home() {
               <p className="text-sm text-gray-600 dark:text-gray-400" role="status" aria-live="polite">
                 Showing {displayedTerms.length} of {filteredTerms.length} terms
                 {filteredTerms.length !== terms.length && ` (${terms.length} total)`}
-                {showFavoritesOnly && ' • Favorites only'}
               </p>
-              {(searchQuery || selectedCategory !== 'all' || selectedLetter !== 'all' || showFavoritesOnly) && (
+              {(searchQuery || selectedCategory !== 'all' || selectedLetter !== 'all') && (
                 <button
                   onClick={handleClearFilters}
                   className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
@@ -343,8 +317,6 @@ export default function Home() {
                       searchQuery={searchQuery}
                       isFocused={index === focusedIndex}
                       onFocus={() => setFocusedIndex(index)}
-                      isFavorite={isFavorite(term.id)}
-                      onToggleFavorite={() => toggleFavorite(term.id)}
                     />
                   ))}
                 </div>
@@ -365,9 +337,9 @@ export default function Home() {
                         onClick={() => {
                           setIsLoadingMore(true);
                           setTimeout(() => {
-                            setDisplayedCount(prev => Math.min(prev + 50, filteredTerms.length));
+                            setDisplayedCount(prev => Math.min(prev + 30, filteredTerms.length));
                             setIsLoadingMore(false);
-                          }, 300);
+                          }, 200);
                         }}
                         className="px-6 py-3 rounded-lg bg-blue-600 text-white hover:bg-blue-700 
                                  transition-colors font-medium shadow-md hover:shadow-lg"

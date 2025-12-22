@@ -3,7 +3,6 @@
 import { Term } from '@/data/terms';
 import Link from 'next/link';
 import { highlightText } from './SearchBar';
-import FavoriteButton from './FavoriteButton';
 import { useState, memo } from 'react';
 
 interface TermCardProps {
@@ -11,17 +10,13 @@ interface TermCardProps {
   searchQuery?: string;
   isFocused?: boolean;
   onFocus?: () => void;
-  isFavorite?: boolean;
-  onToggleFavorite?: () => void;
 }
 
 function TermCard({ 
   term, 
   searchQuery = '', 
   isFocused = false, 
-  onFocus,
-  isFavorite = false,
-  onToggleFavorite 
+  onFocus
 }: TermCardProps) {
   const [showCopySuccess, setShowCopySuccess] = useState(false);
 
@@ -54,20 +49,10 @@ function TermCard({
             className="text-2xl font-bold text-blue-600 dark:text-blue-400 flex-1"
             dangerouslySetInnerHTML={{ __html: highlightText(term.title, searchQuery) }}
           />
-          <div className="flex items-center gap-2">
-            <span className="px-3 py-1 text-xs font-semibold rounded-full 
-                           bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
-              {term.category}
-            </span>
-            {onToggleFavorite && (
-              <FavoriteButton 
-                termId={term.id}
-                isFavorite={isFavorite}
-                onToggle={onToggleFavorite}
-                size="sm"
-              />
-            )}
-          </div>
+          <span className="px-3 py-1 text-xs font-semibold rounded-full 
+                         bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200">
+            {term.category}
+          </span>
         </div>
         
         <p 

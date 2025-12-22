@@ -37,10 +37,10 @@ export default function KeyboardShortcutsModal({ isOpen, onClose }: KeyboardShor
   ];
 
   const features = [
-    { icon: '❤️', description: 'Click heart icon to favorite terms' },
     { icon: '🎲', description: 'Click "Random term" for discovery' },
     { icon: '📋', description: 'Copy definitions on hover' },
     { icon: '🕐', description: 'View recently visited terms' },
+    { icon: '🔍', description: 'Search across all terms' },
   ];
 
   return (

@@ -15,22 +15,26 @@
 }
 
 html {
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  background-color: var(--background);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
-/* Smooth dark mode transitions for common elements */
-* {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+/* Performance-optimized theme transitions - only for essential elements */
+html.transitioning {
+  transition: background-color 0.15s ease;
 }
+
+html.transitioning body {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Remove universal transitions for better performance */
+/* Only specific elements will have transitions */
 
 @layer utilities {
   .text-balance {

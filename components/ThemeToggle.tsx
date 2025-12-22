@@ -17,9 +17,19 @@ export default function ThemeToggle() {
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
+    
+    // Add transitioning class for smooth animation
+    document.documentElement.classList.add('transitioning');
+    
+    // Toggle theme
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme);
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    
+    // Remove transitioning class after animation completes
+    setTimeout(() => {
+      document.documentElement.classList.remove('transitioning');
+    }, 150);
   };
 
   if (!mounted) {
