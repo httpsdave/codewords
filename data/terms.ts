@@ -1,4 +1,4 @@
-export interface Term {
+﻿export interface Term {
   id: string;
   title: string;
   category: string;
@@ -42,14 +42,14 @@ export const terms: Term[] = [
     id: "complexity",
     title: "Time Complexity",
     category: "Algorithm Analysis",
-    definition: "A computational concept that describes the amount of time an algorithm takes to run as a function of the input size. It's typically expressed using Big O notation (e.g., O(n), O(log n), O(n²)) to classify algorithms according to their running time requirements.",
+    definition: "A computational concept that describes the amount of time an algorithm takes to run as a function of the input size. It's typically expressed using Big O notation (e.g., O(n), O(log n), O(nÂ²)) to classify algorithms according to their running time requirements.",
     relatedTerms: ["big-o", "space-complexity", "algorithm"]
   },
   {
     id: "bubble-sort",
     title: "Bubble Sort",
     category: "Sorting Algorithm",
-    definition: "A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. It has a time complexity of O(n²) in the average and worst case.",
+    definition: "A simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted. It has a time complexity of O(nÂ²) in the average and worst case.",
     example: "function bubbleSort(arr) { for(let i = 0; i < arr.length; i++) { for(let j = 0; j < arr.length - i - 1; j++) { if(arr[j] > arr[j+1]) { [arr[j], arr[j+1]] = [arr[j+1], arr[j]]; } } } return arr; }",
     relatedTerms: ["complexity", "sorting", "algorithm"]
   },
@@ -242,8 +242,8 @@ export const terms: Term[] = [
     id: "big-o",
     title: "Big O Notation",
     category: "Algorithm Analysis",
-    definition: "A mathematical notation used to describe the upper bound of an algorithm's time or space complexity in terms of input size. Big O helps compare algorithm efficiency, with common classifications like O(1), O(n), O(log n), and O(n²).",
-    example: "O(1) - constant, O(n) - linear, O(log n) - logarithmic, O(n²) - quadratic",
+    definition: "A mathematical notation used to describe the upper bound of an algorithm's time or space complexity in terms of input size. Big O helps compare algorithm efficiency, with common classifications like O(1), O(n), O(log n), and O(nÂ²).",
+    example: "O(1) - constant, O(n) - linear, O(log n) - logarithmic, O(nÂ²) - quadratic",
     relatedTerms: ["complexity", "algorithm", "performance", "efficiency"]
   },
   {
@@ -1986,7 +1986,7 @@ export const terms: Term[] = [
     title: "Syntax",
     category: "Programming Concept",
     definition: "The set of rules that define the structure and format of valid statements in a programming language. Syntax errors occur when code doesn't follow these rules and prevent program compilation or execution.",
-    example: "Python: print('Hello') ✓ vs print 'Hello' ✗ (syntax error)",
+    example: "Python: print('Hello') âœ“ vs print 'Hello' âœ— (syntax error)",
     relatedTerms: ["semantics", "grammar", "language", "error"]
   },
   {
@@ -2102,7 +2102,7 @@ export const terms: Term[] = [
     id: "selection-sort",
     title: "Selection Sort",
     category: "Sorting Algorithm",
-    definition: "A simple sorting algorithm that repeatedly finds the minimum element from the unsorted portion and places it at the beginning. Selection sort has O(n²) time complexity.",
+    definition: "A simple sorting algorithm that repeatedly finds the minimum element from the unsorted portion and places it at the beginning. Selection sort has O(nÂ²) time complexity.",
     example: "Find min, swap with first; find next min, swap with second; repeat",
     relatedTerms: ["sorting", "algorithm", "bubble-sort", "insertion-sort"]
   },
@@ -2110,7 +2110,7 @@ export const terms: Term[] = [
     id: "insertion-sort",
     title: "Insertion Sort",
     category: "Sorting Algorithm",
-    definition: "A simple sorting algorithm that builds the sorted array one element at a time by inserting each element into its correct position. Efficient for small datasets with O(n²) worst-case complexity.",
+    definition: "A simple sorting algorithm that builds the sorted array one element at a time by inserting each element into its correct position. Efficient for small datasets with O(nÂ²) worst-case complexity.",
     example: "Like sorting playing cards: pick each card and insert it in the right position",
     relatedTerms: ["sorting", "algorithm", "selection-sort", "bubble-sort"]
   },
@@ -3710,7 +3710,7 @@ export const terms: Term[] = [
     id: "resolution",
     title: "Screen Resolution",
     category: "Display",
-    definition: "The number of pixels displayed on a screen, typically expressed as width × height (e.g., 1920×1080). Higher resolutions provide sharper, more detailed images.",
+    definition: "The number of pixels displayed on a screen, typically expressed as width Ã— height (e.g., 1920Ã—1080). Higher resolutions provide sharper, more detailed images.",
     relatedTerms: ["display", "monitor", "pixel", "4k"]
   },
   {
@@ -4165,7 +4165,7 @@ export const terms: Term[] = [
     title: "APL",
     category: "Programming Language",
     definition: "A Programming Language - an array-oriented language that uses special graphic symbols. Known for extreme conciseness and ability to express complex operations in single lines.",
-    example: "⍳10     ⍝ Generate numbers 1 to 10\n+/⍳100  ⍝ Sum of 1 to 100",
+    example: "â³10     â Generate numbers 1 to 10\n+/â³100  â Sum of 1 to 100",
     relatedTerms: ["array", "mathematical", "symbolic", "terse"]
   },
   {
@@ -5236,5 +5236,429 @@ export const terms: Term[] = [
     definition: "A data structure that tracks function calls in a program. When a function is called, it's pushed onto the stack; when it returns, it's popped off. The call stack enables function execution and return.",
     example: "function first() { second(); }\nfunction second() { third(); }\nfunction third() { /* call stack: third, second, first */ }\nfirst();",
     relatedTerms: ["stack", "recursion", "function", "execution"]
+  },
+  {
+    id: "convolutional-neural-network",
+    title: "Convolutional Neural Network (CNN)",
+    category: "Machine Learning",
+    definition: "A deep learning architecture designed for processing grid-like data such as images. CNNs use convolutional layers to automatically learn spatial hierarchies of features from input data.",
+    example: "Used in image classification, object detection, facial recognition, and computer vision tasks.",
+    relatedTerms: ["neural-network", "deep-learning", "machine-learning", "ai"]
+  },
+  {
+    id: "recurrent-neural-network",
+    title: "Recurrent Neural Network (RNN)",
+    category: "Machine Learning",
+    definition: "A neural network architecture designed for sequential data with connections that form directed cycles. RNNs maintain an internal state (memory) making them suitable for time series and text processing.",
+    example: "Used in language modeling, speech recognition, machine translation, and time series prediction.",
+    relatedTerms: ["neural-network", "deep-learning", "lstm", "nlp"]
+  },
+  {
+    id: "lstm",
+    title: "Long Short-Term Memory (LSTM)",
+    category: "Machine Learning",
+    definition: "A special type of RNN architecture designed to learn long-term dependencies. LSTMs use gates to control information flow, solving the vanishing gradient problem in traditional RNNs.",
+    example: "Used in speech recognition, text generation, machine translation, and any task requiring long-term context.",
+    relatedTerms: ["recurrent-neural-network", "neural-network", "deep-learning", "nlp"]
+  },
+  {
+    id: "transformer",
+    title: "Transformer",
+    category: "Machine Learning",
+    definition: "A deep learning architecture based on self-attention mechanisms that processes sequential data in parallel. Transformers are the foundation of modern language models like GPT and BERT.",
+    example: "Used in language translation, text generation, question answering, and most modern NLP tasks.",
+    relatedTerms: ["attention-mechanism", "nlp", "deep-learning", "bert"]
+  },
+  {
+    id: "attention-mechanism",
+    title: "Attention Mechanism",
+    category: "Machine Learning",
+    definition: "A technique in neural networks that allows the model to focus on specific parts of the input when producing output. Attention weights determine the importance of each input element.",
+    example: "In translation: 'The cat sat on the mat' â†’ attention helps focus on 'cat' when translating the subject.",
+    relatedTerms: ["transformer", "neural-network", "deep-learning", "nlp"]
+  },
+  {
+    id: "nlp",
+    title: "Natural Language Processing (NLP)",
+    category: "Artificial Intelligence",
+    definition: "A field of AI focused on enabling computers to understand, interpret, and generate human language. NLP combines linguistics and machine learning to process text and speech.",
+    example: "Applications include chatbots, sentiment analysis, machine translation, text summarization, and voice assistants.",
+    relatedTerms: ["ai", "machine-learning", "transformer", "tokenization"]
+  },
+  {
+    id: "tokenization",
+    title: "Tokenization",
+    category: "Natural Language Processing",
+    definition: "The process of breaking down text into smaller units called tokens (words, subwords, or characters). Tokenization is a fundamental preprocessing step in NLP tasks.",
+    example: "Sentence: 'Hello, world!' â†’ Tokens: ['Hello', ',', 'world', '!']",
+    relatedTerms: ["nlp", "text-processing", "machine-learning"]
+  },
+  {
+    id: "bert",
+    title: "BERT (Bidirectional Encoder Representations from Transformers)",
+    category: "Machine Learning",
+    definition: "A pre-trained transformer model that learns contextual word representations by considering both left and right context. BERT revolutionized NLP with its bidirectional training approach.",
+    example: "Used in search engines, question answering, sentiment analysis, and text classification.",
+    relatedTerms: ["transformer", "nlp", "deep-learning", "machine-learning"]
+  },
+  {
+    id: "gpt",
+    title: "GPT (Generative Pre-trained Transformer)",
+    category: "Machine Learning",
+    definition: "A series of large language models based on the transformer architecture, trained on vast amounts of text data. GPT models generate human-like text and perform various NLP tasks.",
+    example: "Used in text generation, chatbots, code completion, creative writing, and question answering.",
+    relatedTerms: ["transformer", "nlp", "deep-learning", "llm"]
+  },
+  {
+    id: "llm",
+    title: "Large Language Model (LLM)",
+    category: "Machine Learning",
+    definition: "A neural network model trained on massive amounts of text data, capable of understanding and generating human language. LLMs have billions of parameters and excel at various language tasks.",
+    example: "Examples include GPT-4, Claude, LLaMA, and PaLM used in chatbots, content generation, and analysis.",
+    relatedTerms: ["gpt", "transformer", "nlp", "deep-learning"]
+  },
+  {
+    id: "training-data",
+    title: "Training Data",
+    category: "Machine Learning",
+    definition: "The dataset used to train a machine learning model. The model learns patterns and relationships from this data to make predictions on new, unseen data.",
+    example: "For spam detection: emails labeled as 'spam' or 'not spam' used to train the classifier.",
+    relatedTerms: ["machine-learning", "dataset", "supervised-learning", "validation"]
+  },
+  {
+    id: "supervised-learning",
+    title: "Supervised Learning",
+    category: "Machine Learning",
+    definition: "A machine learning approach where the model learns from labeled training data. Each example has an input and corresponding desired output, teaching the model to map inputs to outputs.",
+    example: "Email classification (spam/not spam), image recognition, price prediction.",
+    relatedTerms: ["machine-learning", "training-data", "classification", "regression"]
+  },
+  {
+    id: "unsupervised-learning",
+    title: "Unsupervised Learning",
+    category: "Machine Learning",
+    definition: "A machine learning approach where the model learns patterns from unlabeled data without explicit guidance. The algorithm discovers hidden structures and relationships in the data.",
+    example: "Customer segmentation, anomaly detection, dimensionality reduction, clustering.",
+    relatedTerms: ["machine-learning", "clustering", "dimensionality-reduction"]
+  },
+  {
+    id: "reinforcement-learning",
+    title: "Reinforcement Learning",
+    category: "Machine Learning",
+    definition: "A machine learning paradigm where an agent learns to make decisions by taking actions in an environment to maximize cumulative reward. The agent learns through trial and error.",
+    example: "Game playing (AlphaGo), robotics, autonomous vehicles, recommendation systems.",
+    relatedTerms: ["machine-learning", "ai", "agent", "reward"]
+  },
+  {
+    id: "gradient-descent",
+    title: "Gradient Descent",
+    category: "Machine Learning",
+    definition: "An optimization algorithm used to minimize the loss function in machine learning by iteratively adjusting parameters in the direction of steepest descent of the gradient.",
+    example: "Used to train neural networks by minimizing prediction error through backpropagation.",
+    relatedTerms: ["machine-learning", "optimization", "backpropagation", "loss-function"]
+  },
+  {
+    id: "backpropagation",
+    title: "Backpropagation",
+    category: "Machine Learning",
+    definition: "An algorithm for training neural networks that calculates gradients of the loss function with respect to weights by propagating errors backward through the network.",
+    example: "The primary method for training multi-layer neural networks using gradient descent.",
+    relatedTerms: ["neural-network", "gradient-descent", "deep-learning", "training"]
+  },
+  {
+    id: "loss-function",
+    title: "Loss Function",
+    category: "Machine Learning",
+    definition: "A mathematical function that measures the difference between predicted and actual values. The goal of training is to minimize this loss.",
+    example: "Mean Squared Error (MSE) for regression, Cross-Entropy for classification.",
+    relatedTerms: ["machine-learning", "gradient-descent", "optimization", "training"]
+  },
+  {
+    id: "overfitting",
+    title: "Overfitting",
+    category: "Machine Learning",
+    definition: "A modeling error where a machine learning model learns the training data too well, including noise and outliers, resulting in poor performance on new, unseen data.",
+    example: "A model that achieves 99% training accuracy but only 60% test accuracy is overfitting.",
+    relatedTerms: ["machine-learning", "regularization", "validation", "generalization"]
+  },
+  {
+    id: "regularization",
+    title: "Regularization",
+    category: "Machine Learning",
+    definition: "Techniques used to prevent overfitting by adding constraints or penalties to the model. Common methods include L1, L2 regularization, and dropout.",
+    example: "L2 regularization adds a penalty term to the loss function proportional to the square of weights.",
+    relatedTerms: ["overfitting", "machine-learning", "dropout", "optimization"]
+  },
+  {
+    id: "dropout",
+    title: "Dropout",
+    category: "Machine Learning",
+    definition: "A regularization technique for neural networks where randomly selected neurons are ignored during training. This prevents overfitting and improves generalization.",
+    example: "With dropout rate of 0.5, each neuron has 50% chance of being temporarily removed during training.",
+    relatedTerms: ["regularization", "neural-network", "overfitting", "deep-learning"]
+  },
+  {
+    id: "batch-normalization",
+    title: "Batch Normalization",
+    category: "Machine Learning",
+    definition: "A technique that normalizes the inputs of each layer in a neural network to have zero mean and unit variance. This accelerates training and improves stability.",
+    example: "Applied between layers: input â†’ normalize â†’ scale â†’ shift â†’ activation function.",
+    relatedTerms: ["neural-network", "deep-learning", "normalization", "training"]
+  },
+  {
+    id: "activation-function",
+    title: "Activation Function",
+    category: "Machine Learning",
+    definition: "A mathematical function applied to a neuron's output in a neural network. It introduces non-linearity, enabling the network to learn complex patterns.",
+    example: "Common functions: ReLU, Sigmoid, Tanh, Softmax. ReLU(x) = max(0, x).",
+    relatedTerms: ["neural-network", "relu", "sigmoid", "deep-learning"]
+  },
+  {
+    id: "relu",
+    title: "ReLU (Rectified Linear Unit)",
+    category: "Machine Learning",
+    definition: "A popular activation function that outputs the input if positive, otherwise zero. ReLU helps neural networks train faster and mitigates the vanishing gradient problem.",
+    example: "ReLU(x) = max(0, x). Input: [-2, 0, 3] â†’ Output: [0, 0, 3].",
+    relatedTerms: ["activation-function", "neural-network", "deep-learning"]
+  },
+  {
+    id: "sigmoid",
+    title: "Sigmoid Function",
+    category: "Machine Learning",
+    definition: "An activation function that maps input values to a range between 0 and 1. Often used in the output layer for binary classification problems.",
+    example: "Ïƒ(x) = 1 / (1 + e^(-x)). Useful for probability outputs in classification.",
+    relatedTerms: ["activation-function", "neural-network", "classification"]
+  },
+  {
+    id: "softmax",
+    title: "Softmax Function",
+    category: "Machine Learning",
+    definition: "An activation function that converts a vector of numbers into a probability distribution. Commonly used in the output layer for multi-class classification.",
+    example: "Input: [2.0, 1.0, 0.1] â†’ Output: [0.659, 0.242, 0.099] (probabilities sum to 1).",
+    relatedTerms: ["activation-function", "classification", "neural-network"]
+  },
+  {
+    id: "epoch",
+    title: "Epoch",
+    category: "Machine Learning",
+    definition: "One complete pass through the entire training dataset during the training of a machine learning model. Multiple epochs are typically needed for convergence.",
+    example: "Training for 100 epochs means the model sees all training data 100 times.",
+    relatedTerms: ["machine-learning", "training", "batch", "iteration"]
+  },
+  {
+    id: "batch",
+    title: "Batch (Mini-Batch)",
+    category: "Machine Learning",
+    definition: "A subset of training data used in one iteration of model training. Batch training balances between computational efficiency and gradient accuracy.",
+    example: "With 1000 samples and batch size 32, there are ~31 batches per epoch.",
+    relatedTerms: ["epoch", "training", "machine-learning", "gradient-descent"]
+  },
+  {
+    id: "hyperparameter",
+    title: "Hyperparameter",
+    category: "Machine Learning",
+    definition: "A configuration setting for a machine learning model that is set before training begins. Unlike model parameters, hyperparameters are not learned from data.",
+    example: "Learning rate, batch size, number of layers, number of neurons, dropout rate.",
+    relatedTerms: ["machine-learning", "training", "optimization", "tuning"]
+  },
+  {
+    id: "learning-rate",
+    title: "Learning Rate",
+    category: "Machine Learning",
+    definition: "A hyperparameter that controls how much to change the model weights in response to the estimated error during training. Too high causes instability, too low slows convergence.",
+    example: "Common values: 0.001, 0.01, 0.1. Often adjusted during training (learning rate scheduling).",
+    relatedTerms: ["hyperparameter", "gradient-descent", "training", "optimization"]
+  },
+  {
+    id: "classification",
+    title: "Classification",
+    category: "Machine Learning",
+    definition: "A supervised learning task where the goal is to predict a discrete class label for input data. The output is a category rather than a continuous value.",
+    example: "Email spam detection, image recognition, sentiment analysis, disease diagnosis.",
+    relatedTerms: ["supervised-learning", "machine-learning", "regression", "category"]
+  },
+  {
+    id: "regression",
+    title: "Regression",
+    category: "Machine Learning",
+    definition: "A supervised learning task where the goal is to predict a continuous numerical value based on input features. The output is a number rather than a category.",
+    example: "House price prediction, stock price forecasting, temperature prediction, sales forecasting.",
+    relatedTerms: ["supervised-learning", "machine-learning", "classification"]
+  },
+  {
+    id: "clustering",
+    title: "Clustering",
+    category: "Machine Learning",
+    definition: "An unsupervised learning technique that groups similar data points together based on their features. Points in the same cluster are more similar than those in different clusters.",
+    example: "Customer segmentation, document grouping, image compression, anomaly detection.",
+    relatedTerms: ["unsupervised-learning", "k-means", "machine-learning"]
+  },
+  {
+    id: "k-means",
+    title: "K-Means",
+    category: "Machine Learning",
+    definition: "A popular clustering algorithm that partitions data into K clusters by iteratively assigning points to the nearest centroid and updating centroids based on cluster members.",
+    example: "Used for customer segmentation, image compression, and pattern recognition.",
+    relatedTerms: ["clustering", "unsupervised-learning", "algorithm"]
+  },
+  {
+    id: "feature-engineering",
+    title: "Feature Engineering",
+    category: "Machine Learning",
+    definition: "The process of creating, selecting, and transforming input variables (features) to improve machine learning model performance. It requires domain knowledge and creativity.",
+    example: "Creating 'age_squared' from 'age', combining 'first_name' and 'last_name', extracting hour from timestamp.",
+    relatedTerms: ["machine-learning", "feature", "preprocessing"]
+  },
+  {
+    id: "dimensionality-reduction",
+    title: "Dimensionality Reduction",
+    category: "Machine Learning",
+    definition: "The process of reducing the number of input features while retaining important information. This simplifies models, reduces overfitting, and improves performance.",
+    example: "PCA (Principal Component Analysis) reducing 100 features to 10 principal components.",
+    relatedTerms: ["pca", "machine-learning", "feature", "unsupervised-learning"]
+  },
+  {
+    id: "pca",
+    title: "PCA (Principal Component Analysis)",
+    category: "Machine Learning",
+    definition: "A dimensionality reduction technique that transforms data into a new coordinate system where the greatest variance lies on the first coordinate (principal component).",
+    example: "Reducing high-dimensional image data while preserving variance for faster processing.",
+    relatedTerms: ["dimensionality-reduction", "machine-learning", "feature"]
+  },
+  {
+    id: "cross-validation",
+    title: "Cross-Validation",
+    category: "Machine Learning",
+    definition: "A resampling technique to evaluate machine learning models by splitting data into k folds, training on k-1 folds, and validating on the remaining fold, rotating through all folds.",
+    example: "5-fold cross-validation: split data into 5 parts, train/test 5 times, average results.",
+    relatedTerms: ["validation", "machine-learning", "model-evaluation"]
+  },
+  {
+    id: "confusion-matrix",
+    title: "Confusion Matrix",
+    category: "Machine Learning",
+    definition: "A table used to evaluate classification model performance showing true positives, true negatives, false positives, and false negatives.",
+    example: "2x2 matrix for binary classification showing actual vs predicted classes.",
+    relatedTerms: ["classification", "precision", "recall", "model-evaluation"]
+  },
+  {
+    id: "precision",
+    title: "Precision",
+    category: "Machine Learning",
+    definition: "A classification metric measuring the proportion of true positive predictions among all positive predictions. Precision = TP / (TP + FP).",
+    example: "Of 100 emails marked spam, 90 are actually spam â†’ Precision = 90%.",
+    relatedTerms: ["recall", "confusion-matrix", "classification", "f1-score"]
+  },
+  {
+    id: "recall",
+    title: "Recall (Sensitivity)",
+    category: "Machine Learning",
+    definition: "A classification metric measuring the proportion of actual positives that were correctly identified. Recall = TP / (TP + FN).",
+    example: "Of 100 actual spam emails, 90 were detected â†’ Recall = 90%.",
+    relatedTerms: ["precision", "confusion-matrix", "classification", "f1-score"]
+  },
+  {
+    id: "f1-score",
+    title: "F1 Score",
+    category: "Machine Learning",
+    definition: "The harmonic mean of precision and recall, providing a single score that balances both metrics. F1 = 2 * (Precision * Recall) / (Precision + Recall).",
+    example: "Precision=80%, Recall=90% â†’ F1 Score â‰ˆ 84.7%.",
+    relatedTerms: ["precision", "recall", "classification", "model-evaluation"]
+  },
+  {
+    id: "transfer-learning",
+    title: "Transfer Learning",
+    category: "Machine Learning",
+    definition: "A technique where a model trained on one task is reused as the starting point for a model on a second related task. This leverages learned features and reduces training time.",
+    example: "Using a pre-trained ImageNet model for medical image classification.",
+    relatedTerms: ["deep-learning", "pre-trained-model", "fine-tuning", "machine-learning"]
+  },
+  {
+    id: "fine-tuning",
+    title: "Fine-Tuning",
+    category: "Machine Learning",
+    definition: "The process of taking a pre-trained model and continuing training on a specific dataset. Typically, early layers are frozen while later layers are retrained.",
+    example: "Fine-tuning GPT on company-specific documents for domain-specific responses.",
+    relatedTerms: ["transfer-learning", "pre-trained-model", "deep-learning"]
+  },
+  {
+    id: "embedding",
+    title: "Embedding",
+    category: "Machine Learning",
+    definition: "A dense vector representation of discrete objects (words, items) in continuous space. Embeddings capture semantic relationships where similar items have similar vectors.",
+    example: "Word2Vec: 'king' - 'man' + 'woman' â‰ˆ 'queen' in embedding space.",
+    relatedTerms: ["word2vec", "nlp", "vector", "representation-learning"]
+  },
+  {
+    id: "word2vec",
+    title: "Word2Vec",
+    category: "Natural Language Processing",
+    definition: "A technique to produce word embeddings by training a shallow neural network on word co-occurrence patterns. Words used in similar contexts have similar embeddings.",
+    example: "Learns that 'dog', 'cat', 'puppy' are semantically similar based on context.",
+    relatedTerms: ["embedding", "nlp", "machine-learning", "vector"]
+  },
+  {
+    id: "generative-ai",
+    title: "Generative AI",
+    category: "Artificial Intelligence",
+    definition: "AI systems that can create new content including text, images, audio, video, and code. These models learn patterns from training data and generate novel outputs.",
+    example: "GPT generating text, DALL-E creating images, GitHub Copilot writing code.",
+    relatedTerms: ["ai", "gpt", "llm", "deep-learning"]
+  },
+  {
+    id: "computer-vision",
+    title: "Computer Vision",
+    category: "Artificial Intelligence",
+    definition: "A field of AI that enables computers to derive meaningful information from visual inputs like images and videos. Applications include object detection, facial recognition, and scene understanding.",
+    example: "Self-driving cars detecting pedestrians, medical imaging analysis, facial recognition systems.",
+    relatedTerms: ["ai", "convolutional-neural-network", "image-processing", "object-detection"]
+  },
+  {
+    id: "object-detection",
+    title: "Object Detection",
+    category: "Computer Vision",
+    definition: "A computer vision task that identifies and locates objects within images or videos by drawing bounding boxes around detected objects and classifying them.",
+    example: "YOLO and R-CNN detecting cars, people, and traffic signs in autonomous driving.",
+    relatedTerms: ["computer-vision", "convolutional-neural-network", "yolo", "ai"]
+  },
+  {
+    id: "yolo",
+    title: "YOLO (You Only Look Once)",
+    category: "Computer Vision",
+    definition: "A real-time object detection algorithm that processes entire images in a single pass through the network, making it extremely fast for real-time applications.",
+    example: "Used in security cameras, autonomous vehicles, and real-time video analysis.",
+    relatedTerms: ["object-detection", "computer-vision", "convolutional-neural-network"]
+  },
+  {
+    id: "gan",
+    title: "GAN (Generative Adversarial Network)",
+    category: "Machine Learning",
+    definition: "A deep learning architecture with two neural networks (generator and discriminator) competing against each other. The generator creates fake data while the discriminator tries to distinguish real from fake.",
+    example: "Used in image generation, style transfer, deepfakes, and data augmentation.",
+    relatedTerms: ["deep-learning", "generative-ai", "neural-network"]
+  },
+  {
+    id: "autoencoder",
+    title: "Autoencoder",
+    category: "Machine Learning",
+    definition: "A neural network that learns to compress data into a lower-dimensional representation and then reconstruct it. Used for dimensionality reduction, denoising, and feature learning.",
+    example: "Compressing images for efficient storage or removing noise from corrupted images.",
+    relatedTerms: ["neural-network", "dimensionality-reduction", "deep-learning"]
+  },
+  {
+    id: "sentiment-analysis",
+    title: "Sentiment Analysis",
+    category: "Natural Language Processing",
+    definition: "The NLP task of determining the emotional tone or opinion expressed in text. Classifies text as positive, negative, or neutral.",
+    example: "Analyzing customer reviews, social media monitoring, brand reputation management.",
+    relatedTerms: ["nlp", "classification", "text-analysis", "machine-learning"]
+  },
+  {
+    id: "named-entity-recognition",
+    title: "Named Entity Recognition (NER)",
+    category: "Natural Language Processing",
+    definition: "An NLP task that identifies and classifies named entities (people, organizations, locations, dates) in text into predefined categories.",
+    example: "In 'Apple Inc. was founded by Steve Jobs in California' â†’ identifies Apple Inc. (ORG), Steve Jobs (PERSON), California (LOC).",
+    relatedTerms: ["nlp", "text-analysis", "information-extraction"]
   }
 ];
