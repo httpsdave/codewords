@@ -149,7 +149,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen p-4 sm:p-8 lg:p-20 bg-gray-50 dark:bg-gray-900">
-      <main className="max-w-5xl mx-auto pb-16" role="main" id="main-content" ref={mainRef} tabIndex={-1}>
+      <main className="max-w-5xl mx-auto pb-16 outline-none focus:outline-none" role="main" id="main-content" ref={mainRef} tabIndex={-1}>
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 
                        bg-clip-text text-transparent">
