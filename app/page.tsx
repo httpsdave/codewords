@@ -20,6 +20,9 @@ const BackToTop = dynamic(() => import('@/components/BackToTop'), {
 const KeyboardShortcutsModal = dynamic(() => import('@/components/KeyboardShortcutsModal'), {
   ssr: false,
 });
+const TermsCount = dynamic(() => import('@/components/TermsCount'), {
+  ssr: false,
+});
 
 export default function Home() {
   const searchParams = useSearchParams();
@@ -220,7 +223,7 @@ export default function Home() {
             Your comprehensive dictionary for computer science and IT terminology
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-sm text-gray-500 dark:text-gray-500 mt-3">
-            <span>{terms.length} terms available</span>
+            <span><TermsCount count={terms.length} /></span>
             <span>•</span>
             <button
               onClick={() => setShowShortcuts(true)}
@@ -295,8 +298,7 @@ export default function Home() {
           <>
             <div className="flex justify-between items-center mb-4">
               <p className="text-sm text-gray-600 dark:text-gray-400" role="status" aria-live="polite">
-                Showing {displayedTerms.length} of {filteredTerms.length} terms
-                {filteredTerms.length !== terms.length && ` (${terms.length} total)`}
+                <TermsCount count={displayedTerms.length} prefix="Showing " label={`of ${filteredTerms.length} terms${filteredTerms.length !== terms.length ? ` (${terms.length} total)` : ''}`} />
               </p>
               {(searchQuery || selectedCategory !== 'all' || selectedLetter !== 'all') && (
                 <button

@@ -1,4 +1,6 @@
-﻿export interface Term {
+﻿import { securityTerms } from "./terms2";
+
+export interface Term {
   id: string;
   title: string;
   category: string;
@@ -7,7 +9,7 @@
   relatedTerms?: string[];
 }
 
-export const terms: Term[] = [
+const baseTerms: Term[] = [
   {
     id: "java",
     title: "Java",
@@ -1097,13 +1099,6 @@ export const terms: Term[] = [
     relatedTerms: ["testing", "unit-test", "methodology", "red-green-refactor"]
   },
   {
-    id: "encryption",
-    title: "Encryption",
-    category: "Security",
-    definition: "The process of converting data into a coded format to prevent unauthorized access. Encryption uses algorithms and keys to transform readable data (plaintext) into unreadable data (ciphertext).",
-    relatedTerms: ["security", "cryptography", "ssl", "tls", "decryption"]
-  },
-  {
     id: "ssl",
     title: "SSL (Secure Sockets Layer)",
     category: "Security Protocol",
@@ -1758,21 +1753,6 @@ export const terms: Term[] = [
     category: "Security",
     definition: "The process of determining what actions an authenticated user is allowed to perform. Authorization controls access to resources and operations based on user roles and permissions.",
     relatedTerms: ["authentication", "security", "permissions", "access-control"]
-  },
-  {
-    id: "jwt",
-    title: "JWT (JSON Web Token)",
-    category: "Authentication",
-    definition: "A compact, URL-safe token format for securely transmitting information between parties as a JSON object. JWTs are commonly used for authentication and information exchange in web applications.",
-    example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0...",
-    relatedTerms: ["authentication", "token", "json", "security"]
-  },
-  {
-    id: "oauth",
-    title: "OAuth",
-    category: "Authorization Protocol",
-    definition: "An open standard authorization framework that enables applications to obtain limited access to user accounts on HTTP services. OAuth allows third-party applications to access user data without exposing passwords.",
-    relatedTerms: ["authorization", "authentication", "security", "api"]
   },
   {
     id: "cors",
@@ -2666,27 +2646,6 @@ export const terms: Term[] = [
     relatedTerms: ["lan", "wan", "router", "protocol", "internet"]
   },
   {
-    id: "firewall",
-    title: "Firewall",
-    category: "Network Security",
-    definition: "A network security system that monitors and controls incoming and outgoing network traffic based on predetermined security rules. Firewalls create a barrier between trusted internal networks and untrusted external networks.",
-    relatedTerms: ["security", "network", "cybersecurity", "port"]
-  },
-  {
-    id: "malware",
-    title: "Malware",
-    category: "Cybersecurity",
-    definition: "Malicious software designed to harm, exploit, or otherwise compromise computer systems, networks, or devices. Types include viruses, worms, trojans, ransomware, and spyware.",
-    relatedTerms: ["virus", "cybersecurity", "security", "antivirus"]
-  },
-  {
-    id: "cybersecurity",
-    title: "Cybersecurity",
-    category: "Security",
-    definition: "The practice of protecting computer systems, networks, programs, and data from digital attacks, unauthorized access, damage, or theft. Cybersecurity encompasses technologies, processes, and practices designed to safeguard digital assets.",
-    relatedTerms: ["security", "firewall", "encryption", "malware"]
-  },
-  {
     id: "router",
     title: "Router",
     category: "Networking",
@@ -2720,13 +2679,6 @@ export const terms: Term[] = [
     category: "Networking",
     definition: "A telecommunications network that extends over a large geographical area, connecting multiple LANs. The internet is the largest example of a WAN.",
     relatedTerms: ["network", "lan", "internet", "router"]
-  },
-  {
-    id: "vpn",
-    title: "VPN (Virtual Private Network)",
-    category: "Network Security",
-    definition: "A technology that creates a secure, encrypted connection over a less secure network like the internet. VPNs protect privacy, mask IP addresses, and enable secure remote access to private networks.",
-    relatedTerms: ["security", "encryption", "network", "tunnel"]
   },
   {
     id: "ethernet",
@@ -3509,62 +3461,6 @@ export const terms: Term[] = [
     category: "Cybersecurity",
     definition: "The practice of exploiting weaknesses in computer systems or networks. Can be ethical (white hat) for security testing or malicious (black hat) for unauthorized access.",
     relatedTerms: ["cybersecurity", "penetration-testing", "exploit", "security"]
-  },
-  {
-    id: "penetration-testing",
-    title: "Penetration Testing",
-    category: "Cybersecurity",
-    definition: "Authorized simulated cyber attacks against a computer system to evaluate its security. Penetration testers (ethical hackers) identify vulnerabilities before malicious actors can exploit them.",
-    relatedTerms: ["security", "hacking", "vulnerability", "ethical-hacking"]
-  },
-  {
-    id: "exploit",
-    title: "Exploit",
-    category: "Cybersecurity",
-    definition: "A piece of software, data, or sequence of commands that takes advantage of a vulnerability to cause unintended behavior in a system. Used by both attackers and security researchers.",
-    relatedTerms: ["vulnerability", "security", "attack", "patch"]
-  },
-  {
-    id: "vulnerability",
-    title: "Vulnerability",
-    category: "Cybersecurity",
-    definition: "A weakness in a system, application, or network that can be exploited to compromise security. Vulnerabilities are often rated using the CVSS scoring system.",
-    relatedTerms: ["exploit", "security", "patch", "cve"]
-  },
-  {
-    id: "phishing",
-    title: "Phishing",
-    category: "Cybersecurity",
-    definition: "A social engineering attack where attackers impersonate legitimate entities to trick victims into revealing sensitive information like passwords or credit card numbers.",
-    relatedTerms: ["social-engineering", "security", "attack", "fraud"]
-  },
-  {
-    id: "ddos",
-    title: "DDoS (Distributed Denial of Service)",
-    category: "Cyber Attack",
-    definition: "A malicious attempt to disrupt normal traffic of a targeted server or network by overwhelming it with a flood of internet traffic from multiple sources.",
-    relatedTerms: ["attack", "botnet", "security", "network"]
-  },
-  {
-    id: "botnet",
-    title: "Botnet",
-    category: "Cybersecurity",
-    definition: "A network of compromised computers (bots) controlled by an attacker. Botnets are used for DDoS attacks, spam distribution, and cryptocurrency mining.",
-    relatedTerms: ["ddos", "malware", "attack", "security"]
-  },
-  {
-    id: "zero-day",
-    title: "Zero-Day Vulnerability",
-    category: "Cybersecurity",
-    definition: "A security flaw unknown to the software vendor that has zero days of protection. Zero-day exploits are particularly dangerous as no patch exists yet.",
-    relatedTerms: ["vulnerability", "exploit", "security", "patch"]
-  },
-  {
-    id: "ransomware",
-    title: "Ransomware",
-    category: "Malware",
-    definition: "Malicious software that encrypts a victim's files and demands payment (ransom) for the decryption key. A major cybersecurity threat to organizations and individuals.",
-    relatedTerms: ["malware", "encryption", "attack", "cybersecurity"]
   },
   {
     id: "two-factor",
@@ -5662,3 +5558,6 @@ export const terms: Term[] = [
     relatedTerms: ["nlp", "text-analysis", "information-extraction"]
   }
 ];
+
+// Merge all term collections
+export const terms: Term[] = [...baseTerms, ...securityTerms];

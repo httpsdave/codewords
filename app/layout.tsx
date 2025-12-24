@@ -93,7 +93,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Inline script to prevent FOUC - must be in head before any render */}
         <script
