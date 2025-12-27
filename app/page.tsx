@@ -247,25 +247,23 @@ export default function Home() {
         <div className="no-print">
           <SearchBar onSearch={setSearchQuery} />
 
-          {/* Quick Actions Bar */}
-          <div className="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
-            {recentTermsData.length > 0 && (
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 px-3 py-2 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 w-full sm:w-auto">
-                <span className="text-sm text-gray-600 dark:text-gray-400 flex-shrink-0">Recent:</span>
-                <div className="flex flex-wrap gap-2">
-                  {recentTermsData.map(term => (
-                    <Link
-                      key={term!.id}
-                      href={`/term/${term!.id}`}
-                      className="text-sm text-blue-600 dark:text-blue-400 hover:underline whitespace-nowrap"
-                    >
-                      {term!.title}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
+          {/* Recent Searches */}
+          {recentLoaded && recentTermsData.length > 0 && (
+            <div className="mb-4 text-center sm:text-left">
+              <span className="text-sm text-gray-600 dark:text-gray-400">Recent: </span>
+              {recentTermsData.map((term, index) => (
+                <span key={term!.id}>
+                  <Link
+                    href={`/term/${term!.id}`}
+                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                  >
+                    {term!.title}
+                  </Link>
+                  {index < recentTermsData.length - 1 && <span className="text-gray-400 dark:text-gray-500">, </span>}
+                </span>
+              ))}
+            </div>
+          )}
 
           <CategoryFilter 
             categories={categories}

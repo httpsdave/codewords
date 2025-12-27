@@ -59,7 +59,7 @@ export default function CategoryFilter({ categories, selectedCategory, onSelectC
         {hasMore && (
           <button
             onClick={() => setShowAll(!showAll)}
-            className="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-gray-100 dark:bg-gray-800 text-blue-600 dark:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-700 border border-gray-300 dark:border-gray-600"
+            className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
           >
             {showAll ? '− Show Less' : `+ Show ${categoriesWithCounts.length - 12} More`}
           </button>
