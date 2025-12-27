@@ -217,14 +217,7 @@ export const apiTerms: Term[] = [
     example: "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9... or X-API-Key: abc123xyz",
     relatedTerms: ["authentication", "api", "security", "authorization"]
   },
-  {
-    id: "api-key",
-    title: "API Key",
-    category: "API",
-    definition: "A unique identifier used to authenticate API requests. API keys are simple but less secure than tokens, typically used for identifying applications rather than users.",
-    example: "X-API-Key: sk_live_51H8F3d2eZvKYlo2C9A3p4Q5R or as query param: ?api_key=abc123",
-    relatedTerms: ["api-authentication", "api", "security", "credentials"]
-  },
+  
   {
     id: "bearer-token",
     title: "Bearer Token",
