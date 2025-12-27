@@ -1,4 +1,5 @@
 ﻿import { securityTerms } from "./terms2";
+import { testingTerms } from "./terms3";
 
 export interface Term {
   id: string;
@@ -5560,4 +5561,4 @@ const baseTerms: Term[] = [
 ];
 
 // Merge all term collections
-export const terms: Term[] = [...baseTerms, ...securityTerms];
+export const terms: Term[] = [...baseTerms, ...securityTerms, ...testingTerms];
