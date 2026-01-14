@@ -216,7 +216,74 @@ export default function Home() {
       <main className="max-w-5xl mx-auto pb-16 outline-none focus:outline-none" role="main" id="main-content" ref={mainRef} tabIndex={-1}>
         <div className="text-center mb-8 sm:mb-12">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 
-                       bg-clip-text text-transparent">
+                       bg-clip-text text-transparent flex items-center justify-center gap-3">
+            <svg 
+              className="w-10 h-10 sm:w-12 sm:h-12 drop-shadow-lg" 
+              viewBox="0 0 64 64" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ filter: 'drop-shadow(0 4px 6px rgba(37, 99, 235, 0.3))' }}
+            >
+              <defs>
+                <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{stopColor: '#3b82f6', stopOpacity: 1}} />
+                  <stop offset="100%" style={{stopColor: '#a855f7', stopOpacity: 1}} />
+                </linearGradient>
+                <linearGradient id="iconGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{stopColor: '#1e40af', stopOpacity: 1}} />
+                  <stop offset="100%" style={{stopColor: '#7c3aed', stopOpacity: 1}} />
+                </linearGradient>
+                <linearGradient id="highlightGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style={{stopColor: '#ffffff', stopOpacity: 0.4}} />
+                  <stop offset="100%" style={{stopColor: '#ffffff', stopOpacity: 0}} />
+                </linearGradient>
+              </defs>
+              
+              {/* Book shadow/depth layer */}
+              <rect x="14" y="12" width="38" height="44" rx="2" fill="url(#iconGradientDark)" opacity="0.3" />
+              
+              {/* Main book body */}
+              <rect x="12" y="10" width="38" height="44" rx="2" fill="url(#iconGradient)" />
+              
+              {/* Book spine */}
+              <rect x="12" y="10" width="6" height="44" rx="2" fill="url(#iconGradientDark)" />
+              
+              {/* Pages effect */}
+              <rect x="18" y="10" width="2" height="44" fill="#ffffff" opacity="0.15" />
+              <rect x="20" y="10" width="1" height="44" fill="#ffffff" opacity="0.1" />
+              
+              {/* Highlight on book cover */}
+              <rect x="18" y="10" width="32" height="20" rx="1" fill="url(#highlightGradient)" />
+              
+              {/* Code brackets - left */}
+              <path 
+                d="M26 24 L22 32 L26 40" 
+                stroke="#ffffff" 
+                strokeWidth="3" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                opacity="0.95"
+              />
+              
+              {/* Code brackets - right */}
+              <path 
+                d="M38 24 L42 32 L38 40" 
+                stroke="#ffffff" 
+                strokeWidth="3" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+                opacity="0.95"
+              />
+              
+              {/* Slash in the middle */}
+              <line 
+                x1="30" y1="38" x2="34" y2="26" 
+                stroke="#ffffff" 
+                strokeWidth="2.5" 
+                strokeLinecap="round"
+                opacity="0.9"
+              />
+            </svg>
             CodeWords
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400">
